@@ -14,11 +14,15 @@ router
 
 router
   .route("/customer")
-  .get(checkAuth, restrictTo("admin"), adminController.getCustomer);
+  .get(checkAuth, restrictTo("admin", "operator"), adminController.getCustomer);
 
 router
   .route("/recentBookings")
-  .get(checkAuth, restrictTo("admin"), adminController.getRecentBookings);
+  .get(
+    checkAuth,
+    restrictTo("admin", "operator"),
+    adminController.getRecentBookings
+  );
 
 router
   .route("/salesOverview")
