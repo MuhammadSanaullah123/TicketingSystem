@@ -1,0 +1,15 @@
+.notapprove {
+  background-color: #eeeeee;
+  padding: 5px;
+  color: #727272;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.approve {
+  background-color: #edfbfa;
+  padding: 5px;
+  color: #36cfbf;
+  border-radius: 4px;
+  cursor: pointer;
+}

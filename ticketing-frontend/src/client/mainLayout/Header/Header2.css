@@ -1,0 +1,300 @@
+.navbar-nav{
+    width: 88% !important;
+   
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+/* .navbar{
+   
+    position: absolute !important;
+    width: 100% !important;
+    top: 0px !important;
+} */
+.navbarWeb {
+    position: absolute !important;
+    width: 100% !important;
+    background: #fff;
+    top: 0px !important;
+
+}
+
+.navbarWebScroll{
+    height: 55px !important;
+    background-color: #fff !important;
+    /* filter: drop-shadow(26.69px 26.69px 150px rgba(43, 38, 38, 0.15)); */
+
+    box-shadow: 32px 32px 56px rgb(0 0 0 / 12%);
+    /* position: fixed !important;
+    top: 0px !important; */
+}
+.navbarWebScroll > .container-fluid{
+    padding-bottom: 11px !important;
+
+}
+.nav-link{
+    font-size: 1.25rem !important;
+    color: #522d6d !important;
+    line-height: 1;
+    text-align: center;
+    border-radius: 3.125rem !important;
+    padding: 0.875rem 1.125rem 0.6875rem !important;
+    background-color: #fff !important;
+    transition: all .14s ease;
+    cursor: pointer;
+
+}
+
+.navbarBrand{
+    clip-path: polygon(0 0, 94% 0, 96% 33%, 87% 76%, 65% 86%, 0 100%, 0% 70%, 0% 30%);
+}
+
+.logoBackground{
+    background-image: url('./../../../assets/backgroundLogo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-size: 100%;
+}
+
+.logoImg{
+
+}
+.offCanvasNav{
+    display: none !important;
+}
+
+#tippy-1 .tippyServiceWeb{
+    top: 10px;
+    /* background-color: #0c2f55; */
+    padding: 5px 40px 10px 40px;
+    border-radius: 13px !important;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F)
+
+}
+
+
+.imgHeaderLogMain{
+    /* position: absolute; */
+    width: 177px;
+    top: 0px;
+    left: 52px;
+
+}
+.imgHeaderLogMain1{
+    position: relative;
+    width: 177px;
+    top: -22px;
+    left: 65px;
+
+}
+.topHeaderImgs{
+    /* position: relative;
+    top: -14px;
+    left: -27px; */
+}
+.navMainScroll > .nav-link{
+    font-size: 15px !important;
+    padding-bottom: 5px !important;
+    padding-left: 15px !important;
+    transition: 0s;
+    
+}
+
+.imgHeaderLogo{
+    width: 305px;
+}
+
+.imgHeaderLogMainScroll
+ {
+    position: relative;
+    top: 37px;
+    left: -27px;
+}
+.imgLogMainScroll{
+    width: 195px !important;
+    position: absolute !important;
+    width: 193px !important;
+    top: 0px !important;
+    left: 52px !important; 
+
+}
+/* .navMainScroll{
+    padding-left: 30px !important;
+    
+} */
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0px !important;
+    /* height: 60px; */
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    align-items: center;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 5px !important;
+    color: #343434 !important;
+    padding-bottom: 5px !important;
+    border-radius: 12px !important;
+    font-family: 'Gabriel Sans Normal';
+    font-size: 20px;
+    text-transform: uppercase;
+    background: none !important;
+
+}
+.topBarOverNav{
+    height: 44px;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 23%;
+    position: absolute;
+    background: none;
+    top: 0px;
+    /* cursor: pointer; */
+}
+.loginIcon{
+    font-size: 25px;
+    margin-right: 10px;
+    color: #343434 !important;
+}
+.loginTxtTop{
+    
+    font-family: 'Gabriel Sans Normal';
+    font-size: 20px;
+    color: #343434 !important;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#navbarScroll > .navbar-nav{
+    width: 75% !important;
+    
+
+}
+#navbarScroll{
+    margin-top: 31px;
+
+}
+.mainContainerContentTippy a{
+    color:#FFF !important;
+    /* font-weight: 400 !important; */
+
+
+}
+
+.offcanvas-title{
+    display: none !important;
+}
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
+    background: #fff !important;
+    /* padding-bottom: 11px !important; */
+}
+.loginIcon{
+    cursor: pointer;
+}
+
+.topSearchTicket{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 30px;
+    gap: 20px;
+    width: 70%;
+}
+
+.searchBarTicket{
+    height: 35px;
+    border-radius: 17px;
+    /* height: 300px;
+     */
+padding-left: 10px;
+/* focus-visible:none !important; */
+width: 80%;
+    /* width: 300px; */
+    border: 2px solid #BE892A;
+
+}
+.searchBarTicket:focus-visible{
+   
+   
+    border: 2px solid #BE892A !important;
+    outline: none !important;
+}
+
+
+.searchTxtTicket{
+    width: 30%;
+    height: 35px;
+    display: flex;
+    border-radius: 10vh;
+    
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+
+}
+@media (max-width:1314px) {
+    .navbar-nav{
+        width: 100% !important;
+       
+        display: flex;
+        /* justify-content: flex-end; */
+        gap: 15px;
+    
+    
+       
+    
+    }
+
+    
+}
+
+@media (max-width:1171px) {
+
+    .nav-link {
+       
+        padding: 10px 10px 10px 10px !important;
+        font-size: 16px !important;
+        padding-bottom: 5px !important;
+    }
+
+    
+}
+@media (max-width:991px) {
+    .nav-link{
+        text-align: left !important;
+    }
+
+    .offCanvasNav{
+        display: block !important;
+    }
+    .navbarWeb{
+        display: none !important;
+    }
+ 
+    .navbar-toggler{
+        background-color: #fff !important;
+
+    }
+    .navbarWebScroll{
+        display: none !important;
+    }
+    .offCanvasNav {
+        background-color: #FFF;
+    }
+    .logoMainOffCanvas{
+        width: 150px;
+    }
+}
+

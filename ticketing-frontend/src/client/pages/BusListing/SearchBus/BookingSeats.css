@@ -1,0 +1,290 @@
+.topInputPassengerDetail{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-top: 20px;
+}
+.topInputPassengerDetail input{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #c99a3c;
+    margin-top: 5px;
+    padding-left: 5px;
+
+}
+.topInputPassengerDetail p{
+  color: black;
+  font-size: 16px;
+}
+
+.topEnterSeats{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+
+.topEnterSeats input{
+    border: 1px solid #c99a3c;
+    padding-left: 5px;
+    height: 40px;
+}
+.topEnterSeats p{
+    color: black;
+  font-size: 18px;
+}
+
+.busSteatBook{
+    height: 27px;
+    width: 27px;
+    line-height: 27px;
+    margin: 3px;
+    float: left;
+    text-align: center;
+    outline: none;
+    background-color: #ccc;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.availableContainer .mapContainer .mapWrapper .seatCharts-container{
+    justify-content: center;
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.busSteatBook{
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 56px;
+    color: black;
+    margin-top: 10px;
+}
+
+/* .busSteatBookBooked{
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 56px;
+    color: black;
+    margin-top: 10px;
+} */
+
+.busSteatBookBooked {
+    height: 27px;
+    width: 56px;
+    line-height: 27px;
+    margin: 3px;
+    float: left;
+    text-align: center;
+    outline: none;
+    background-color: #ccc;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 56px;
+    /* color: black; */
+    margin-top: 10px;
+    
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+
+}
+
+.topAmentities{
+    /* background-color: yellow; */
+    height: auto;
+    width: 100%;
+    gap: 40px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    padding: 30px 0px;
+    
+}
+
+.topAmentitiesDesc{
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+.topRowAmenDesc{
+    height: 45px;
+    width: 100%;
+    margin-bottom: -23px;
+    z-index: 99;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 1.5625rem;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+}
+.topRowAmenDesc1{
+    height: 45px;
+    width: 100%;
+    margin-bottom: -23px;
+    z-index: 99;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 1.5625rem;
+    background: rgb(21,21,21);
+    background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(21,21,21,1) 31%, rgba(67,67,67,1) 67%, rgba(52,52,52,1) 95%);
+    /* background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important; */
+}
+.middleRowAmenDesc{
+    width: 300px;
+    height: 400px;
+    background-color: blue;
+    border-radius: 1.5625rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    /* align-items: center; */
+    padding: 0.9375rem;
+    /* justify-content: center; */
+    padding-top: 30px;
+  background-color: #F7F7F7;
+
+
+}
+
+.selectBtn{
+    height: 45px;
+    width: 165px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    /* background-color: orangered; */
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+    cursor: pointer;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+}
+.imgAmenties{
+    width: 44px;
+}
+
+.topAmentImgTxt{
+    display: flex;
+    padding-top: 15px;
+    align-items: center;
+    gap: 26px;
+}
+.topTextPartAment{
+    display: flex;
+    flex-direction: column;
+
+}
+.topTextPartAment p{
+    margin: 0px;
+    /* color: #222222; */
+    color: #BE892A;
+    font-weight: 600;
+    /* color: #fff; */
+}
+
+.topRowAmenDesc p{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+.topRowAmenDesc1 p{
+      color: #e0b96f;;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.topTextPartAment1{
+    display: flex;
+    flex-direction: column;
+
+}
+.topTextPartAment1 p{
+    margin: 0px;
+    color: #222222;
+    /* color: #BE892A; */
+    font-weight: 600;
+    /* color: #fff; */
+}
+
+.selectBtn1{
+    height: 45px;
+    width: 165px;
+    font-size: 16px;
+    color: #e0b96f;
+    font-weight: 600;
+    /* background-color: orangered; */
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+    cursor: pointer;
+    /* background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important; */
+    background: rgb(21,21,21);
+background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(21,21,21,1) 31%, rgba(67,67,67,1) 67%, rgba(52,52,52,1) 95%);
+}
+.amountSideTxt{
+    font-size: 12px;
+    font-weight: 400;
+}
+.topTextPartAment .btmDescAmen{
+    font-size: 12px;
+    font-weight: 400;
+  
+}
+.topTextPartAment1 .btmDescAmen{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.occupiedSeatClass{
+    height: 27px;
+    width: 56px;
+    line-height: 27px;
+    margin: 3px;
+    float: left;
+    text-align: center;
+    outline: none;
+    background-color: red;
+    font-size: 13px;
+    color: white;
+    border-radius: 4px;
+    cursor: no-drop;
+
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 56px;
+    /* color: black; */
+    margin-top: 10px;
+    
+    background-image: red;
+}
+
+fieldset{
+    border: 1px solid #c99a3c !important;
+}
+
+.rs-picker-default .rs-picker-toggle.rs-btn{
+    border: 1px solid #c99a3c;
+
+}

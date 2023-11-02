@@ -1,0 +1,118 @@
+.ReviewWrapper {
+
+    .ReviewContainer {
+
+        .bgGrey {
+            padding: 20px;
+            margin-top: 50px;
+            
+            .heading {
+                color: #0c2f54;
+                font-size: 2.50rem !important;
+                font-weight: 700;
+            }
+            .descWrap {
+               
+                .heading {
+                    color: #0c2f54;
+                    font-size: 1.50rem !important;
+                    font-weight: 700;
+                }
+                .desc {
+                    line-height: 1.9;
+                    font-size: 16px;
+                    color: #535b61;
+                    margin: 50px 0;
+
+                }
+            }
+            .advantages {
+                margin: 70px 0;
+                .container {
+
+                    .iconContainer {
+                        
+                    }
+                    .description {
+
+                        .heading {
+                            font-size: 1.25rem;
+                            margin-bottom: 10px;
+                            font-weight: 500;
+                            color: #0c2f54;
+                            
+                        }
+                        .desc {
+                            line-height: 1.9;
+                            color: #535b61;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .leadershipContainer {
+
+                .heading {
+                    font-weight: 500;
+                    line-height: 1.2;
+                    font-size: 2.0rem !important;
+                    color: #0c2f54;
+                
+                }
+                .leadWrap {
+
+                    .partners {
+                        text-align-last: center;
+
+                        .heading {
+                            font-size: 18px !important;
+                            margin-bottom: 0px;
+                            color: #0c2f54;
+                            font-weight: 500;
+                        }
+                        .desc {
+                            color: #6c757d !important;
+                            margin-bottom: 0.5rem;
+                            line-height: 1.9;
+                        }
+                        .icons {
+
+
+                        }
+                    }
+                }
+            }
+            .belowSection {
+                margin: 70px 0;
+                display: flex;
+                justify-content: center;
+                // background-color: #e7e9ed;
+                padding: 30px 0;
+                background-color: white;
+                .lastSectionWrapper {
+    
+                    .aboveFooter {
+    
+                        .Card {
+    
+                            .icon {
+    
+                            }
+                            .content {
+    
+                                .heading {
+                                    margin-top: 15px;
+                                    color: #0071cc;
+                                    
+                                }
+                                .desc {
+    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

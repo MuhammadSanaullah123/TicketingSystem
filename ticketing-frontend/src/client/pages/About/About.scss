@@ -1,0 +1,165 @@
+.AboutWrapper {
+
+    .AboutContainer {
+
+        .bgGrey {
+            padding: 20px;
+            margin-top: 50px;
+            .descWrap {
+               
+                .heading {
+                    
+                    color: black;
+                    font-weight: 600;
+                    font-size: 2rem;
+                    font-family: "Infinite Stroke";
+                    letter-spacing: 5px;
+                }
+                .desc {
+                    line-height: 1.9;
+                    font-size: 16px;
+                    color: #222222;
+
+                }
+            }
+            .advantages {
+                margin: 70px 0;
+                .container {
+
+                    .iconContainer {
+                        
+                    }
+                    .description {
+
+                        .heading {
+                            color: black;
+                            font-weight: 600;
+                            font-size: 2rem;
+                            font-family: "Infinite Stroke";
+                            letter-spacing: 5px;
+                            
+                        }
+                        .desc {
+                            line-height: 1.9;
+                            color: #222222;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .heading {
+                color: black;
+                font-weight: 600;
+                font-size: 2rem;
+                font-family: "Infinite Stroke";
+                letter-spacing: 5px;
+            }
+            .leadershipContainer {
+
+                
+                .leadWrap {
+
+                    .partners {
+                        text-align-last: center;
+
+                        .heading {
+                            color: black;
+                            font-weight: 600;
+                            font-size: 2rem;
+                            font-family: "Infinite Stroke";
+                            letter-spacing: 5px;
+                        }
+                        .desc {
+                            color: #6c757d !important;
+                            margin-bottom: 0.5rem;
+                            line-height: 1.9;
+                            color: #222222;
+                        }
+                        .icons {
+
+
+                        }
+                    }
+                }
+            }
+            .belowSection {
+                margin: 70px 0;
+                display: flex;
+                justify-content: center;
+                // background-color: #e7e9ed;
+                padding: 30px 0;
+                background-color: rgba(255,255,255, 0.7);
+                .lastSectionWrapper {
+    
+                    .aboveFooter {
+    
+                        .Card {
+    
+                            .icon {
+    
+                            }
+                            .content {
+    
+                                .heading {
+                                    color: black;
+                                    color: rgb(201, 154, 60);
+
+                                    font-weight: 600;
+                                    font-size: 2rem;
+                                    font-family: "Infinite Stroke";
+                                    letter-spacing: 5px;
+                                    
+                                }
+                                .desc {
+                                    color: #222222;
+    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cardAbout{
+    height: 150px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    // gap: 10px !important;
+}
+
+.headingAboutSecure{
+    margin-bottom: 10px !important;
+}
+
+.AboutWrapper{
+
+    background-image: url('./../../../assets/logoMain1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+    background-attachment: fixed;
+    background-position: center;
+  
+
+}
+
+.AboutContainer{
+    background-color: rgba(255,255,255,.8) !important;
+    // border-top: 3px solid black;
+
+}
+
+.descWrap{
+    // margin-top: 50px;
+    // border: 3px solid black;
+}
+
+.topAboutForBorder{
+    // margin-top: 130px !important;
+    // border-top: 3px solid black;
+
+}

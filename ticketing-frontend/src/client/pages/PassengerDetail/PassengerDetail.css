@@ -1,0 +1,310 @@
+.twoInputs {
+  gap: 0px;
+}
+.passInfoTxt{
+  color: #c99a3c;
+}
+.dataePickerInputPasse {
+  width: 100%;
+}
+
+.dataePickerInputPasse > .rs-picker-toggle span {
+  font-size: 18px !important;
+}
+
+.dataePickerInputPasse div {
+  height: 57px !important;
+  display: flex !important;
+
+  align-items: center !important;
+}
+.topInneCardPassDet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnTopPayment {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding-bottom: 25px;
+}
+
+.btnPaymentPassDet {
+  /* background-color: #c99a3c; */
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+  color: #fff;
+  /* background: rgb(190,137,42); */
+/* background: linear-gradient(90deg, rgba(190,137,42,1) 68%, rgba(211,167,75,1) 78%, rgba(245,215,127,1) 93%, rgba(245,215,127,1) 97%); */
+/* background: linear-gradient(90deg, rgba(190,137,42,1) 86%, rgba(211,167,75,1) 89%, rgba(211,167,75,1) 89%, rgba(220,179,88,1) 93%, rgba(211,167,75,1) 95%, rgba(211,167,75,1) 100%); */
+/* background: linear-gradient(90deg, rgba(198,149,55,1) 0%, rgba(190,137,42,1) 73%, rgba(211,167,75,1) 100%); */
+background: linear-gradient(90deg, #BE892A 0%, #D3A74B 36.46%, #C69537 74.48%, #F5D77F 100%);
+  font-weight: 800;
+  font-size: 20px;
+
+}
+
+.passengerWrapper {
+  background-color: rgba(255,255,255,0.8) !important;
+  padding-bottom: 30px;
+  /* padding-top: 300px; */
+  
+}
+.passengerWrapperTop{
+  
+  background-image: url('../../../assets/logoMain1.png');
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 75%;
+}
+
+.dataePickerInputPasse div svg {
+  top: 19px !important;
+}
+
+.dataePickerInputPasse > .rs-picker-toggle span svg {
+  top: 14px !important;
+  position: absolute;
+  left: -28px !important;
+}
+.selectConutryPassDet {
+  height: 56px !important;
+}
+.selectConutryPassDet .css-yk16xz-control {
+  width: 95% !important;
+  height: 56px !important;
+}
+.selectConutryPassDet .css-1pahdxg-control {
+  width: 95% !important;
+  height: 56px !important;
+}
+
+.css-1okebmr-indicatorSeparator {
+  background: none !important;
+}
+/* .uploadPicPassDet:hover {
+  border: 1px solid #C69537 !important;
+} */
+.uploadPicPassDet {
+  border: 1px solid #C69537 !important;
+}
+.uploadPicPassDet{
+  height: 54px !important;
+}
+.textFieldPassDet{
+  background-color: #FFF;
+}
+
+.MuiFormLabel-colorPrimaryP{
+  color: red !important;
+  background-color: red !important;
+  border: #c99a3c !important;
+}
+.rs-picker-menu .rs-calendar .rs-calendar-table-cell:hover .rs-calendar-table-cell-content{
+  background-color: unset !important;
+  color: unset !important;
+}
+.rs-picker-menu .rs-calendar .rs-calendar-table-cell:hover .rs-calendar-table-cell-content:hover{
+  background-color: unset !important;
+  color: unset !important;
+
+}
+.rs-calendar-month-dropdown-cell-active .rs-calendar-month-dropdown-cell-content{
+  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+
+}
+.react-tel-input .form-control {
+  height: 57px !important;
+  width: 117px !important;
+}
+.rs-picker-default:not(.rs-picker-disabled) .rs-btn-active, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:hover, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover{
+  border-color: #c99a3c !important;
+}
+.rs-calendar-month-view .rs-calendar-header-title-date{
+color: #c99a3c !important;
+
+}
+.rs-calendar-month-dropdown-year-active{
+  color: #c99a3c !important;
+
+}
+.rs-picker-menu .rs-calendar .rs-calendar-month-dropdown-cell-content:hover{
+  color: unset !important;
+  background-color: unset !important;
+}
+.rs-picker-select-menu-item.rs-picker-select-menu-item-focus, .rs-picker-select-menu-item:focus, .rs-picker-select-menu-item:hover{
+  color: #222222 !important;
+  background: none !important;
+}
+
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content
+{
+  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+
+}
+.passengerWrapperTopH3{
+  /* padding-top: 100px !important; */
+}
+.rs-btn-primary{
+
+  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+}
+.rs-btn-link{
+  color: #D3A74B !important;
+}
+.css-1pahdxg-control{
+  box-shadow: none !important;
+  border-color: #D3A74B !important;
+}
+.selectNationality{
+  height: 56px;
+  border: 1px solid #D3A74B;
+
+
+  border-radius: 3px;
+  width: 95%;
+  /* padding-right: 5px; */
+}
+
+@media (max-width: 1199px) {
+  .btnTopPayment {
+    justify-content: flex-end !important;
+    align-items: end !important;
+    width: 95.7%;
+  }
+}
+
+@media (max-width: 900px) {
+  /* .btnTopPayment {
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+  } */
+  .textFieldPassDet {
+    width: 100% !important;
+  }
+  .uploadPicPassDet {
+    width: 100% !important;
+  }
+
+  .selectConutryPassDet {
+    width: 100% !important;
+  }
+
+  .dataePickerInputPasse{
+    width: 100% !important;
+  }
+  .selectConutryPassDet .css-yk16xz-control{
+    width: 100% !important;
+  }
+  .topInneCardPassDet > .CheckoutContainer > .bgGrey{
+    padding: 0px !important;
+
+  }
+  .CheckoutWrapper .CheckoutContainer .topInneCardPassDet {
+    padding: 0px;
+    /* margin-top: 50px; */
+}
+.btnTopPayment {
+    justify-content: flex-end !important;
+    align-items: end !important;
+    width: 100%;
+  }
+
+  .CheckoutWrapper .CheckoutContainer .topInneCardPassDet .title p{
+    font-size: 30px !important;
+    margin-bottom: 10px;
+  }
+  .passInfoTxt{
+    font-size: 28px;
+  }
+  .passengerWrapperTopH3{
+    padding-top: unset !important;
+  }
+  .CheckoutContainer{
+    padding-top: unset !important;
+  }
+}
+.title-upload {
+  color: #3D3D3D;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 38px; /* 190% */
+  font-weight: 600;
+}
+
+.upload-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-div input {
+  background: white;
+}
+
+.selectNationality {
+  padding: 0px 14px;
+}
+
+.rs-picker-toggle {
+  justify-content: left !important;
+  width: 100% !important;
+}
+
+.bookings-title {
+  color: #C99A3C;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 32.121px; /* 110.76% */
+  margin-top: 30px;
+}
+
+.title-table-booking {
+  font-size: 18px;
+  color: #0F0F0F;
+  font-weight: 700;
+  line-height: 32.121px; /* 160.603% */
+}
+
+.table-list-value {
+  color: #444;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.table-row-booking {
+  border-bottom: 1px solid #B9B9B9;
+  padding: 3px 0;
+  height: 55px;
+}
+
+tr:nth-child(even) {
+  background-color: white !important;
+}
+
+.table-booking {
+  width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+  .pastBooking {
+    display: block !important;
+  }
+
+  .table-booking {
+    width: 100%;
+  }
+
+  .bookings-title {
+    margin-top: 80px;
+  }
+}

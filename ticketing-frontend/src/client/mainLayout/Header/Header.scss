@@ -1,0 +1,196 @@
+// $theme-color: #be3421;
+$theme-color: #0071cc;
+$payment-color: #32ba7c;
+$footer-color: #1b2330;
+
+button {
+  cursor: pointer;
+}
+
+.header-box {  
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 3rem;
+  color: white;
+  background-color: #FFF !important; 
+  // background-image: linear-gradient(to right,#BE892A,#F5D77F,#D3A74B,#C69537);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0px 2rem;
+  justify-content: space-between;    
+  filter: drop-shadow(26.69px 26.69px 150px rgba(0,0,0,.15));
+  
+  .logoWrapper > a > img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .navLinksWrapper {
+    display: contents;
+    justify-content: space-evenly;
+    align-self: center;
+    width: 300px;
+
+    .navLink p {
+      margin-bottom: 0 !important;
+      color: #343434 !important;
+      
+    font-family: 'Gabriel Sans Normal';
+    font-size: 18px;
+    text-transform: uppercase;
+    }
+  }
+  
+
+}
+.mobile {
+  display: none !important;
+} 
+.serviceTxtIconTop{
+  display: flex;
+  align-items: center;
+}
+.serviceTxtIconTop1{
+  display: flex;
+  align-items: center;
+}
+
+.tippyService> .tippy-content{
+  background-color: #c99a3c;
+  color: black !important;
+  padding: 5px 40px 10px 40px;
+  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+}
+
+.mainContainerContentTippy div{
+  margin-top: 10px;
+  cursor: pointer;
+  
+
+}
+.mainContainerContentTippy div:hover{
+ color:#fff;
+
+}
+.mainContainerContentTippy div{
+//  color: gray;
+ font-weight: 400;
+ color: #343434 !important;
+
+}
+.accordion-item:last-of-type .accordion-button.collapsed{
+  outline: none !important;
+
+  box-shadow: none !important;
+  padding-left: 0px;
+}
+.accordion-button{
+  padding-left: 0px !important;
+  color: #0c2f55 !important;
+  font-size: 18px !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+}
+.accordion-item{
+  border: none !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+}
+.accordion-body{
+  padding-left: 0px !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+}
+.tippy-arrow{
+  color: #333;
+  font-size: 40px !important;
+  outline: none !important;
+  display: none !important;
+
+  box-shadow: none !important;
+  // display: none;
+}
+.accordion-header button{
+color: #0c2f55;
+outline: none !important;
+
+box-shadow: none !important;
+font-weight: 600;
+
+
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+  outline: none !important;
+
+  box-shadow: none !important;
+}
+.accordion-item:first-of-type .accordion-button {
+  background: none !important;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+}
+
+.accordion-body div div{
+  color:#c99a3c  !important;
+  font-size: 18px !important;
+  border-bottom: 1px solid gray;
+
+}
+.css-1gobdli-MuiGrid-root{
+  border-bottom: 1px solid black;
+}
+.serviceTxtIconTop button{
+  // color:#D3A74B !important;
+  // color:#c99a3c  !important;
+  // font-weight: 600 !important; 
+  color: #343434 !important;
+    font-family: 'Gabriel Sans Normal';
+    font-size: 20px;
+    text-transform: uppercase;
+
+
+}
+.serviceTxtIconTop1 button{
+  color:#D3A74B !important;
+  // font-weight: 600 !important; 
+  color: #343434 !important;
+    font-family: 'Gabriel Sans Normal';
+    font-size: 15px;
+    text-transform: uppercase;
+
+
+}
+.logoWrapper .header-logo{
+  width:20% !important;
+  width: 304px !important;
+  height: 90px !important;
+  object-fit: contain;
+  
+
+}
+
+.header-logo{
+  width: 8rem !important;
+  height: 5rem !important;
+}
+
+.accordion-header button{
+  color: #c99a3c !important;
+
+}
+@media screen and (max-width: 600px) {
+  .mobile {
+    display: flex !important;
+  }
+  .desktop {
+    display: none !important;
+  }
+  .header-box {
+    padding: 10px 15px;
+  }
+}
+

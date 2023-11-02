@@ -1,0 +1,303 @@
+.mainContainerAdminChat{
+    width: 100%;
+    height: 85vh;
+    background-color: yellowgreen;
+    display: flex;
+    margin-top: 30px;
+    border-top: 1px solid lightgray;
+}
+
+.chatListUser{
+    width: 100%;
+    background-color: black;
+    /* border-top: 1px solid gray; */
+    height: 100%;
+    display: flex;
+    /* padding-left: 30px; */
+    padding-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.chatBoxUser{
+    width: 100%;
+    background-color: blue;
+    height: 100%;
+    position: relative;
+  
+
+}
+
+.profileImgList{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.topChatListRowAdm{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* width: 95%; */
+   
+    cursor: pointer;
+    /* padding-left: 30px; */
+}
+.searchBarAdminChat{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 40px;
+    justify-content: center;
+    /* justify-content: center; */
+    /* padding-left: 30px; */
+}
+
+.inputSearchChatAdm{
+    width: 95%;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.searchIconChatAdm{
+    font-size: 25px;
+    position: absolute;
+    right: 4%;
+    color: #c99a3c;
+
+}
+.topListChatAdmMap{
+    width: 100%;
+
+}
+.topListChatAdmMap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    overflow: auto;
+}
+.nameChatListAdm{
+    color: #c99a3c;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.proImgChatBox{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+
+}
+
+p{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.chatBoxR1Left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.threeDotsIcon{
+    font-size: 30px;
+    color: #c99a3c;
+
+}
+.chatBoxR1LeftTop{
+    display: flex;
+    width: 100%;
+    padding: 0 6px;
+    background-color: white;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid lightgray;
+
+}
+
+.chatBoxR3LeftBottom{
+    width: 100%;
+    background-color: #c99a3c;
+    height: 170px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.textAreaInputSms{
+    width: 90%;
+    resize: none;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.sendSmsTxt{
+    color:#fff;
+    font-size: 25px;
+    font-weight: 600;
+}
+.imgUplIcon{
+    font-size: 25px;
+    color: #FFF;
+}
+.topSentUplSms{
+    width: 90%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+.chatBoxR3LeftBottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.chatBoxR2LeftMiddle{
+    width: 100%;
+    background-color: black;
+    height: 58vh;
+    overflow: auto;
+    
+}
+
+.chatImgAdmCard{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+.topTimePicChatBocAdm{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.topSmsMainAdmnChat{
+    background-color: white;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+.chatBoxCardAdmLeft{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.chatBoxCardAdmRight{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.topTimePicChatBocAdmRight{
+    
+}
+.topTimePicChatBocAdmRight{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row-reverse;
+    gap: 10px;
+    
+}
+
+.topChatBtnCardAdm{
+    width: 95%;
+    display: flex;
+    border-bottom: 1px solid #FFF;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.btnContactUserAdm{
+    color: #FFF;
+    font-size: 18px;
+    height: 50px;
+    background-color: #c99a3c
+    ;
+    border-radius: 10px;
+    padding: 0 10px;
+
+}
+.mainContainerAdminChatBox{
+    width: 100%;
+    padding-top:30px;
+    height: 91vh;
+}
+.headerChatAdminTxt{
+    color: #c99a3c;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.h-5{
+    color: #d3a74b !important ;
+}
+
+.addBusBtnHome {
+    background-color: unset !important;
+    background: unset !important;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+  }
+  
+  .addBusBtnHomeIndi {
+    background-image: linear-gradient(#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+    /* background-image: linear-gradient(red, yellow); */
+  }
+
+  .addBusBtn{
+    background-image: linear-gradient(#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+    background-color: unset !important;
+    background: unset !important;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+    color: #fff !important;
+}
+@media (max-width:1150px) {
+    .chatListUser {
+        padding-left: 5px;
+
+    }
+    .inputSearchChatAdm {
+        width: 95%;
+    }
+.searchIconChatAdm {
+    right:9%;
+}
+    
+}
+
+
+@media (max-width:991px) {
+
+    .container, .container-md, .container-sm{
+        max-width: 97% !important;
+    }
+
+    .profileImgList{
+        width: 50px;
+        height: 50px;
+    }
+    .listChatTime{
+        font-size: 11px;
+    }
+    .nameChatListAdm {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:600px) {
+
+    
+    
+}

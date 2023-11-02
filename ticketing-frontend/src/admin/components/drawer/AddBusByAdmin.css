@@ -1,0 +1,41 @@
+#AddBusOperatorTop {
+
+    width: 50% !important;
+
+}
+
+.cancelBtnAdminAdd{
+    color: red !important;
+    border: 1px solid red !important;
+}
+
+.topAddCancelButton{
+    width: 50% !important;
+
+}
+
+.addBusBtn{
+    /* background-color: #FFF; */
+}
+
+.topAddBusOperatorAdmin > .navbar{
+    padding: 0px !important;
+    width: 55px;
+
+}
+.topAddBusOperatorAdmin > .navbar > .container-fluid{
+    padding: 0px !important;
+    /* width: 50px; */
+    /* width: 50px; */
+
+}
+
+.topAddBusOperatorAdmin > .navbar > .container-fluid>.navbar-toggler>.navbar-toggler-icon{
+    background-image: url('./../../adminAsset/plus1.png') !important;
+ 
+}
+
+.topAddBusOperatorAdmin > .navbar-light > .container-fluid > .navbar-toggler{
+    border: none !important;
+
+}

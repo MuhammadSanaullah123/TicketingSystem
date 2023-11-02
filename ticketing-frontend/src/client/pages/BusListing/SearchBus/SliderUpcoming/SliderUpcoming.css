@@ -1,0 +1,254 @@
+.cardSliderUpcoming{
+    width: 170px !important;
+    height: 100px;
+    background-color: #FFF;
+    border-radius: 15px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  color: #c99a3c;;
+    border-radius: 15px;
+    background: #fff;
+    transition: box-shadow .4s ease;
+    box-shadow: 0px 0 7px 0 rgb(142 142 147 / 80%);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sliderCardDateTxt{
+    font-weight: 700;
+    font-size: 20px;
+    color: #c99a3c;
+}
+.thirdRMedSTxt{
+    font-weight: 600;
+}
+.sliderPricUpTxt{
+    font-size: 20px;
+}
+
+.upcomingTxtSlider{
+    font-size: 35px;
+    font-weight: 600;
+    color: #c99a3c;
+    font-family:'Poppins, sans-serif';
+
+}
+.mainContainerUpSlider{
+    width: 80%;
+    margin: auto;
+}
+
+.mainContainerUpSlider> .slick-slider>.slick-next{
+    width: 30px;
+    height: 30px;
+    background: #c99a3c;
+    border-radius: 50%;
+
+}
+.mainContainerUpSlider> .slick-slider>.slick-prev{
+    width: 30px;
+    height: 30px;
+    background:  #c99a3c;;
+    border-radius: 50%;
+
+}
+
+.slick-prev:before{
+    /* content: url('./../../../../assets/prevArrow.png') !important; */
+
+}
+.makeStyles-paper-13{
+    flex-direction: column !important;
+}
+.tpSliderData{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.mainContainerUpSlider> .slick-slider>.slick-prev:before{
+    /* content: url('./../../assets/prevArrow.png') !important; */
+    /* content: url('./../../../../assets/nextArrow.png'); */
+
+}
+.selectDateTxt{
+    color: #C69537;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    font-family:'Poppins, sans-serif';
+}
+/* prevArrow */
+
+.slick-active + .slick-active + .slick-active  .cardSliderUpcoming{
+   
+  
+    height: 140px !important;
+  
+
+  }
+  
+  .slick-active + .slick-active + .slick-active+ .slick-active  .cardSliderUpcoming{
+  
+    height: 110px !important;
+   
+  }
+  .slick-track{
+    display: flex !important;
+    align-items: center !important;
+  }
+
+#renderCells{
+    display: none !important;
+}
+.topDateSlideCard{
+    display: flex;
+    border-radius: 10px;
+    width: 150px;
+    height: 80px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #c99a3c; */
+    cursor: pointer;
+    
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+
+}
+.topDateSlideCardClicked{
+    display: flex;
+    border-radius: 10px;
+    width: 170px;
+    height: 100px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #c99a3c; */
+    cursor: pointer;
+    
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+    border-bottom: 5px solid black;
+
+}
+.topDateSlideCardMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+
+    /* width: 100%; */
+    gap: 15px;
+    
+}
+.dayTxtSlider{
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+
+}
+.mDayTxtSlider{
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+
+}
+.priceTxtSlider{
+    color: #fff;
+    /* font-weight: 600; */
+    font-size: 16px;
+
+}
+.priceTxtSliderSp{
+    color: #fff;
+    /* font-weight: 600; */
+    font-size: 12px;
+
+}
+.arrowsSliderPrice{
+    background-color: #C69537;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.arrowsSliderPricePrev{
+    background-color: #C69537;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 10px;
+}
+.arrowsSliderPrice svg{
+    color: #fff;
+}
+.arrowsSliderPricePrev svg{
+    color: #fff;
+}
+#topTextSlider2{
+    flex-direction: column !important;
+}
+@media (max-width:1410px) {
+    .mainContainerUpSlider{
+        width: 90%;
+    }
+    
+}
+@media (max-width:1280px) {
+    .makeStyles-paper-13{
+        flex-direction: column !important;
+    }
+    #topTextSlider1{
+        flex-direction: column !important;
+    }
+}
+
+
+
+@media (max-width:936px) {
+    #topSlider{
+        margin: 0 !important;
+    }
+    
+}
+
+
+@media (max-width:900px) {
+    .topDateSlideCardClicked{
+        width: 91px;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        height: auto;
+    }
+    .topDateSlideCard{
+        width: 91px;
+        padding-top: 10px !important;
+        height: auto;
+        padding-bottom: 10px !important;
+    }
+    #topSlider{
+        margin: 0 !important;
+    }
+    #topTextSlider{
+        flex-direction: column !important;
+        margin: 0 !important;
+    }
+    .tpSliderData{
+        gap:3px !important;
+    }
+}
+
+@media (max-width:416px) {
+    .mainContainerUpSlider{
+        width: 70%;
+    }
+    .upcomingTxtSlider {
+        font-size: 25px;
+    }
+}

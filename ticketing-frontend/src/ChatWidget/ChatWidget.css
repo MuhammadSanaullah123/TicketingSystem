@@ -1,0 +1,19 @@
+.rcw-launcher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c99a3c ;
+}
+
+.rcw-sender{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+}
+.rcw-conversation-container .rcw-header{
+    background-color: #c99a3c ;
+
+}
+

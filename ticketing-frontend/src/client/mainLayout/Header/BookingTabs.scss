@@ -1,0 +1,138 @@
+.pastContainer {
+    // margin-left: -58px !important;
+    // min-width: 498px;
+    .pastBooking {
+        padding-top: 20px;
+        .busDetails {
+
+            .operator {
+                color: #222222;
+                
+            }
+            .Name {
+                color: #c99a3c;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .detailsWrap {
+
+                .departureDetails {
+
+                    .departurePlace {
+                        color: #222222;
+                    }
+                    .departureTime {
+                        color: #222222;
+                    }
+                }
+                .arrowIcon {
+                    color: #222222;
+                }
+                .arrivalDetails {
+                    
+                    .departurePlace {
+                        color: #222222;
+                    } 
+                    .departureTime {
+                        color: #222222;
+                    }
+                }
+            }
+        }
+        .price {
+            color: #c99a3c;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .css-19kzrtu {
+        padding-top: 24px !important;
+        padding-bottom: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+.cancelBtn{
+    width: 130px;
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+
+
+}
+
+.alertBoxCancelBooking{
+    width: 300px;
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 7px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    bottom: 50%;
+    filter: drop-shadow(26.69px 26.69px 150px rgba(0,0,0,.15));
+
+    
+    /* for IE */
+    box-shadow: 0 0 0 1000px rgba(0,0,0,.3);
+    /* for real browsers */
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+    // pointer-events: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.warningIcon{
+    font-size: 60px;
+    color: #D3A74B;
+}
+
+.topYesNO{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.noTxtAlert{
+    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ffff;
+    margin: 0px;
+
+}
+.yesTxtAlert{
+    background-color: rgb(236, 123, 123);
+
+    width: 50px;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    margin: 0px;
+    cursor: pointer;
+
+}

@@ -1,0 +1,31 @@
+(function($){var myColorPickerClass=function(el,opts){var elem=$(el);var settings=opts;var inputHidden,inputParaLibreria,contSelector,contValues;var colorPicker;var values;inputHidden=elem;var iniciar=function(){inputParaLibreria=$('<input type="text" />');contSelector=$('<div class="cp-out-container"></div>');contSelector.insertAfter(inputHidden);inputParaLibreria.appendTo(contSelector);contValues=settings.valuesElement;myCss1='.sp-container { background-color: transparent !important; border: 0px black solid !important; z-index: auto !important; }'+
+'.sp-container .sp-picker-container { padding: 0px 0px 285px 0px; border: 0px black solid; }'+
+'.sp-container .sp-button-container { display: none; }';$('head').append('<style type="text/css">'+myCss1+'</style>');myCss2='.cp-values, .cp-values *, .cp-out-container, .cp-out-container * { box-sizing: content-box; line-height: normal; font-family: sans-serif; } '+
+'.cp-values { width: 220px; text-align: center; border-top: 1px #DDD solid; } '+
+'.cp-values, .cp-values li { padding: 0; margin: 0; list-style: none; font-size: 17px; } '+
+'.cp-values li { border: 1px #DDD solid; border-top: 0px black solid; padding: 6px 0; background-color: #FFF; } '+
+'.cp-values p { font-size: 10px; margin: 0; padding: 0 0 5px 0; } '+
+'.cp-values input { width: 35px; margin-right: 6px; text-align: center; border: 1px #E4E4E4 solid; font-size: 15px; } '+
+'.cp-values span { display: inline-block; width: 20px; text-align: center; color: #A0A0A0; } '+
+'.cp-hex span { display: inline-block; color: #FFF; text-shadow: 2px 1px 0px #000; text-align: center; } '+
+'.cp-hex { width: 172px; text-align: center; padding: 6px 0; margin: 0px 10px 6px 0; } '+
+'.cp-hex input { width: 100px; margin-left: 6px; text-align: center; border: 1px #E4E4E4 solid; font-size: 15px; } ';$('head').append('<style type="text/css">'+myCss2+'</style>');colorPicker=inputParaLibreria.spectrum({flat:true,showInput:false,preferredFormat:'hex',color:'#06C',move:eventMove});inputHidden.change(function(){colorPicker.spectrum('set',inputHidden.val());eventMove(colorPicker.spectrum('get'));});myHtml='<ul class="cp-values">'+
+'<li class="cp-rgb" ><p>RGB</p>'+
+'<span>R</span><input type="text" class="cp-rgb-r" /><span>G</span><input type="text" class="cp-rgb-g" /><span>B</span><input type="text" class="cp-rgb-b" /></li>'+
+'<li class="cp-hsv" ><p>HSV</p>'+
+'<span>H</span><input type="text" class="cp-hsv-h" /><span>S</span><input type="text" class="cp-hsv-s" /><span>V</span><input type="text" class="cp-hsv-v" /></li>'+
+'<li class="cp-hsl" ><p>HSL</p>'+
+'<span>H</span><input type="text" class="cp-hsl-h" /><span>S</span><input type="text" class="cp-hsl-s" /><span>L</span><input type="text" class="cp-hsl-l" /></li>'+
+'</ul>';contValues.html(myHtml);contSelector.append($('<div class="cp-hex" ><span>HEX</span><span></span><input type="text" class="cp-hex-h" /></div>'));function getInpEl(colorSystem,cual){if(colorSystem=='hex')
+return contSelector.find('.cp-hex-h').first();return contValues.find('.cp-'+colorSystem+'-'+cual).first();}
+values={hex:getInpEl('hex'),rgb:{r:getInpEl('rgb','r'),g:getInpEl('rgb','g'),b:getInpEl('rgb','b')},hsv:{h:getInpEl('hsv','h'),s:getInpEl('hsv','s'),v:getInpEl('hsv','v')},hsl:{h:getInpEl('hsl','h'),s:getInpEl('hsl','s'),l:getInpEl('hsl','l')}}
+var de100=function(x){return x/100;}
+contSelector.find('.cp-hex input').change(function(e){colorPicker.spectrum('set',values.hex.val());simulateMove();});var getInp=function(el){var x=parseFloat(el.val());return(isNaN(x))?0:x;}
+contValues.find('.cp-rgb input').change(function(e){colorPicker.spectrum('set',{r:getInp(values.rgb.r),g:getInp(values.rgb.g),b:getInp(values.rgb.b)});simulateMove();});contValues.find('.cp-hsv input').change(function(e){colorPicker.spectrum('set',{h:getInp(values.hsv.h),s:de100(getInp(values.hsv.s)),v:de100(getInp(values.hsv.v))});simulateMove();});contValues.find('.cp-hsl input').change(function(e){colorPicker.spectrum('set',{h:getInp(values.hsl.h),s:de100(getInp(values.hsl.s)),l:de100(getInp(values.hsl.l))});simulateMove();});}
+var eventMove=function(color){var setInp=function(inp,val){inp.val(val);}
+var round2=function(x){return Math.round(x*10)/10;}
+var en100=function(x){return Math.round(x*100);}
+var valHex=color.toHexString();inputHidden.val(valHex);setInp(values.hex,valHex);var valRGB=color.toRgb();setInp(values.rgb.r,valRGB.r);setInp(values.rgb.g,valRGB.g);setInp(values.rgb.b,valRGB.b);var valHSV=color.toHsv();setInp(values.hsv.h,round2(valHSV.h));setInp(values.hsv.s,en100(valHSV.s));setInp(values.hsv.v,en100(valHSV.v));var valHSL=color.toHsl();setInp(values.hsl.h,round2(valHSL.h));setInp(values.hsl.s,en100(valHSL.s));setInp(values.hsl.l,en100(valHSL.l));contSelector.find('.cp-hex').css('background-color',valHex);(settings.onChange)();}
+var simulateMove=function(){eventMove(colorPicker.spectrum('get'));}
+iniciar();};$.fn.myColorPicker=function(options){var opts=$.extend({},$.fn.myColorPicker.defaults,options);return this.each(function(){new myColorPickerClass($(this),opts);});}
+$.fn.myColorPicker.defaults={valuesElement:$('body'),onChange:function(){}};})(jQuery);

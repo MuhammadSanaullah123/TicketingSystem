@@ -1,0 +1,140 @@
+.CheckoutWrapper {
+    .CheckoutContainer {
+
+        .bgGrey {
+            padding: 20px;
+            margin-top: 50px;
+            
+            .title p {
+                color: #c99a3c;
+                font-size: 3rem !important;
+                font-weight: 600;
+            }
+            
+            
+        }
+    }
+}
+
+
+p {
+    margin: 0;
+}
+button:focus-visible {
+    outline: none;
+}
+
+@media screen and (max-width: 550px) {
+    .twoInputs {
+        display: block !important;
+    }
+
+     
+    .CheckoutDetailHeading p {
+        font-size: 1rem !important;
+        
+    }
+        
+}
+
+.css-1radcwa-MuiGrid-root{
+    color: #c99a3c !important;
+}
+.css-1e6pk8s-MuiGrid-root p{
+    color: #c99a3c !important;
+
+}
+.css-18htaqk-MuiGrid-root{
+    border: 3px solid #c99a3c !important;
+}
+
+.CheckoutWrapper{
+    background-color: rgba(255,255,255,0.8);
+// padding-top: 100px;
+}
+
+
+
+.checkOutTopWrapper{
+  
+    background-image: url('../../../assets/logoMain1.png');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 75%;
+    // padding-top: 100px !important;
+  }
+
+  .checkOutInputFields{
+    background-color: #FFF;
+  }
+  .payBtn{
+    // background: linear-gradient(90deg, rgba(198,149,55,1) 0%, rgba(192,139,44,1) 31%, rgba(190,137,42,1) 55%, rgba(245,215,127,1) 92%);
+    background: linear-gradient(90deg, rgba(198,149,55,1) 0%, rgba(192,139,44,1) 31%, rgba(190,137,42,1) 67%, rgba(245,215,127,1) 95%);  
+}
+.CheckoutContainerInner{
+    display: flex !important;
+    justify-content: space-between !important;
+}
+.rightCardCheckout{
+    // width: 402px!important;
+}
+.CheckoutContainerInnerMoreInner{
+    padding-left: 50px !important;
+}
+.MuiBreadcrumbs-li p{
+    font-size: 20px;
+    color: #5E5E5E;
+
+}
+@media (max-width:1200px) {
+    .rightCardCheckout{
+        width: unset!important;
+    }
+    .CheckoutContainerInnerMoreInner{
+        padding-left: 96px !important;
+    }
+    
+}
+@media (max-width:600px) {
+    .CheckoutWrapper {
+        padding-top: 70px;
+    }
+
+    .checkOutInputFields{
+        width: 100%  !important;
+    }
+    .CheckoutWrapper .CheckoutContainer .bgGrey{
+        padding: unset !important;
+    }
+    .CheckoutContainerInnerMoreInner {
+        padding-top: 20px !important;
+    }
+}
+
+.checkbox-discount {
+    font-size: 15px;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.promo-discount {
+    outline: none;
+    border-radius: 4.65px;
+    border: 1.163px solid rgba(0, 0, 0, 0.26);
+    padding: 5px 10px 5px 10px;
+
+}
+
+.promo-discount::placeholder {
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.to-fro-cities {
+    font-size: 25px;
+    margin: 0px 20px;
+}

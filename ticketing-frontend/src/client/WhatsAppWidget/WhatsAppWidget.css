@@ -1,0 +1,14 @@
+.mainContainerWhtsAppWidg{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    position: fixed;
+    bottom: 20px;
+    left: 10px;
+}
+.whatsapp_widget_icon {
+    background-color: #c99a3c !important;
+    
+}

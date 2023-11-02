@@ -1,0 +1,11 @@
+.headerText{
+    text-align: center !important;
+}
+
+.topHeaderPG{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

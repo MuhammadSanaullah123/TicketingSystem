@@ -1,0 +1,73 @@
+.mainContainerInvoice{
+    /* background-color: red !important; */
+    background-image: url('./../../../assets/logoMain1.png');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 75%;
+}
+
+.topButtonInvoice{
+
+    margin-bottom: 0px !important;
+    padding-bottom: 20px !important;
+}
+
+.invoicPrintable{
+    background-color: rgba(255,255,255,0.8) !important;
+}
+
+.mainContainerInvoiceInner{
+    background-color: rgba(255,255,255,0.6) !important;
+}
+
+.title-travel-status {
+    color: #000;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 32.121px; /* 103.615% */
+    text-transform: capitalize;
+}
+
+.travel-deadline {
+    color: #353535;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22.621px; /* 90.482% */
+    margin-top: 20px;
+}
+
+.status-title {
+    margin-top: 40px;
+}
+
+.date-title {
+    color: #000;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 32.121px; /* 128.482% */
+}
+
+.text-details-invoice {
+    color: #494949;
+    font-size: 16px;
+    line-height: 32.121px; /* 107.068% */
+    font-weight: 600;
+}
+
+.travel-itinerary-main {
+    font-weight: 800;
+    margin-bottom: 40px;
+    font-size: 20px;
+
+}
+
+.border-payment {
+    padding: 20px 18px;
+    border: 1px solid #BE892A;
+    border-radius: 5px;
+}

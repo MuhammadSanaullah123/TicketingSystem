@@ -1,0 +1,136 @@
+.FooterWrapper {
+    padding-top: 30px;
+    background-color: black;
+    justify-content: center;
+    .downloadWrapper {
+        .download {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 36px;
+            color: #F8F9FA;
+            margin: 20px 0;
+        }
+    }
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        .label {
+            .footerLabel {
+                font-size: 12px;
+                line-height: 15px;
+                color: #F8F9FA;
+                margin-top: 50px;
+                margin-bottom: 10px;
+            }
+        }
+        .buttonSubWrap {
+            display: flex;
+            justify-content: space-between;
+            .buttonWrap {
+                .buttonAndroid {
+                    width: 181.79px;
+                    height: 54.61px;
+                    background: #FFFFFF;
+                    border-radius: 10px;
+                    border: 1px solid #FFFFFF;
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: #252C33;
+                    padding: 0 15px;
+                    align-items: center;
+                }
+                .buttonAndroid span {
+                    // margin-right: 30px;
+                }
+                .buttonAndroid svg {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+    .horizontalLineWrapper {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+        
+        .HorizontalLine {
+            height: 1px;
+            width: 400px;
+            background-color: #464646;
+        }
+    }
+    .FooterSubWrap {
+        display: flex;
+        justify-content: space-between;
+
+        .LinksWrapper {
+            .Header {
+                font-size: 20px;
+                font-weight: 700;
+                color: #c99a3c;
+            }
+            .LinksNav {
+                margin: 20px 0;
+                .LinksFooter {
+                    font-size: 14px;
+                    line-height: 28px;
+                    font-weight: 400;
+                    color: #c99a3c;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .FooterWrapper {
+        .downloadWrapper {
+            .download {
+                
+            }
+        }
+        .buttonContainer {
+            .label {
+                .footerLabel {
+                    
+                }
+            }
+            .buttonSubWrap {
+                .buttonWrap {
+                    .buttonAndroid {
+                        
+                    }
+                    .buttonAndroid span {
+                        // margin-right: 30px;
+                    }
+                    .buttonAndroid svg {
+                        
+                    }
+                }
+            }
+        }
+        .horizontalLineWrapper {
+            
+            .HorizontalLine {
+            
+            }
+        }
+        .FooterSubWrap {
+            
+            .LinksWrapper {
+                .Header {
+                    text-align: -webkit-center;
+                }
+                .LinksNav {
+                    .LinksFooter {
+                        text-align: -webkit-center;
+                    }
+                }
+            }
+        }
+    }
+        
+}

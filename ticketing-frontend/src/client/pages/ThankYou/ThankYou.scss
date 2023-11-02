@@ -1,0 +1,52 @@
+.ThankYouWrapper {
+    .ThankYouContainer {
+
+        .bgGrey {
+            padding: 20px;
+            margin: 20vh 0;
+            
+            .title p {
+                color: #c99a3c;
+                font-size: 3rem !important;
+                font-weight: 600;
+            }
+            
+            .emailConfirm {
+                font-size: 25px;
+            }
+            
+        }
+    }
+}
+
+
+p {
+    margin: 0;
+}
+button:focus-visible {
+    outline: none;
+}
+
+@media screen and (max-width: 550px) {
+    .ThankYouWrapper {
+        .ThankYouContainer {
+    
+            .bgGrey {
+                padding: 20px;
+                margin: 10vh 0;
+                
+                .title p {
+                    color: #0c2f54;
+                    font-size: 2rem !important;
+                    font-weight: 600;
+                }
+                
+                .emailConfirm {
+                    font-size: 18px;
+                }
+                
+            }
+        }
+    }
+        
+}

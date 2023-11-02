@@ -1,0 +1,65 @@
+#AddBusOperatorTop {
+
+    width: 50% !important;
+
+}
+
+.cancelBtnAdminAdd{
+    color: red !important;
+    border: 1px solid red !important;
+}
+
+.topAddCancelButton{
+    width: 50% !important;
+
+}
+
+.addBusBtn{
+    /* background-color: #FFF; */
+}
+
+.topEditBusDrawer > .navbar{
+    padding: 0px !important;
+    width: 33px;
+
+}
+.topEditBusDrawer > .navbar > .container-fluid > .navbar-toggler {
+    padding: 0px !important;
+    /* width: 50px; */
+    /* width: 50px; */
+
+}
+.topEditBusDrawer > .navbar > .container-fluid > .navbar-toggler:focus {
+
+   box-shadow: none !important;
+   border: none !important;
+}
+.topEditBusDrawer > .navbar > .container-fluid  {
+    padding: 0px !important;
+    /* width: 50px; */
+    /* width: 50px; */
+
+}
+
+.topEditBusDrawer > .navbar > .container-fluid>.navbar-toggler>.navbar-toggler-icon{
+    background-image: url('./../../../admin/adminAsset/edit1.png') !important;
+    width: 1em;
+    height: 1em;
+}
+
+.topEditDeleteButtonBusTable{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.topTrashIcon p svg{
+    font-size: 18px;
+}
+.topTrashIcon div{
+    /* padding-top: 0px !important; */
+    padding-bottom: 0px !important;
+
+}
+
+.react-datetime-picker__button svg {
+    color: #dee2e6 !important;
+}
