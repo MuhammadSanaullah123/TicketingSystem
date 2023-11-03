@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useLayoutEffect} from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,18 +21,20 @@ import CloseIcon from "@mui/icons-material/Close";
 //import components
 import SearchForm from "./SearchForm";
 import BasicTabs from "./BasicTabs";
-import Calendar from "./Calendar"
+import Calendar from "./Calendar";
 //import stylesheet
 import "./SearchBus.scss";
 import SliderUpcoming from "./SliderUpcoming/SliderUpcoming";
 import SliderUpcoming9 from "./SliderUpcoming/SliderUpComing9";
 import SliderUpcoming6 from "./SliderUpcoming/SliderUpComing6";
 // API
-import { getAllBuses } from "../../../../actions/buses"
+import { getAllBuses } from "../../../../actions/buses";
+import { getAllTrips } from "../../../../actions/trips";
+import { getAllOperators } from "../../../../actions/operators";
 // Redux
-import { connect } from 'react-redux'
-import propTypes from 'prop-types'
-import store from "../../../../store"
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import store from "../../../../store";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -52,17 +54,21 @@ const style = {
   p: 4,
 };
 
-const SearchBus = ({buses: { buses }}) => {
+const SearchBus = ({
+  buses: { buses },
+  trips: { allTrips },
+  operators: { operators },
+}) => {
   let query = useQuery();
   let from = query.get("from");
   let to = query.get("to");
   let date = query.get("date");
-  const busData = buses
+  const busData = buses;
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
   let dispatch = useDispatch();
-  let busSelectedId = useSelector(selectBus);
+  /*   let busSelectedId = useSelector(selectBus); */
   const [modify, setModify] = useState(false);
   const [size, setSize] = useState([0, 0]);
   const [isLoading, setIsLoading] = useState(false);
@@ -75,7 +81,7 @@ const SearchBus = ({buses: { buses }}) => {
   const discount = searchParams.get("discount");
   const passengers = searchParams.get("passengers");
 
-  console.log("from1to1",from1,to1,date1,discount,passengers)
+  console.log("from1to1", from1, to1, date1, discount, passengers);
   const handleOpenModal = () => {
     setOpenModal(true);
     // console.log(open)
@@ -187,25 +193,24 @@ const SearchBus = ({buses: { buses }}) => {
   }
 
   useEffect(() => {
-    store.dispatch(getAllBuses())
-  },[])
+    store.dispatch(getAllBuses());
+    store.dispatch(getAllTrips());
+    store.dispatch(getAllOperators());
+  }, []);
 
   console.log("busDataSearchBus", busData);
   console.log("busData._id", busData?._id);
 
   //  console.log("busDataSearchBus1",busData[0].availableSeats)
 
-  
-
   function useWindowSize() {
-      
     useLayoutEffect(() => {
       function updateSize() {
         setSize([window.innerWidth, window.innerHeight]);
       }
-      window.addEventListener('resize', updateSize);
+      window.addEventListener("resize", updateSize);
       updateSize();
-      return () => window.removeEventListener('resize', updateSize);
+      return () => window.removeEventListener("resize", updateSize);
     }, []);
     return size;
   }
@@ -225,10 +230,10 @@ const SearchBus = ({buses: { buses }}) => {
         justifyContent="space-between"
         style={{ margin: "10px 0" }}
       >
-        <Grid item xs={12} align='center'>
-          <> 
-            <span className="to-fro-cities">{from1}</span> 
-            <span className="to-text">To</span> 
+        <Grid item xs={12} align="center">
+          <>
+            <span className="to-fro-cities">{from1}</span>
+            <span className="to-text">To</span>
             <span className="to-fro-cities">{to1}</span>
           </>
         </Grid>
@@ -249,7 +254,6 @@ const SearchBus = ({buses: { buses }}) => {
             paddingBottom: "30px",
           }}
         >
-          
           <h2 className="filterTxtHeading">Filter</h2>
           <h5 className="subHeadingFilter">Bus Type</h5>
           <Grid item xs={12}>
@@ -300,11 +304,10 @@ const SearchBus = ({buses: { buses }}) => {
             margin: "30px 0",
           }}
         >
-            {/* <div className="result-loading">
+          {/* <div className="result-loading">
               <Loading />
             </div> */}
-          {
-          isLoading ? (
+          {isLoading ? (
             <div className="result-loading">
               <Loading />
             </div>
@@ -360,7 +363,7 @@ const SearchBus = ({buses: { buses }}) => {
                     </Grid>
                   </Grid>
                   {/* {busSelectedId === ""
-                  ? data.length != 0 &&
+                  ? data.length != 0 && 
                     data.map((eachbus) => {
                       return (<EachBusData key={eachbus._id} data={eachbus} handleOpenModal={handleOpenModal} busData={busData}  />);
                     })
@@ -369,24 +372,39 @@ const SearchBus = ({buses: { buses }}) => {
                       if (busSelectedId === eachbus._id)
                         return (<EachBusData key={eachbus._id} data={eachbus} busData={busData} handleOpenModal={handleOpenModal}  />);
                     })} */}
-                  {busData != undefined &&
-                    busData.map((eachbus, index) => {
-                      return (
-                        <>
-                          <EachBusData
-                            busId={eachbus?._id}
-                            totalSeats={eachbus[index]?.totalSeats}
-                            data={eachbus}
-                            busData={eachbus}
-                            handleOpenModal={handleOpenModal}
-                          />
-                          {console.log(
-                            "eachbus[index]?.totalSeats",
-                            eachbus?._id
-                          )}
-                        </>
-                      );
-                    })}
+                  {allTrips != undefined &&
+                    allTrips
+                      .filter(
+                        (trip) =>
+                          trip.routeFrom === from1 && trip.routeTo === to1
+                      )
+                      .map((eachtrip, index) => {
+                        /*    const currentTrip = allTrips.filter(
+                          (trip) => trip.busId === eachbus._id
+                        ); */ 
+                        const currentBus = buses.filter(
+                          (bus) => bus._id === eachtrip.busId
+                        );
+
+                        const currentOperator = operators.filter((operator) =>
+                          operator.busId.includes(currentBus[0]._id)
+                        );
+                        console.log(currentBus);
+                        console.log(currentOperator);
+
+                        return (
+                          <>
+                            <EachBusData
+                              /*   busId={eachbus?._id} */
+                              /*   totalSeats={eachbus[index]?.totalSeats} */
+                              trip={eachtrip}
+                              handleOpenModal={handleOpenModal}
+                              bus={currentBus}
+                              operator={currentOperator}
+                            />
+                          </>
+                        );
+                      })}
                 </Grid>
               )}
             </>
@@ -396,14 +414,16 @@ const SearchBus = ({buses: { buses }}) => {
       {/* Modal */}
     </>
   );
-}
+};
 
 SearchBus.propTypes = {
   // addLike: propTypes.func.isRequired
-}
+};
 
-const mapStateToProps = state => ({
-  buses: state.buses
-})
+const mapStateToProps = (state) => ({
+  buses: state.buses,
+  trips: state.trips,
+  operators: state.operators,
+});
 
-export default connect(mapStateToProps, null)(SearchBus)
+export default connect(mapStateToProps, null)(SearchBus);

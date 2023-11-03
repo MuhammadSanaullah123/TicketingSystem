@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./BookingSeats.css";
+import { useLocation } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
@@ -17,6 +19,7 @@ import SelectOption from "../../../../operator/components/form/SelectOption";
 import { sendPriceData } from "../../../../Redux/userReducer";
 // React Icons
 import { TbSteeringWheel } from "react-icons/tb";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -78,6 +81,7 @@ const BasicTabs = (props) => {
   const [place, setIndex] = useState(0);
 
   const seatSelectedClicked = (indexone, user, occuSeats) => {
+    console.log(user);
     if (user.flag === true) {
       console.log("selectedSeats  when flag=true: ", selectedSeats);
       let removeIndex;
@@ -115,7 +119,7 @@ const BasicTabs = (props) => {
 
     console.log("user.seatNo", user.seatNo);
     console.log(props);
-    setTotalPrice(totalPrice + props.busPrice);
+    setTotalPrice(totalPrice + parseInt(props.busPrice));
 
     // setTotalPrice(busData[0]?.price * selectedSeats?.length);
   };
@@ -216,24 +220,30 @@ const BasicTabs = (props) => {
     price: 500,
     // passengerDetails: araydata,
   };
+
   const bookingSubmited = async (e) => {
     // e.preventDefault();
     // history.push("/client/passenger-detail");
-
-    const data = {
-      busId: props.id,
-      noOfSeats: selectedSeats.length,
-      phone: userData.phone,
-      email: userData.email,
-      price: 500,
-      // passengerDetails: araydata,
-    };
-    const response = await dispatch(bookSeats(data));
-    console.log("responseBook1", response?.payload?.data?.message);
-    if (response?.payload?.data?.message) {
-      history.push("/client/passenger-detail");
+    if (userData) {
+      const data = {
+        busId: props.id,
+        noOfSeats: selectedSeats.length,
+        phone: userData.phone,
+        email: userData.email,
+        price: selectedSeats.length * props.busPrice,
+        // passengerDetails: araydata,
+      };
+      const response = await dispatch(bookSeats(data));
+      console.log("responseBook1", response?.payload?.data?.message);
+      if (response?.payload?.data?.message) {
+        history.push("/client/passenger-detail");
+      }
+      console.log("userData123", userData?.price);
+    } else {
+      const tripId = props.trip._id;
+      sessionStorage.setItem("tripId", tripId);
+      history.push(`/client/passenger-detail`);
     }
-    console.log("userData123", userData?.price);
   };
 
   const dataSending = 30;
@@ -257,10 +267,7 @@ const BasicTabs = (props) => {
 
   const buttonClickedClasses = (flag, item, occuSeats) => {
     const result = occuSeats.filter((number) => item.seatNo === number);
-    console.log("flag", flag);
-    console.log("item.seatNo ", item.seatNo);
-    console.log(occuSeats.indexOf(item.seatNo));
-    console.log("occuSeats", occuSeats);
+
     // console.log("result", result[0]);
 
     // if (result[0] === item.seatNo) {
@@ -399,433 +406,6 @@ const BasicTabs = (props) => {
                   return <div className="busSteatBook">{i + 1}</div>;
                 })} */}
               </div>
-              {/* <div
-                id="seat-map"
-                class="seatCharts-container"
-                tabindex="0"
-                aria-activedescendant="2_2"
-              >
-                <div class="front-indicator">Front</div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">1</div>
-                  <div
-                    id="1_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    1
-                  </div>
-                  <div
-                    id="1_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell unavailable"
-                  >
-                    2
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="1_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    3
-                  </div>
-                  <div
-                    id="1_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    4
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">2</div>
-                  <div
-                    id="2_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    5
-                  </div>
-                  <div
-                    id="2_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                    // style={{display:"none"}}
-                  >
-                    6
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="2_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    7
-                  </div>
-                  <div
-                    id="2_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    8
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">3</div>
-                  <div
-                    id="3_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    9
-                  </div>
-                  <div
-                    id="3_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    10
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="3_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    11
-                  </div>
-                  <div
-                    id="3_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    12
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">4</div>
-                  <div
-                    id="4_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell unavailable"
-                  >
-                    13
-                  </div>
-                  <div
-                    id="4_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    14
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="4_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    15
-                  </div>
-                  <div
-                    id="4_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    16
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">5</div>
-                  <div
-                    id="5_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    17
-                  </div>
-                  <div
-                    id="5_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    18
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">6</div>
-                  <div
-                    id="6_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    19
-                  </div>
-                  <div
-                    id="6_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    20
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="6_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    21
-                  </div>
-                  <div
-                    id="6_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    22
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">7</div>
-                  <div
-                    id="7_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell unavailable"
-                  >
-                    23
-                  </div>
-                  <div
-                    id="7_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell unavailable"
-                  >
-                    24
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="7_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    25
-                  </div>
-                  <div
-                    id="7_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    26
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">8</div>
-                  <div
-                    id="8_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    27
-                  </div>
-                  <div
-                    id="8_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    28
-                  </div>
-                  <div class="seatCharts-cell seatCharts-space"></div>
-                  <div
-                    id="8_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    29
-                  </div>
-                  <div
-                    id="8_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    30
-                  </div>
-                </div>
-                <div class="seatCharts-row">
-                  <div class="seatCharts-cell seatCharts-space">9</div>
-                  <div
-                    id="9_1"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    31
-                  </div>
-                  <div
-                    id="9_2"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    32
-                  </div>
-                  <div
-                    id="9_3"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    33
-                  </div>
-                  <div
-                    id="9_4"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    34
-                  </div>
-                  <div
-                    id="9_5"
-                    role="checkbox"
-                    aria-checked="false"
-                    focusable="true"
-                    tabindex="-1"
-                    class="seatCharts-seat seatCharts-cell available"
-                    onClick={(e) => toggleSeat(e)}
-                  >
-                    35
-                  </div>
-                </div>
-              </div> */}
             </Grid>
           </Grid>
           <Grid
@@ -849,7 +429,7 @@ const BasicTabs = (props) => {
               <p className="finalPrice">
                 Total Fare:{" "}
                 <span>
-                  <strong>{totalPrice}</strong>
+                  <strong>{selectedSeats.length * props.busPrice}</strong>
                 </span>
               </p>
             </Grid>

@@ -1,84 +1,93 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const bookingSchema = new mongoose.Schema({
+const bookingSchema = new mongoose.Schema(
+  {
     trip: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Trip'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Trip",
     },
     bookingId: {
-        type: String
+      type: String,
     },
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     transactionId: {
-        type: String
+      type: String,
     },
     paymentId: {
-        type: String
+      type: String,
     },
     bookingStatus: {
-        type: String,
-        default: "Active"
+      type: String,
+      default: "Active",
     },
     noOfSeats: {
-        type: Number
+      type: Number,
     },
     seats: {
-        type: [Number],
-        required: true
+      type: [Number],
+      required: true,
     },
     email: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     phone: {
-        type: String
+      type: String,
     },
-    passengerDetails: [{
+    passengerDetails: [
+      {
         firstName: {
-            type: String,
-            required: true
+          type: String,
+          required: true,
         },
         lastName: {
-            type: String
+          type: String,
         },
         gender: {
-            type: String,
-            enum: ['Male', 'Female', 'Others'],
-            required: true
+          type: String,
+          enum: ["Male", "Female", "Others"],
+          required: true,
         },
         dob: {
-            type: String
+          type: String,
         },
         passportNumber: {
-            type: String
+          type: String,
         },
         country: {
-            type: String
+          type: String,
         },
         mobile: {
-            type: String
+          type: String,
         },
         passport: {
-            type: String
-        }
-    }],
+          type: String,
+        },
+      },
+    ],
     price: {
-        type: Number
+      type: Number,
     },
 
     isPaymentDone: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     additionalDetails: {
-        type: String
-    }
-}, {
-    timestamps: true
-})
+      type: String,
+    },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Booking = mongoose.model("Booking", bookingSchema)
+const Booking = mongoose.model("Booking", bookingSchema);
 module.exports = Booking;

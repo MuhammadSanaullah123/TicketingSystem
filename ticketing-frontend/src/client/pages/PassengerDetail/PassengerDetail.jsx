@@ -2,8 +2,10 @@ import React, { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./PassengerDetail.css";
 import { bookSeats } from "../../../Redux/userReducer";
+import { useLocation } from "react-router-dom";
+import { Select } from "@windmill/react-ui";
 import Cookies from "universal-cookie";
-import Select from "react-select";
+/* import Select from "react-select"; */
 import PhoneInput from "react-phone-input-2";
 import countryList from "react-select-country-list";
 import moment from "moment";
@@ -24,7 +26,9 @@ import { bookingIdStore } from "../../../Redux/userReducer";
 import { useHistory } from "react-router-dom";
 //icons
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 const PassengerDetail = (props) => {
   const cookies = new Cookies();
 
@@ -33,6 +37,9 @@ const PassengerDetail = (props) => {
   const dispatch = useDispatch();
 
   const receivedData = props.location.state;
+  let query = useQuery();
+  let tripId = query.get("tripId");
+  console.log(tripId);
 
   console.log("receivedDatareceivedData", isLogin);
   const history = useHistory();
@@ -41,30 +48,27 @@ const PassengerDetail = (props) => {
   const [valid, setValid] = useState();
   const [emailChecker, setEmailChecker] = useState();
   const [selectedNationality, setSelectedNationality] = useState("");
-  const [tempDOB, setTempDOB] = useState()
+  const [tempDOB, setTempDOB] = useState();
   const [passengerDetail, setPassengerDetail] = useState({
     firstName: "",
     lastName: "",
     middleName: "",
-    email:"",
+    email: "",
     cCode: 966,
     dateOfBirth: tempDOB,
     passportNumber: "",
     selectCountry: "",
     mobileNumber: "",
   });
-  
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPassengerDetail({ ...passengerDetail, [name]: value });
 
-    if(emailRegex.test(passengerDetail.email))
-    {
-      setEmailChecker(2)
-
+    if (emailRegex.test(passengerDetail.email)) {
+      setEmailChecker(2);
     }
   };
   const handleChange1 = (value, name) => {
@@ -83,11 +87,11 @@ const PassengerDetail = (props) => {
   const [date, setDateOfBirth] = useState();
   const [country, setCountry] = useState();
 
-  const genderHandleChange = (value) => {
-    setGender(value);
+  const genderHandleChange = (e) => {
+    setGender(e.target.value);
   };
   const dateHandleChange = (newDate) => {
-    console.log(newDate)
+    console.log(newDate);
     setPassengerDetail({ ...passengerDetail, dateOfBirth: newDate });
     // setDateOfBirth(value);
   };
@@ -129,16 +133,11 @@ const PassengerDetail = (props) => {
 
   const proceedPaymentClicked = async () => {
     // history.push("/client/checkout");
-    if(passengerDetail.email)
-    {
-      if(!emailRegex.test(passengerDetail.email))
-      {
-  
-        setEmailChecker(1)
+    if (passengerDetail.email) {
+      if (!emailRegex.test(passengerDetail.email)) {
+        setEmailChecker(1);
       }
-
     }
-  
 
     if (
       passengerDetail.firstName &&
@@ -150,11 +149,11 @@ const PassengerDetail = (props) => {
       passengerDetail.email &&
       passengerDetail.cCode &&
       imagePassport &&
-      passengerDetail.selectCountry&&
+      passengerDetail.selectCountry &&
       emailRegex.test(passengerDetail.email)
     ) {
-      if (!isLogin) {
-        console.log("isLoggedIn");
+      if (isLogin) {
+        console.log("isNotLoggedIn");
         let numberArraySeats = [];
 
         let length = receivedData?.seats?.length;
@@ -216,6 +215,7 @@ const PassengerDetail = (props) => {
           history.push("/client/checkout");
         }
       } else {
+        console.log("isLoggedIn");
         let numberArraySeats = [];
 
         let length = receivedData?.seats?.length;
@@ -256,9 +256,11 @@ const PassengerDetail = (props) => {
         data.append("passports", imagePassport);
         data.append("seats", receivedData?.seats);
         data.append("passengerDetails", passengerDetailForm);
+        data.append("tripId", sessionStorage.getItem("tripId"));
+
         data.append("additionalDetails", "OtherData");
 
-        console.log("DispassengerDetail.email",passengerDetail.email)
+        console.log("DispassengerDetail.email", passengerDetail.email);
         const response = await dispatch(bookSeatsWithoutLogin(data));
         const bookingId = response?.payload?.data?.bookingDetails?.bookingId;
         console.log("response", response);
@@ -453,7 +455,6 @@ const PassengerDetail = (props) => {
                         value={passengerDetail.email}
                         name="email"
                         onChange={handleChange}
-                    
                         label="Enter Email"
                         variant="outlined"
                         className="textFieldPassDet"
@@ -487,7 +488,7 @@ const PassengerDetail = (props) => {
                       lg={6}
                       md={6}
                       xl={6}
-                      sx={{ margin: "20px 0" }}
+                      sx={{ margin: "20px 0", paddingRight: "10px" }}
                     >
                       {/* <TextField
                       id="outlined-basic"
@@ -497,7 +498,7 @@ const PassengerDetail = (props) => {
                       variant="outlined"
                       style={{ width: "95%", margin: "auto" }}
                     /> */}
-                      <SelectPicker
+                      {/* <SelectPicker
                         placement="bottom"
                         className="dataePickerInputPasse"
                         placeholder="Select Gender"
@@ -508,8 +509,22 @@ const PassengerDetail = (props) => {
                         style={{
                           width: "95%",
                           border: valid === 1 && !gender ? "1px solid red" : "",
-                        }}
-                      />
+                        }} 
+                      /> */}
+                      <Select
+                        className="dataePickerInputPasse genderSelect"
+                        name="gender"
+                        placeholder="Gender"
+                        onChange={(e) => genderHandleChange(e)}
+                      >
+                        <option value="" defaultValue hidden>
+                          Gender
+                        </option>
+
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </Select>
+
                       {valid === 1 && !gender && (
                         <div style={{ color: "red" }}>Required</div>
                       )}
@@ -577,7 +592,7 @@ const PassengerDetail = (props) => {
                         className="textFieldPassDet"
                       />
 
-                {valid === 1 && !passengerDetail.passportNumber && (
+                      {valid === 1 && !passengerDetail.passportNumber && (
                         <div style={{ color: "red" }}>Required</div>
                       )}
                     </Grid>
@@ -673,7 +688,7 @@ const PassengerDetail = (props) => {
                               : "",
                         }}
                       />
-                       {valid === 1 && !passengerDetail.mobileNumber && (
+                      {valid === 1 && !passengerDetail.mobileNumber && (
                         <div style={{ color: "red" }}>Required</div>
                       )}
                     </Grid>
@@ -690,16 +705,17 @@ const PassengerDetail = (props) => {
                         className="upload-div"
                         style={{
                           width: "95%",
-                          
                         }}
                       >
-                        <p className="title-upload">Upload copy of the Passport</p>
+                        <p className="title-upload">
+                          Upload copy of the Passport
+                        </p>
                         <input
                           type="file"
                           id="file"
                           accept="image/png , image/jpeg, image/webp"
                           onChange={handleImageChange1}
-                          style={{alignSelf: 'center'}}
+                          style={{ alignSelf: "center" }}
                         />
                       </div>
                       {valid === 1 && !imagePassport && (

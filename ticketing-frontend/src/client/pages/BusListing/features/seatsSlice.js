@@ -11,7 +11,7 @@ export const seatsSlice = createSlice({
     passengerData: [],
     contactData: {},
     date: "",
-    serviceClicked:""
+    serviceClicked: "",
   },
   reducers: {
     addSeat: (state, action) => {
@@ -52,8 +52,8 @@ export const seatsSlice = createSlice({
     emptyBookedSeats: (state) => {
       state.bookedSeats = [];
     },
-    serviceClickedData:(state,action)=>{
-      state.serviceClicked=action.payload;
+    serviceClickedData: (state, action) => {
+      state.serviceClicked = action.payload;
     },
 
     addPassengerData: (state, action) => {
@@ -87,6 +87,9 @@ export const seatsSlice = createSlice({
     },
 
     addSelectedBus: (state, action) => {
+      console.log("REDUCERS");
+      console.log(action.payload);
+
       state.selectedBus = action.payload;
     },
 

@@ -84,12 +84,6 @@ router
   .route("/update-operator/:id")
   .patch(checkAuth, restrictTo("admin"), adminController.updateOperator);
 
-router
-  .route("/operator/all")
-  .get(
-    checkAuth,
-    restrictTo("admin", "operator"),
-    adminController.getOperators
-  );
+router.route("/operator/all").get(adminController.getOperators);
 
 module.exports = router;

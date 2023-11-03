@@ -44,11 +44,15 @@ const Orders = () => {
   useEffect(() => {
     store.dispatch(getBookings());
   }, []);
-
+  const handleGetAllBookings = () => {
+    setTimeout(() => {
+      store.dispatch(getBookings());
+    }, 2000);
+  };
   return (
     <>
       <MainDrawer>
-        <BookingDrawer />
+        <BookingDrawer handleGetAllBookings={handleGetAllBookings} />
       </MainDrawer>
       {/* Filters */}
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white mb-5">
@@ -123,7 +127,7 @@ const Orders = () => {
               <TableHeader>
                 <tr>
                   <TableCell>Booking ID</TableCell>
-                  <TableCell>Operator</TableCell>
+                  {/*   <TableCell>Operator</TableCell> */}
                   <TableCell>Bus Type</TableCell>
                   <TableCell>Date</TableCell>
                   <TableCell>Departure Time</TableCell>
@@ -147,7 +151,7 @@ const Orders = () => {
               <TableHeader>
                 <tr>
                   <TableCell>Booking ID</TableCell>
-                  <TableCell>Operator</TableCell>
+                  {/*      <TableCell>Operator</TableCell> */}
                   <TableCell>Bus Type</TableCell>
                   <TableCell>Date</TableCell>
                   <TableCell>Departure Time</TableCell>

@@ -1,6 +1,6 @@
 import React, { lazy, useEffect } from "react";
 // import { Widget } from "react-chat-widget";
-import WebFont from 'webfontloader'
+import WebFont from "webfontloader";
 import "react-chat-widget/lib/styles.css";
 import {
   BrowserRouter as Router,
@@ -50,19 +50,19 @@ import ResetPassword from "./operator/pages/ResetPassword";
 import SingleBusDetail from "./client/pages/SingleBusDetail/SingleBusDetail";
 import AdminLoginPage from "./admin/pages/AdminLogin/AdminLoginPage";
 import TicketSearch from "./client/pages/TicketSearch/TicketSearch";
-import Bookings from "./client/pages/Bookings/Bookings"
+import Bookings from "./client/pages/Bookings/Bookings";
 
 // Redux
-import { Provider } from 'react-redux'
-import store from "./store"
+import { Provider } from "react-redux";
+import store from "./store";
 // import PassengerDetail from './client/pages/BusListing/SearchBus/PassengerDetail';
 // import PassengerDetail from './client/pages/PassengerDetail/PassengerDetail';
 // import 'rsuite/dist/styles/rsuite-default.css';
 WebFont.load({
   google: {
-    families: ['Open Sans Web:300,400,700', 'sans-serif']
-  }
-})
+    families: ["Open Sans Web:300,400,700", "sans-serif"],
+  },
+});
 
 const App = () => {
   const history = useHistory();
@@ -85,7 +85,11 @@ const App = () => {
           <Route path="/operator/edit-profile" component={EditProfile} />
 
           <Route path="/client/resetPassword" component={ResetPassword} />
-          <Route path="/client/forgot-password" exact component={ForgotPassword} />
+          <Route
+            path="/client/forgot-password"
+            exact
+            component={ForgotPassword}
+          />
 
           {/* Admin side */}
 
@@ -100,7 +104,10 @@ const App = () => {
             <Route path="/client/bus-service" component={BusService} />
             <Route path="/client/bus-listing" component={BusListing} />
             <Route path="/client/bus-listing2" component={BusListing2} />
-            <Route path="/client/passenger-detail" component={PassengerDetail} />
+            <Route
+              path="/client/passenger-detail"
+              component={PassengerDetail}
+            />
             <Route path="/client/edit-profile" component={ProfilePage} />
             <Route path="/client/about" component={About} />
             <Route path="/client/ticket" component={TicketSearch} />
@@ -112,9 +119,7 @@ const App = () => {
             <Route path="/client/order-invoice" component={InvoiceUser} />
             <Route path="/client/bookings" component={Bookings} />
           </ClientLayout>
-        
         </Switch>
-   
       </Router>
       {/* </Provider> */}
     </>

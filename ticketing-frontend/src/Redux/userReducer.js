@@ -993,7 +993,7 @@ export const deleteCouponAdmin = createAsyncThunk(
       //   text: err.response.message,
       // });
     }
-  }
+  } 
 );
 //Book Seats
 export const bookSeats = createAsyncThunk("bookSeats", async (data) => {

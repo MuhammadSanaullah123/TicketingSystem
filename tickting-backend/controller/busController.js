@@ -8,6 +8,7 @@ exports.getBus = catchAsync(async (req, res, next) => {
   const bus = await Bus.find(req.query)
     .populate("operatorId")
     .populate("rating");
+
   if (bus.length == 0) {
     return next(new AppError("No Bus Found", 404));
   }

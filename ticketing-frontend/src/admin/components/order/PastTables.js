@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as dayjs from "dayjs";
+import Moment from "react-moment";
+
 import { TableCell, TableBody, TableRow } from "@windmill/react-ui";
 import EditDeleteButton from "../table/EditDeleteButton";
 import Status from "../table/Status";
@@ -9,14 +11,18 @@ import BusDrawer from "../drawer/BusDrawer";
 import MainModal from "../modal/MainModal";
 import MainDrawer from "../drawer/MainDrawer";
 // API
-import { getBookings } from "../../../actions/bookings"
+import { getBookings } from "../../../actions/bookings";
 // Redux
-import { connect } from 'react-redux'
-import propTypes from 'prop-types'
-import store from "../../../store"
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import store from "../../../store";
 
-const PastBookings = ({ orders, bookings: { pastBookings } }) => {
-  
+const PastBookings = ({
+  orders,
+  bookings: { pastBookings },
+  trips: { allTrips },
+  buses: { buses },
+}) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
 
   return (
@@ -27,55 +33,73 @@ const PastBookings = ({ orders, bookings: { pastBookings } }) => {
       </MainDrawer> */}
 
       <TableBody>
-        {pastBookings != undefined && pastBookings.map((item,index) => (
-          <TableRow>
-            <TableCell>
-              <span className="text-sm">{43564542}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">Faisal Movers</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">{item?.busId?.busType}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">
-           
-                12/07/2022
-              </span>
-            </TableCell>
+        {pastBookings != undefined &&
+          pastBookings.map((item, index) => {
+            const trip = allTrips?.filter((trip) => trip._id === item.trip);
 
-            <TableCell>
-              <span className="text-sm ">{item?.busId?.departureTime}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm ">{item?.busId?.arrivalTime}</span>
-            </TableCell>
-            <TableCell>
-              {" "}
-              <span className="text-sm">Credit/Debit</span>{" "}
-            </TableCell>
-            <TableCell>
-              {" "}
-              <span className="text-sm font-semibold">{item?.busId?.price}</span>{" "}
-            </TableCell>
-            <TableCell>
-              {/* <Status status={item.bookingStatus} /> */}
-              <span className="text-sm font-semibold">{item.bookingStatus}</span>{" "}
-            </TableCell>
-            <TableCell>
+            const bus = buses?.filter((bus) => bus._id === trip[0]?.busId);
+            return (
+              <TableRow key={index}>
+                <TableCell>
+                  <span className="text-sm">{item.bookingId}</span>
+                </TableCell>
+                {/*  <TableCell>
+                <span className="text-sm">Faisal Movers</span>
+              </TableCell> */}
+                <TableCell>
+                  <span className="text-sm">{bus[0].busType}</span>
+                </TableCell>
+                <TableCell>
+                  <span className="text-sm">
+                    <Moment format="DD/MM/YYYY ">{item.date}</Moment>
+                  </span>
+                </TableCell>
 
-            {item.isPaymentDone ?  <span className="text-sm font-semibold">Done</span>:
-            <span className="text-sm font-semibold">Not Yet</span>}
+                <TableCell>
+                  <span className="text-sm ">
+                    <Moment format="DD/MM/YYYY hh:mm">
+                      {trip[0].departureTime}
+                    </Moment>
+                  </span>
+                </TableCell>
+                <TableCell>
+                  <span className="text-sm ">
+                    <Moment format="DD/MM/YYYY hh:mm">
+                      {trip[0].arrivalTime}
+                    </Moment>
+                  </span>
+                </TableCell>
+                <TableCell>
+                  {" "}
+                  <span className="text-sm">Credit/Debit</span>{" "}
+                </TableCell>
+                <TableCell>
+                  {" "}
+                  <span className="text-sm font-semibold">
+                    {item?.price}
+                  </span>{" "}
+                </TableCell>
+                <TableCell>
+                  {/* <Status status={item.bookingStatus} /> */}
+                  <span className="text-sm font-semibold">
+                    {item.bookingStatus}
+                  </span>{" "}
+                </TableCell>
+                <TableCell>
+                  {item.isPaymentDone ? (
+                    <span className="text-sm font-semibold">Done</span>
+                  ) : (
+                    <span className="text-sm font-semibold">Not Yet</span>
+                  )}
 
-
-              {/* <EditDeleteButton
+                  {/* <EditDeleteButton
                 handleUpdate={handleUpdate}
                 handleModalOpen={handleModalOpen}
               /> */}
-            </TableCell>
-          </TableRow>
-        ))}
+                </TableCell>
+              </TableRow>
+            );
+          })}
       </TableBody>
     </>
   );
@@ -83,10 +107,12 @@ const PastBookings = ({ orders, bookings: { pastBookings } }) => {
 
 PastBookings.propTypes = {
   // addBus: propTypes.func.isRequired
-}
+};
 
-const mapStateToProps = state => ({
-  bookings: state.bookings
-})
+const mapStateToProps = (state) => ({
+  bookings: state.bookings,
+  trips: state.trips,
+  buses: state.buses,
+});
 
-export default connect(mapStateToProps, null)(PastBookings)
+export default connect(mapStateToProps, null)(PastBookings);

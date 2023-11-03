@@ -93,7 +93,8 @@ const SearchForm = ({ buses: { buses } }) => {
       `/client/bus-listing?from=${formData.from}&to=${formData.to}&date=${formData.date}`
     );
   };
-
+  console.log(cityData);
+  console.log(formData);
   return (
     <>
       <Grid item xl={12} lg={12} md={12} flexDirection="column">
@@ -140,6 +141,7 @@ const SearchForm = ({ buses: { buses } }) => {
                       formData.from !== each &&
                       formData.from === each.slice(0, formData?.from?.length)
                     ) {
+                      console.log(each.slice(0, formData?.from?.length));
                       return (
                         <button
                           key={index}

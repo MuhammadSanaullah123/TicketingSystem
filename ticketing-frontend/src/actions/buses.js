@@ -47,7 +47,7 @@ export const searchBuses = (formData) => async (dispatch) => {
     const res = await axios.get(
       `${SERVER_URL}/bus/?routeFrom=${formData.from}&routeTo=${formData.to}&date=${formData.date}`
     );
-
+    console.log(res);
     dispatch({
       type: ALL_BUSES_LOADED,
       payload: res.data.bus,

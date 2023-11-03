@@ -106,7 +106,7 @@ const Orders = () => {
             </div>
           </form>
         </CardBody>
-      </Card>
+      </Card> 
       {/* Tabs */}
       <Tabs>
         <TabList>

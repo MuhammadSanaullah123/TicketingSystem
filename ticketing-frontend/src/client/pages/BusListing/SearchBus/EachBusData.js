@@ -3,16 +3,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import Grid from "@mui/material/Grid";
 import Modal from "@mui/material/Modal";
-import pic1 from "./../../../../assets/amentitiesAsset/booking.png";
-import pic2 from "./../../../../assets/amentitiesAsset/bookingg.png";
-import pic3 from "./../../../../assets/amentitiesAsset/carrying-bag.png";
-import pic4 from "./../../../../assets/amentitiesAsset/carrying-bagg.png";
-import pic5 from "./../../../../assets/amentitiesAsset/dinner.png";
-import pic6 from "./../../../../assets/amentitiesAsset/dinnerg.png";
-import pic7 from "./../../../../assets/amentitiesAsset/travel-bag.png";
-import pic8 from "./../../../../assets/amentitiesAsset/travel-bagg.png";
-import pic9 from "./../../../../assets/amentitiesAsset/waiting-room.png";
-import pic10 from "./../../../../assets/amentitiesAsset/waiting-room-g.png";
+import Moment from "react-moment";
 
 import BasicTabs from "./BasicTabs";
 import CloseIcon from "@mui/icons-material/Close";
@@ -31,7 +22,7 @@ import moment from "moment";
 import { Link, useHistory } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
-const EachBusData = ({ data, busData, totalSeats, busId }) => {
+const EachBusData = ({ bus, trip, operator }) => {
   const [loading, setLoading] = useState(true);
   //modal
   const style = {
@@ -50,7 +41,7 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
 
   const history = useHistory();
   const store = useSelector((store) => store);
-  let {
+  /*   let {
     name,
     _id,
     ac,
@@ -64,7 +55,7 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
     timing,
     to,
     type,
-  } = data;
+  } = data; */
 
   const [openSeats, setOpenSeats] = useState(false);
   const [openModal, setOpenModal] = React.useState(false);
@@ -72,11 +63,8 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
   const cookies = new Cookies();
   const handleCloseModal = () => setOpenModal(false);
 
-  const isLogin = cookies.get("auth");
-
   const dispatch = useDispatch();
 
-  console.log("busDatabusData", busData);
   const handleOpenModal = () => {
     setOpenModal(true);
     // console.log(open)
@@ -84,7 +72,7 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
 
   const singBusDetailClicked = async () => {
     const user = {
-      busId: busData._id,
+      busId: bus[0]._id,
     };
     const response = await dispatch(busDetail(user));
     console.log("responseBusDetail", response);
@@ -97,9 +85,10 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
   const selectSeatClicked = () => {
     setShowAmenties(!showAmenties);
   };
-  useEffect(() => {
-    // setLoading(false)
-  }, [busData]);
+
+  console.log(bus);
+  console.log(trip);
+  console.log(operator);
 
   return (
     // <></>
@@ -114,9 +103,9 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
             flexDirection="column"
           >
             <strong className="result-each-data-name-title">
-              {busData?.operatorId?.name}
+              {operator[0]?.operatorName}
             </strong>
-            <span className="result-each-data-name-type">Operator</span>
+            {/*   <span className="result-each-data-name-type">Operator</span> */}
           </Grid>
           <Grid
             item
@@ -126,18 +115,22 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
           >
             <span className="result-each-data-departure-time">
               {/* {moment(busData.departureTime).format("HH:mm")} */}
-              {busData.departureTime}
+
+              <Moment format="DD/MM/YYYY hh:mm">{trip.departureTime}</Moment>
             </span>
             <span className="result-each-data-departure-place">
               {/* {boarding_point[0].placename} */}
-              {busData.routeFrom}
+              {trip.routeFrom}
             </span>
           </Grid>
           <Grid item xs={1.71}>
             <span className="result-each-data-total-time">
-              {/* {moment(busData.arrivalTime).diff(moment(busData.departureTime), "hours")} hr */}
+              {moment(trip.arrivalTime).diff(
+                moment(trip.departureTime),
+                "hours"
+              ) / 60}{" "}
+              Hours
               {/* {moment(busData?.arrivalTime).diff(moment(busData?.departureTime), "hours")} hr */}
-              5hours
             </span>
           </Grid>
           <Grid
@@ -148,15 +141,16 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
           >
             <span className="result-each-data-arrival-time">
               {/* {moment(busData.arrivalTime).format("HH:mm")} */}
-              {busData.arrivalTime}
+
+              <Moment format="DD/MM/YYYY hh:mm">{trip.arrivalTime}</Moment>
             </span>
             <span className="result-each-data-arrival-place">
-              {busData.routeTo}
+              {trip.routeTo}
             </span>
           </Grid>
           <Grid item xs={1.71}>
             <span className="result-each-data-price">
-              <span style={{ fontWeight: 400 }}>$</span> {busData.price}
+              <span style={{ fontWeight: 400 }}>$</span> {trip.price}
             </span>
           </Grid>
           <Grid
@@ -166,11 +160,11 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
             flexDirection="column"
           >
             <span className="result-each-data-extra-available">
-              <span className="bold">{busData.totalSeats}</span> Available
+              <span className="bold">{bus[0].totalSeats}</span> Available
             </span>
-            <span className="result-each-data-extra-windows">
+            {/*  <span className="result-each-data-extra-windows">
               <span className="bold">20</span> Windows
-            </span>
+            </span> */}
           </Grid>
           <Grid
             item
@@ -179,7 +173,7 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
             flexDirection="column"
           >
             <span className="result-each-data-extra-available">
-              <span className="bold">{busData?.baggage}</span> Allowed
+              <span className="bold">{bus[0].baggage}</span> Allowed
             </span>
           </Grid>
         </Grid>
@@ -193,17 +187,17 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
         >
           <Grid item display="flex" flexDirection="row" alignItems="self-end">
             {/* <Amenities data={busData?.bus_facilities} /> */}
-            {JSON.parse(busData?.bus_facilities).map((amenity, index) => (
+            {(bus[0]?.bus_facilities).map((amenity, index) => (
               <div style={{ fontSize: "25px" }} key={index}>
                 {amenity.value}
               </div>
             ))}
             {/* {console.log("busData.bus_facilities",busData.bus_facilities[0].value)} */}
           </Grid>
-          <Grid item>
+          {/*  <Grid item>
             <h3 className="rating-title">Customer Ratings</h3>
             <ReactStars count={5} size={24} activeColor="#ffd700" />
-          </Grid>
+          </Grid> */}
           <div>
             <button
               className="result-each-seats-button"
@@ -402,8 +396,8 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
                     className="tableCol"
                     style={{ margin: "10px 0" }}
                   >
-                    <p className="heading">AK Tour & Travels</p>
-                    <p className="Detail">AC Sleeper</p>
+                    <p className="heading">{operator[0].operatorName}</p>
+                    {/* <p className="Detail">AC Sleeper</p> */}
                   </Grid>
                   <Grid
                     item
@@ -415,8 +409,11 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
                     className="tableCol"
                     style={{ margin: "10px 0" }}
                   >
-                    <p className="heading">12:00</p>
-                    <p className="Detail">Middle</p>
+                    <p className="heading">
+                      {" "}
+                      <Moment format="hh:mm">{trip.departureTime}</Moment>
+                    </p>
+                    {/*   <p className="Detail">Middle</p> */}
                   </Grid>
                   <Grid
                     item
@@ -428,8 +425,15 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
                     className="tableCol"
                     style={{ margin: "10px 0" }}
                   >
-                    <p className="heading">06h 32m</p>
-                    <p className="Detail">12 Stops</p>
+                    <p className="heading">
+                      {" "}
+                      {moment(trip.arrivalTime).diff(
+                        moment(trip.departureTime),
+                        "hours"
+                      ) / 60}{" "}
+                      Hours
+                    </p>
+                    {/*        <p className="Detail">12 Stops</p> */}
                   </Grid>
                   <Grid
                     item
@@ -441,16 +445,20 @@ const EachBusData = ({ data, busData, totalSeats, busId }) => {
                     className="tableCol"
                     style={{ margin: "10px 0" }}
                   >
-                    <p className="heading">05:15</p>
-                    <p className="Detail">Surat</p>
+                    <p className="heading">
+                      {" "}
+                      <Moment format="hh:mm">{trip.arrivalTime}</Moment>
+                    </p>
+                    {/*  <p className="Detail">Surat</p> */}
                   </Grid>
                 </Grid>
                 <Grid item xs={12} className="TabContainer">
                   <BasicTabs
-                    availableSeats={busData?.totalSeats}
-                    busId={busData?._id}
-                    occupiedSeats={busData?.occupiedSeats}
-                    busPrice={busData?.price}
+                    availableSeats={bus[0]?.totalSeats}
+                    busId={bus[0]?._id}
+                    occupiedSeats={bus[0]?.occupiedSeats}
+                    busPrice={trip?.price}
+                    trip={trip}
                   />
                 </Grid>
               </Grid>

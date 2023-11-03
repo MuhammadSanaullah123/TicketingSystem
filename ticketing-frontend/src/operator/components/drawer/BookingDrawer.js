@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import DatePicker from "react-date-picker";
 import Scrollbars from "react-custom-scrollbars";
+
 import Select from "react-select";
 import { Textarea, Button } from "@windmill/react-ui";
 import { MultiSelect } from "react-multi-select-component";
@@ -36,6 +37,7 @@ const Booking = ({
   auth: { users },
   trips: { allTrips, trip },
   addBooking,
+  handleGetAllBookings,
 }) => {
   const {
     register,
@@ -137,6 +139,24 @@ const Booking = ({
     };
     console.log("bookingObj", bookingObj);
     addBooking(bookingObj);
+    handleGetAllBookings();
+  };
+
+  const handleGetSeats = () => {
+    store.dispatch(getTripById(bookingData.tripId));
+    if (trip != null) {
+      let tempOptions = Array.from(
+        { length: trip.busId.totalSeats },
+        (_, index) => {
+          if (!trip.busId.occupiedSeats.includes(index + 1)) {
+            return { label: `${index + 1}`, value: `${index + 1}` };
+          }
+          return null;
+        }
+      ).filter((option) => option !== null);
+      console.log("tempOptions", tempOptions);
+      setSeatOptions(tempOptions);
+    }
   };
 
   const handleSeatOptionsChange = (selectedOptions) => {
@@ -252,6 +272,7 @@ const Booking = ({
                   value={seatSelected}
                   onChange={handleSeatOptionsChange}
                   placeholder="Select seats..."
+                  onMenuOpen={handleGetSeats}
                 />
               </div>
             </div>
@@ -386,15 +407,14 @@ const Booking = ({
             <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Button
                 onClick={toggleDrawer}
-                className="h-12 bg-white w-full text-red-500 hover:bg-red-50 hover:border-red-100 hover:text-red-600"
+                className="h-12 bg-white w-full text-red-500 hover:bg-red-50 hover:border-red-100 hover:text-red-600 cancelbtnDiv"
                 layout="outline"
               >
                 Cancel
               </Button>
             </div>
             <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <div className="w-full h-12" onClick={handleSubmit}>
-                {" "}
+              <div className={`w-full h-12 addbtnDiv`} onClick={handleSubmit}>
                 {id ? <span>Update Booking</span> : <span>Add Booking</span>}
               </div>
             </div>

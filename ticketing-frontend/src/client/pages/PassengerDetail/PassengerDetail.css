@@ -1,7 +1,7 @@
 .twoInputs {
   gap: 0px;
 }
-.passInfoTxt{
+.passInfoTxt {
   color: #c99a3c;
 }
 .dataePickerInputPasse {
@@ -38,24 +38,27 @@
   border-radius: 5px;
   color: #fff;
   /* background: rgb(190,137,42); */
-/* background: linear-gradient(90deg, rgba(190,137,42,1) 68%, rgba(211,167,75,1) 78%, rgba(245,215,127,1) 93%, rgba(245,215,127,1) 97%); */
-/* background: linear-gradient(90deg, rgba(190,137,42,1) 86%, rgba(211,167,75,1) 89%, rgba(211,167,75,1) 89%, rgba(220,179,88,1) 93%, rgba(211,167,75,1) 95%, rgba(211,167,75,1) 100%); */
-/* background: linear-gradient(90deg, rgba(198,149,55,1) 0%, rgba(190,137,42,1) 73%, rgba(211,167,75,1) 100%); */
-background: linear-gradient(90deg, #BE892A 0%, #D3A74B 36.46%, #C69537 74.48%, #F5D77F 100%);
+  /* background: linear-gradient(90deg, rgba(190,137,42,1) 68%, rgba(211,167,75,1) 78%, rgba(245,215,127,1) 93%, rgba(245,215,127,1) 97%); */
+  /* background: linear-gradient(90deg, rgba(190,137,42,1) 86%, rgba(211,167,75,1) 89%, rgba(211,167,75,1) 89%, rgba(220,179,88,1) 93%, rgba(211,167,75,1) 95%, rgba(211,167,75,1) 100%); */
+  /* background: linear-gradient(90deg, rgba(198,149,55,1) 0%, rgba(190,137,42,1) 73%, rgba(211,167,75,1) 100%); */
+  background: linear-gradient(
+    90deg,
+    #be892a 0%,
+    #d3a74b 36.46%,
+    #c69537 74.48%,
+    #f5d77f 100%
+  );
   font-weight: 800;
   font-size: 20px;
-
 }
 
 .passengerWrapper {
-  background-color: rgba(255,255,255,0.8) !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
   padding-bottom: 30px;
   /* padding-top: 300px; */
-  
 }
-.passengerWrapperTop{
-  
-  background-image: url('../../../assets/logoMain1.png');
+.passengerWrapperTop {
+  background-image: url("../../../assets/logoMain1.png");
   background-repeat: no-repeat;
   background-repeat: no-repeat;
   height: 100%;
@@ -94,80 +97,104 @@ background: linear-gradient(90deg, #BE892A 0%, #D3A74B 36.46%, #C69537 74.48%, #
   border: 1px solid #C69537 !important;
 } */
 .uploadPicPassDet {
-  border: 1px solid #C69537 !important;
+  border: 1px solid #c69537 !important;
 }
-.uploadPicPassDet{
+.uploadPicPassDet {
   height: 54px !important;
 }
-.textFieldPassDet{
-  background-color: #FFF;
+.textFieldPassDet {
+  background-color: #fff;
 }
 
-.MuiFormLabel-colorPrimaryP{
+.MuiFormLabel-colorPrimaryP {
   color: red !important;
   background-color: red !important;
   border: #c99a3c !important;
 }
-.rs-picker-menu .rs-calendar .rs-calendar-table-cell:hover .rs-calendar-table-cell-content{
+.rs-picker-menu
+  .rs-calendar
+  .rs-calendar-table-cell:hover
+  .rs-calendar-table-cell-content {
   background-color: unset !important;
   color: unset !important;
 }
-.rs-picker-menu .rs-calendar .rs-calendar-table-cell:hover .rs-calendar-table-cell-content:hover{
+.rs-picker-menu
+  .rs-calendar
+  .rs-calendar-table-cell:hover
+  .rs-calendar-table-cell-content:hover {
   background-color: unset !important;
   color: unset !important;
-
 }
-.rs-calendar-month-dropdown-cell-active .rs-calendar-month-dropdown-cell-content{
-  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
-
+.rs-calendar-month-dropdown-cell-active
+  .rs-calendar-month-dropdown-cell-content {
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
 }
 .react-tel-input .form-control {
   height: 57px !important;
   width: 117px !important;
 }
-.rs-picker-default:not(.rs-picker-disabled) .rs-btn-active, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:hover, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover{
+.rs-picker-default:not(.rs-picker-disabled) .rs-btn-active,
+.rs-picker-default:not(.rs-picker-disabled) .rs-btn:focus,
+.rs-picker-default:not(.rs-picker-disabled) .rs-btn:hover,
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active,
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus,
+.rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover {
   border-color: #c99a3c !important;
 }
-.rs-calendar-month-view .rs-calendar-header-title-date{
-color: #c99a3c !important;
-
-}
-.rs-calendar-month-dropdown-year-active{
+.rs-calendar-month-view .rs-calendar-header-title-date {
   color: #c99a3c !important;
-
 }
-.rs-picker-menu .rs-calendar .rs-calendar-month-dropdown-cell-content:hover{
+.rs-calendar-month-dropdown-year-active {
+  color: #c99a3c !important;
+}
+.rs-picker-menu .rs-calendar .rs-calendar-month-dropdown-cell-content:hover {
   color: unset !important;
   background-color: unset !important;
 }
-.rs-picker-select-menu-item.rs-picker-select-menu-item-focus, .rs-picker-select-menu-item:focus, .rs-picker-select-menu-item:hover{
+.rs-picker-select-menu-item.rs-picker-select-menu-item-focus,
+.rs-picker-select-menu-item:focus,
+.rs-picker-select-menu-item:hover {
   color: #222222 !important;
   background: none !important;
 }
 
-.rs-calendar-table-cell-selected .rs-calendar-table-cell-content
-{
-  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
-
+.rs-calendar-table-cell-selected .rs-calendar-table-cell-content {
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
 }
-.passengerWrapperTopH3{
+.passengerWrapperTopH3 {
   /* padding-top: 100px !important; */
 }
-.rs-btn-primary{
-
-  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+.rs-btn-primary {
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
 }
-.rs-btn-link{
-  color: #D3A74B !important;
+.rs-btn-link {
+  color: #d3a74b !important;
 }
-.css-1pahdxg-control{
+.css-1pahdxg-control {
   box-shadow: none !important;
-  border-color: #D3A74B !important;
+  border-color: #d3a74b !important;
 }
-.selectNationality{
+.selectNationality {
   height: 56px;
-  border: 1px solid #D3A74B;
-
+  border: 1px solid #d3a74b;
 
   border-radius: 3px;
   width: 95%;
@@ -199,42 +226,41 @@ color: #c99a3c !important;
     width: 100% !important;
   }
 
-  .dataePickerInputPasse{
+  .dataePickerInputPasse {
     width: 100% !important;
   }
-  .selectConutryPassDet .css-yk16xz-control{
+  .selectConutryPassDet .css-yk16xz-control {
     width: 100% !important;
   }
-  .topInneCardPassDet > .CheckoutContainer > .bgGrey{
+  .topInneCardPassDet > .CheckoutContainer > .bgGrey {
     padding: 0px !important;
-
   }
   .CheckoutWrapper .CheckoutContainer .topInneCardPassDet {
     padding: 0px;
     /* margin-top: 50px; */
-}
-.btnTopPayment {
+  }
+  .btnTopPayment {
     justify-content: flex-end !important;
     align-items: end !important;
     width: 100%;
   }
 
-  .CheckoutWrapper .CheckoutContainer .topInneCardPassDet .title p{
+  .CheckoutWrapper .CheckoutContainer .topInneCardPassDet .title p {
     font-size: 30px !important;
     margin-bottom: 10px;
   }
-  .passInfoTxt{
+  .passInfoTxt {
     font-size: 28px;
   }
-  .passengerWrapperTopH3{
+  .passengerWrapperTopH3 {
     padding-top: unset !important;
   }
-  .CheckoutContainer{
+  .CheckoutContainer {
     padding-top: unset !important;
   }
 }
 .title-upload {
-  color: #3D3D3D;
+  color: #3d3d3d;
   font-size: 15px;
   font-weight: 400;
   line-height: 38px; /* 190% */
@@ -260,7 +286,7 @@ color: #c99a3c !important;
 }
 
 .bookings-title {
-  color: #C99A3C;
+  color: #c99a3c;
   font-size: 29px;
   font-weight: 600;
   line-height: 32.121px; /* 110.76% */
@@ -269,7 +295,7 @@ color: #c99a3c !important;
 
 .title-table-booking {
   font-size: 18px;
-  color: #0F0F0F;
+  color: #0f0f0f;
   font-weight: 700;
   line-height: 32.121px; /* 160.603% */
 }
@@ -282,7 +308,7 @@ color: #c99a3c !important;
 }
 
 .table-row-booking {
-  border-bottom: 1px solid #B9B9B9;
+  border-bottom: 1px solid #b9b9b9;
   padding: 3px 0;
   height: 55px;
 }
@@ -307,4 +333,9 @@ tr:nth-child(even) {
   .bookings-title {
     margin-top: 80px;
   }
+}
+
+.genderSelect {
+  height: 100%;
+  border: 1px solid #d3a74b;
 }

@@ -3,17 +3,17 @@ import React, { useState, useEffect } from "react";
 //scss
 import "./BusListing";
 //components
-import SearchBus from './SearchBus/SearchBus'
+import SearchBus from "./SearchBus/SearchBus";
 //mui
-import Grid from '@mui/material/Grid'
+import Grid from "@mui/material/Grid";
 
 const About = () => {
   return (
     <>
-    <div className="topSearchBusListing">
-      <Grid container className="topSearchBusListingInner">  
-        <SearchBus/>
-      </Grid>
+      <div className="topSearchBusListing">
+        <Grid container className="topSearchBusListingInner">
+          <SearchBus />
+        </Grid>
       </div>
     </>
   );

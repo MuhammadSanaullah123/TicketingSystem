@@ -1,39 +1,42 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const operatorSchema = new mongoose.Schema({
+const operatorSchema = new mongoose.Schema(
+  {
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     operatorId: {
-        type: String
+      type: String,
     },
     operatorName: {
-        type: String
+      type: String,
     },
     name: {
-        type: String,
-        // required: true
+      type: String,
+      // required: true
     },
     address: {
-        type: String
+      type: String,
     },
     busId: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: "Bus"
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "Bus",
     },
     tripId: {
-        type: [mongoose.Schema.Types.ObjectId],
-        ref: "Trip"
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: "Trip",
     },
-    
-    isVerified: {
-        type: Boolean,
-        default: false
-    }
-}, {
-    timestamps: true
-})
 
-const Operator = mongoose.model("Operator", operatorSchema)
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Operator = mongoose.model("Operator", operatorSchema);
 module.exports = Operator;

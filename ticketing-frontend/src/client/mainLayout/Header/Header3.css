@@ -1,66 +1,65 @@
-.mainHeader3, .mainHeader3OnScoll {
-    background-color: #fff;
-    padding: 6px 24px 6px 0px;
-    display: flex;
-    justify-content: space-between;
-    height: 50px;
-    transition: .3s;
+.mainHeader3,
+.mainHeader3OnScoll {
+  background-color: #fff;
+  padding: 6px 24px 6px 0px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  transition: 0.3s;
 }
 .topLogoHeader3 {
-    width: 100px;
-    height: 70px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    margin: 20px 10px 20px 0;
-    border-bottom-right-radius: 70px;
-    background-color: #fff;
-    border: none;
+  width: 100px;
+  height: 70px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: 20px 10px 20px 0;
+  border-bottom-right-radius: 70px;
+  background-color: #fff;
+  border: none;
 }
 
 .logoMainH3Img {
-    width: 90px;
-    
+  width: 90px;
 }
 
 .right-header-part {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .language {
-    align-self: center;
-    display: flex;
+  align-self: center;
+  display: flex;
 }
 .language p {
-    align-self: center;
+  align-self: center;
 }
 .search-bar {
-    align-self: center;
+  align-self: center;
 }
 
 .search-bar input {
-    border: none;
-    border-bottom: 1px solid black;
-    padding-left: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-    outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-left: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  outline: none;
 }
 
 .search-icon {
-    position: relative;
-    top: 0;
-    left: 25px;
+  position: relative;
+  top: 0;
+  left: 25px;
 }
 
 .login-button-inner {
-    border-radius: 4.5px;
-    background: #C39133;
-    padding: 6px 24px 6px 24px !important;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-
+  border-radius: 4.5px;
+  background: #c39133;
+  padding: 6px 24px 6px 24px !important;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
 /* .dropdown button {
     background-color: white !important;
@@ -69,289 +68,316 @@
     font-size: 15px;
 } */
 .btn-primary {
-    border: none !important;
-    background: white;
+  border: none !important;
+  background: white;
 }
 
 .dropdown-toggle::after {
-    display: none !important;
+  display: none !important;
 }
 
 .btn-text {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 .btn-icon {
-    margin-left: 3px;
+  margin-left: 3px;
 }
 .rightHeader3 {
-    height: 60%;
-    /* background-color: rgb(48, 6, 6) !important;
+  height: 60%;
+  /* background-color: rgb(48, 6, 6) !important;
      */
-     background-color: #fff;
-    width: 70%;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
+  background-color: #fff;
+  width: 70%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #dropdown-language {
-    background-color: white !important;
-    color: black;
-    background: linear-gradient(180deg, #E3C78D 0%, #E2BC5F 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
-    padding: 3px 10px;
-    margin-left: 5px;
+  background-color: white !important;
+  color: black;
+  background: linear-gradient(180deg, #e3c78d 0%, #e2bc5f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+  padding: 3px 10px;
+  margin-left: 5px;
 }
 .dropdown-menu.show {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 }
 
-.topPencilH3{
-    width: 30px;
-    height: 30px;
-    
-    background-color: black;
-    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-align-items: center;
+.topPencilH3 {
+  width: 30px;
+  height: 30px;
+
+  background-color: black;
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pencilIconH3{
-    color: black;
-    font-size: 15px;
+.pencilIconH3 {
+  color: black;
+  font-size: 15px;
 }
 
-.destiH3Txt{
-    color: #C69537;
-    font-size: 20px;
-    margin: 0px !important;
+.destiH3Txt {
+  color: #c69537;
+  font-size: 20px;
+  margin: 0px !important;
 }
 
-.dateTxtH3{
-    color: #C69537;
-    font-size: 20px;
-    margin: 0px !important;
-
+.dateTxtH3 {
+  color: #c69537;
+  font-size: 20px;
+  margin: 0px !important;
 }
 
-.topRightLeftH3{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.topRightLeftH3 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.topTextPrices{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.topTextPrices {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.totalSpTxt{
-    color: #C69537;
-    font-size: 20px;
-    margin: 0px !important;
+.totalSpTxt {
+  color: #c69537;
+  font-size: 20px;
+  margin: 0px !important;
 }
-.priceTxtH3{
-    color: #C69537;
-    font-size: 24px;
-    margin: 0px !important;
-    font-weight: 600;
-    
+.priceTxtH3 {
+  color: #c69537;
+  font-size: 24px;
+  margin: 0px !important;
+  font-weight: 600;
 }
-.btnContinueH3{
-    width: 160px;
-    height: 40px;
-    background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
-    color: #fff;
-    border-radius: 100vh;
-}
-
-.topPriceContH3{
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.mainHeader3OnScoll{
-
-    height: 100px;
-    background-color: #fff;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid black;
-    gap: 50px;
-    position: fixed;
-    top: 0px;
-    z-index: 99999999999;
-
+.btnContinueH3 {
+  width: 160px;
+  height: 40px;
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
+  color: #fff;
+  border-radius: 100vh;
 }
 
-.topMobileViewH3{
+.topPriceContH3 {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.mainHeader3OnScoll {
+  height: 100px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid black;
+  gap: 50px;
+  position: fixed;
+  top: 0px;
+  z-index: 99999999999;
+}
+
+.topMobileViewH3 {
+  display: none;
+}
+
+@media (max-width: 1190px) {
+  .rightHeader3 {
+    width: 77%;
+  }
+}
+
+@media (max-width: 991px) {
+  .topMobileViewH3 {
+    display: block;
+  }
+  .topWebH3 {
     display: none;
-}
+  }
+  .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
 
-@media (max-width:1190px) {
-    
-    .rightHeader3{
-        width: 77%;
-    }
-}
+  .topMobileViewH3 .navbar {
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    border-bottom: 3px solid black;
+  }
+  .passengerWrapperTopH3 .passengerWrapper {
+    padding-top: 120px;
+  }
 
-@media (max-width:991px) {
-    .topMobileViewH3{
-
-            display: block;
-    }
-    .topWebH3{
-        display: none;
-    }
-    .navbar-toggler:focus{
-        box-shadow: none !important;
-    }
-
-    .topMobileViewH3 .navbar{
-        padding-bottom: 0px !important;
-        padding-top: 0px !important;
-        border-bottom: 3px solid black;
-
-
-    }
-    .passengerWrapperTopH3  .passengerWrapper{
-        padding-top: 120px;
-
-    }
-
-    .topSearchBusListingInner{
-        padding-top: 120px;
-
-    }
-    .CheckoutContainer{
-        padding-top: 120px;
-
-    }
+  .topSearchBusListingInner {
+    padding-top: 120px;
+  }
+  .CheckoutContainer {
+    padding-top: 120px;
+  }
 }
 
 .width-wrap {
-    width: 0;
+  width: 0;
 }
 .signup-wrapper {
-    position: relative;
-    top: 10px;
-    left: -190px;
-    background: #fff;
-    padding: 9px 23px;
-    border-radius: 5px;
-    width: 350px !important;
+  position: relative;
+  top: 10px;
+  left: -190px;
+  background: #fff;
+  padding: 9px 23px;
+  border-radius: 5px;
+  width: 350px !important;
 }
 .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
 .login-button .dropdown button {
-    padding: 0;
+  padding: 0;
 }
 .signup-welcome {
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 18px; /* 120% */
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 18px; /* 120% */
 }
 
 .signup-pre {
-    margin-top: 2px;
-    color: #7B7B7B;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 18px; /* 163.636% */
+  margin-top: 2px;
+  color: #7b7b7b;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px; /* 163.636% */
 }
 
 .signup-form input {
-    display: block;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #9A9A9A;
-    padding-top: 10px;
-    outline: none;
-    margin-top: 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #9a9a9a;
+  padding-top: 10px;
+  outline: none;
+  margin-top: 10px;
 }
 
 .signup-form input::placeholder {
-    color: #7B7B7B;
-    font-weight: 600;
+  color: #7b7b7b;
+  font-weight: 600;
 }
 
 .forgot-password {
-    margin-top: 10px;
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 18px; /* 180% */
-    text-decoration-line: underline;
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px; /* 180% */
+  text-decoration-line: underline;
 }
 
 .button-signup {
-    width: 100%;
-    border-radius: 35px !important;
-    padding: 5px 0 !important;
-    display: block !important;
-    margin-top: 15px;
-    background-color: #C39133;
-    color: white;
+  width: 100%;
+  border-radius: 35px !important;
+  padding: 5px 0 !important;
+  display: block !important;
+  margin-top: 15px;
+  background-color: #c39133;
+  color: white;
 }
 
 .or-text {
-    margin-top: 9px;
-    color: #7B7B7B;
-    font-weight: 400;
-    line-height: 18px; /* 180% */
+  margin-top: 9px;
+  color: #7b7b7b;
+  font-weight: 400;
+  line-height: 18px; /* 180% */
 }
 
 .button-signup-google {
-    border-radius: 12px !important;
-    background: #FFF !important;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 100%;
-    color: #4889F4 !important;
-    padding: 5px 60px !important;
-    margin-top: 10px;
-    display: flex;
+  border-radius: 12px !important;
+  background: #fff !important;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  color: #4889f4 !important;
+  padding: 5px 60px !important;
+  margin-top: 10px;
+  display: flex;
 }
 
 .button-signup-facebook {
-    border-radius: 12px !important;
-    background: #4889F4 !important;
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 100%;
-    color: white !important;
-    padding: 5px 50px !important;
-    margin-top: 10px;
-    display: flex;
-    
+  border-radius: 12px !important;
+  background: #4889f4 !important;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  color: white !important;
+  padding: 5px 50px !important;
+  margin-top: 10px;
+  display: flex;
 }
 
 .button-signup-facebook div {
-    align-self: center;
+  align-self: center;
 }
 
 .signin-pre {
-    color: #7B7B7B;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 18px; /* 180% */
-    margin-top: 18px;
+  color: #7b7b7b;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 18px; /* 180% */
+  margin-top: 18px;
 }
 
 .signin-pre span {
-    color: #C78D15;
-    font-weight: 600;
+  color: #c78d15;
+  font-weight: 600;
 }
 
 .signin-pre:last-child {
-    margin-top: 0px;
+  margin-top: 0px;
+}
+
+.loginbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 100px;
+  height: 35px;
+  background-color: #c39133;
+  color: #fff;
+  border-radius: 4px;
+  border: 0;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.loginbtn:hover {
+  text-decoration: none;
+  color: #fff;
+  transform: scale(1.01);
+  transition: all ease 0.3s;
+}
+.loginbtn:active {
+  text-decoration: none;
+  color: #fff;
+  transform: scale(1.01);
+  transition: all ease 0.3s;
 }

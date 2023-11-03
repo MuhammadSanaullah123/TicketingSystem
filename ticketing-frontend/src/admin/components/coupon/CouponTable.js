@@ -67,14 +67,14 @@ const CouponTable = ({ handleGetCouponAdmin }) => {
                   {item.discount}%
                 </span>{" "}
               </TableCell>
-              <TableCell>
+              {/*  <TableCell>
                 {" "}
                 <span className="text-sm">{item.busType}</span>{" "}
-              </TableCell>
+              </TableCell> */}
 
-              <TableCell className="align-middle ">
+              {/*   <TableCell className="align-middle ">
                 <Badge type="success">Active</Badge>
-              </TableCell>
+              </TableCell> */}
               <TableCell>
                 <EditDeleteButton
                   id={item._id}
