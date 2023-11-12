@@ -127,7 +127,7 @@ const Orders = () => {
               <TableHeader>
                 <tr>
                   <TableCell>Booking ID</TableCell>
-                  {/*   <TableCell>Operator</TableCell> */}
+                  <TableCell>Operator</TableCell>
                   <TableCell>Bus Type</TableCell>
                   <TableCell>Date</TableCell>
                   <TableCell>Departure Time</TableCell>
@@ -135,7 +135,8 @@ const Orders = () => {
                   <TableCell>Payment method</TableCell>
                   <TableCell>Booking amount</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell className="text-right">Is Payment Done?</TableCell>
+                  <TableCell>Is Payment Done?</TableCell>
+                  <TableCell className="text-right">Booked By</TableCell>
                 </tr>
               </TableHeader>
               <PastTables />
@@ -151,7 +152,7 @@ const Orders = () => {
               <TableHeader>
                 <tr>
                   <TableCell>Booking ID</TableCell>
-                  {/*      <TableCell>Operator</TableCell> */}
+                  <TableCell>Operator</TableCell>
                   <TableCell>Bus Type</TableCell>
                   <TableCell>Date</TableCell>
                   <TableCell>Departure Time</TableCell>
@@ -159,7 +160,8 @@ const Orders = () => {
                   <TableCell>Payment method</TableCell>
                   <TableCell>Booking amount</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell className="text-right">Is Payment Done?</TableCell>
+                  <TableCell>Is Payment Done?</TableCell>
+                  <TableCell className="text-right">Booked By</TableCell>
                 </tr>
               </TableHeader>
               <UpcomingTables />

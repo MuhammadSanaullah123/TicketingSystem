@@ -16,19 +16,24 @@ import { getUser } from "../../Redux/userReducer";
 import PageTitle from "../components/Typography/PageTitle";
 import Uploader from "../components/image-uploader/Uploader";
 import { useEffect } from "react";
-import { updateOperator } from "../../Redux/userReducer";
-
+import { updateAdmin } from "../../Redux/userReducer";
+import store from "../../store";
+import { connect } from "react-redux";
 const EditProfile = () => {
   const dispatch = useDispatch();
 
   const userData = useSelector((state) => state?.userReducer?.userData?.user);
   console.log("likeLikeOO", userData);
+  console.log(userData?.username ? userData.username : "NPPPPPPPPEEEE");
+
   const [user, setUser] = useState({
-    name: userData?.username,
-    phone: userData?.phone,
-    email: userData?.email,
+    username: userData ? userData?.username : "",
+    contactnumber: userData?.phone ? userData?.phone : "",
+    email: userData?.email ? userData?.email : "",
     password: "",
   });
+  const [image, setImage] = useState();
+  const [rerender, setRerender] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,52 +53,84 @@ const EditProfile = () => {
   console.log("user", user);
 
   const submitUpdate = async () => {
-    const data = new FormData();
+    /*  const dataImage = new FormData();
+    dataImage.append("file", logo);
+    dataImage.append("upload_preset", "u928wexc");
+    dataImage.append("cloud_name", "dihkvficg");
 
-    data.append("username", user.name);
-    data.append("phone", user.phone);
-    data.append("email", user.email);
-    data.append("password", user.password);
-    const response = await dispatch(updateOperator(data));
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dihkvficg/image/upload",
+      {
+        method: "post",
+        body: dataImage,
+      }
+    );
 
-    console.log("responseUpdateOperator", response?.payload?.data?.message);
+    const resData = await res.json();
+    const image_url = resData.url;
+ */
+    const image_url = "www.google.com";
+    const data = {
+      image: image_url,
+      username: user.username,
+      contactnumber: user.contactnumber,
+      email: user.email,
+      password: user.password,
+    };
+    const response = await dispatch(updateAdmin(data));
 
-    if (response?.payload?.data?.message) {
+    console.log("responseUpdateOperator", response);
+
+    if (response?.payload?.data?.success) {
       Swal.fire({
-        icon: "correct",
+        icon: "success",
         title: "",
-        text: response?.payload?.data?.message,
+        text: "Admin Updated",
       });
     }
   };
 
-
-
   useEffect(() => {
-    dispatch(getUser());
+    handleGetUserData();
   }, []);
+  useEffect(() => {
+    setUser({
+      username: userData ? userData.username : "",
+      contactnumber: userData?.phone ? userData.phone : "",
+      email: userData?.email ? userData.email : "",
+      password: "",
+    });
+  }, [userData]);
+  const handleGetUserData = async () => {
+    store.dispatch(getUser());
+  };
   return (
     <>
       <PageTitle>Edit Profile</PageTitle>
+
       <div className="container p-6 mx-auto bg-white rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="p-6 flex-grow scrollbar-hide w-full max-h-full">
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Profile Picture" />
+              <LabelArea label="Company Logo" />
               <div className="col-span-8 sm:col-span-4">
-                {/* <Uploader imageUrl={imageUrl} onChange={setImageUrl} /> */}
-                <input type="file" />
+                <input
+                  id="file-uploader"
+                  style={{ display: "block" }}
+                  type="file"
+                  onChange={(e) => setImage(e.target.files[0])}
+                />
               </div>
             </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Name" />
+              <LabelArea label="Username" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
                   label="User Name"
-                  name="name"
-                  defaultValue={user.name}
+                  name="username"
+                  defaultValue={user.username}
                   onChange={(e) => handleChange(e)}
                   type="text"
                   placeholder="Username"
@@ -108,13 +145,13 @@ const EditProfile = () => {
                 <InputArea
                   register={register}
                   label="Contact Number"
-                  name="phone"
-                  defaultValue={user?.phone}
+                  name="contactnumber"
+                  defaultValue={user?.contactnumber}
                   onChange={(e) => handleChange(e)}
                   type="text"
                   placeholder="Phone"
                 />
-                <Error errorName={errors.phone} />
+                <Error errorName={errors.contactnumber} />
               </div>
             </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">

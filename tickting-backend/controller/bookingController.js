@@ -45,8 +45,17 @@ exports.assignSeats = catchAsync(async (req, res, next) => {
 });
 
 exports.getSeats = catchAsync(async (req, res, next) => {
-  let { tripId, seats, phone, noOfSeats, email, price, passengerDetails } =
-    req.body;
+  let {
+    tripId,
+    NoOfpassengers,
+    busId,
+    seats,
+    phone,
+    noOfSeats,
+    email,
+    price,
+    passengerDetails,
+  } = req.body;
 
   const tripDetails = await Trip.findById(tripId);
   const busDetails = await Bus.findById(tripDetails.busId);
@@ -97,8 +106,11 @@ exports.getSeats = catchAsync(async (req, res, next) => {
   //         new AppError("Fill The Details of All The Passengers.")
   //     )
   // }
+  console.log("REQREQREQREQREQ");
+  console.log(req.user.id.role);
   const bookings = new Booking({
     trip: tripId,
+    NoOfpassengers,
     userId: req.user.id,
     seats,
     bookingId: generateUniqueId({
@@ -111,6 +123,7 @@ exports.getSeats = catchAsync(async (req, res, next) => {
     phone,
     email,
     passengerDetails,
+    bookedBy: req.user.id.role,
   });
   busDetails.occupiedSeats = [...busDetails.occupiedSeats, ...seats];
   busDetails.availableSeats =
@@ -129,7 +142,7 @@ exports.bookSeatsWithoutLogin = catchAsync(async (req, res, next) => {
     busId,
     phone,
     noOfSeats,
-    email, 
+    email,
     price,
     passengerDetails,
     additionalDetails,

@@ -30,11 +30,11 @@ import {
 
 const Header2 = () => {
   const dispatch = useDispatch();
-  const history=useHistory();
+  const history = useHistory();
 
   const [openModal, setOpenModal] = useState(false);
   const cookies = new Cookies();
-  const[searchTxt,setSearchTxt]=useState(0);
+  const [searchTxt, setSearchTxt] = useState(0);
 
   const isLogin = cookies.get("auth");
 
@@ -64,26 +64,21 @@ const Header2 = () => {
     });
   };
 
+  console.log("searchTxt", searchTxt);
 
-  console.log("searchTxt",searchTxt)
+  const ticketSearchClicked = async () => {
+    const date = {
+      id: searchTxt,
+    };
 
+    console.log("datedatedatedate", date);
+    const response = await dispatch(bookingBySearch(date));
 
-const ticketSearchClicked=async ()=>{
-  const date={
-    id:searchTxt
-  }
-
-  console.log("datedatedatedate",date)
-     const response=await dispatch(bookingBySearch(date));
-
-     console.log("responseSearchTicket",response.payload.data.success)
-     if(response.payload.data.success){
-      history.push('/client/ticket')
-     }
-}
-
-
-
+    console.log("responseSearchTicket", response.payload.data.success);
+    if (response.payload.data.success) {
+      history.push("/client/ticket");
+    }
+  };
 
   const changeBackground = () => {
     if (window.scrollY >= 80) {
@@ -95,10 +90,6 @@ const ticketSearchClicked=async ()=>{
 
   window.addEventListener("scroll", changeBackground);
 
-
-
-
-
   return (
     <>
       <Navbar
@@ -108,36 +99,43 @@ const ticketSearchClicked=async ()=>{
         expand="lg"
       >
         {navBarFixed === false && !isLogin && (
-         <div className="topBarOverNav">
-         <div className="topSearchTicket">
-        <input type="number" name="search"  className="searchBarTicket"  
-        
-        onChange={(e)=>setSearchTxt(e.target.value)}
-        placeholder="Search Ticket" />
-        <div className="searchTxtTicket" onClick={ticketSearchClicked}> Search</div>
-      </div>
-        <FiLogIn className="loginIcon" />
-        <Link to="/client/login" style={{ color: "unset" }}>
+          <div className="topBarOverNav">
+            <div className="topSearchTicket">
+              <input
+                type="number"
+                name="search"
+                className="searchBarTicket"
+                onChange={(e) => setSearchTxt(e.target.value)}
+                placeholder="Search Ticket"
+              />
+              <div className="searchTxtTicket" onClick={ticketSearchClicked}>
+                {" "}
+                Search
+              </div>
+            </div>
+            <FiLogIn className="loginIcon" />
+            <Link to="/client/login" style={{ color: "unset" }}>
               {" "}
               <div className="loginTxtTop">Login</div>
             </Link>
-      </div>
+          </div>
         )}
-       
-   
-         
-    
 
         {isLogin && !navBarFixed && (
           <div className="topBarOverNav">
-             <div className="topSearchTicket">
-            <input name="search"
-            type="number"
-              className="searchBarTicket" 
-              onChange={(e)=>setSearchTxt(e.target.value)}
-             placeholder="Search Ticket" />
-            <div className="searchTxtTicket" onClick={ticketSearchClicked}> Search</div>
-          </div>
+            <div className="topSearchTicket">
+              <input
+                name="search"
+                type="number"
+                className="searchBarTicket"
+                onChange={(e) => setSearchTxt(e.target.value)}
+                placeholder="Search Ticket"
+              />
+              <div className="searchTxtTicket" onClick={ticketSearchClicked}>
+                {" "}
+                Search
+              </div>
+            </div>
             <FiLogIn className="loginIcon" />
             <div className="loginTxtTop" onClick={logoutClicked}>
               Logout
@@ -146,21 +144,22 @@ const ticketSearchClicked=async ()=>{
         )}
 
         <Container fluid>
-          <Navbar.Brand 
-          
-          >
+          <Navbar.Brand>
             <div
               className={
                 navBarFixed == true ? "imgHeaderLogMainScroll" : "topHeaderImgs"
               }
             >
               {/* <img className={navBarFixed==true?"imgHeaderLogo":""} src={logo}/> */}
-              <Link to="/client/bus-listing2"><img
-                className={
-                  navBarFixed == true ? "imgHeaderLogMain1" : "imgHeaderLogMain"
-                }
-                src={logoMain}
-              />
+              <Link to="/client/bus-listing2">
+                <img
+                  className={
+                    navBarFixed == true
+                      ? "imgHeaderLogMain1"
+                      : "imgHeaderLogMain"
+                  }
+                  src={logoMain}
+                />
               </Link>
             </div>
           </Navbar.Brand>

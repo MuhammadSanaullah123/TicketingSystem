@@ -1,16 +1,16 @@
-import React, { useContext } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import React, { useContext } from "react";
+import { NavLink, Route } from "react-router-dom";
 // import Cookies from 'js-cookie';
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
-import { Button, WindmillContext } from '@windmill/react-ui';
-import { IoLogOutOutline } from 'react-icons/io5';
-import logoDark from '../../assets/img/logo/logo-dark.svg';
-import logoLight from '../../assets/img/logo/logo-light.svg';
+import { Button, WindmillContext } from "@windmill/react-ui";
+import { IoLogOutOutline } from "react-icons/io5";
+import logoDark from "../../assets/img/logo/logo-dark.svg";
+import logoLight from "../../assets/img/logo/logo-light.svg";
 
-import sidebar from '../../routes/sidebar';
+import sidebar from "../../routes/sidebar";
 
-import { AdminContext } from '../../context/AdminContext';
+import { AdminContext } from "../../context/AdminContext";
 
 const SidebarContent = () => {
   const cookies = new Cookies();
@@ -22,7 +22,6 @@ const SidebarContent = () => {
   const handleLogOut = () => {
     // dispatch({ type: 'USER_LOGOUT' });
     // Cookies.remove('adminInfo');
-
 
     Swal.fire({
       icon: "warning",
@@ -45,9 +44,9 @@ const SidebarContent = () => {
   return (
     <div className="py-4 text-gray-500">
       <a className="text-gray-900" href="/operator/dashboard">
-        
-        <h1 style={{marginLeft:'1.5rem', fontSize:'1.3rem'}}>Admin's Panel</h1>
-   
+        <h1 style={{ marginLeft: "1.5rem", fontSize: "1.3rem" }}>
+          Operator's Panel
+        </h1>
       </a>
       <ul className="mt-8">
         {sidebar.map((route) => (
@@ -71,9 +70,16 @@ const SidebarContent = () => {
         ))}
       </ul>
       <span className="lg:fixed bottom-0 px-6 py-6 w-64 mx-auto relative mt-3 block">
-        <Button onClick={handleLogOut} size="large" className="w-full addBusBtnHome">
+        <Button
+          onClick={handleLogOut}
+          size="large"
+          className="w-full addBusBtnHome"
+        >
           <span className="flex items-center">
-            <IoLogOutOutline className="mr-3 text-lg" style={{color:"#FFF"}} />
+            <IoLogOutOutline
+              className="mr-3 text-lg"
+              style={{ color: "#FFF" }}
+            />
             <span className="text-sm">Log out </span>
           </span>
         </Button>

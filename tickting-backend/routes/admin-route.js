@@ -5,7 +5,9 @@ const checkAuth = require("../middlewares/checkAuth");
 const restrictTo = require("../middlewares/restrictTo");
 
 router.route("/createAdmin").post(adminController.setAdminDetails);
-
+router
+  .route("/")
+  .patch(checkAuth, restrictTo("admin"), adminController.updateAdmin);
 router.route("/login").post(adminController.loginAdmin);
 
 router

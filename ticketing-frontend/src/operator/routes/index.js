@@ -17,7 +17,9 @@ const ProductDetails = lazy(() => import("../pages/BusDetails"));
 // const Category = lazy(() => import("../pages/Category"));
 const Request = lazy(() => import("../pages/Request"));
 const Customers = lazy(() => import("../pages/Customers"));
-const CustomersTravelHistory = lazy(() => import("../pages/CustomersTravelHistory"));
+const CustomersTravelHistory = lazy(() =>
+  import("../pages/CustomersTravelHistory")
+);
 
 const Admins = lazy(() => import("../pages/Admins"));
 const CustomerOrder = lazy(() => import("../pages/CustomerOrder"));
@@ -27,6 +29,7 @@ const Coupons = lazy(() => import("../pages/Coupons"));
 // const Setting = lazy(() => import("../pages/Setting"));
 //const Page404 = lazy(() => import("../pages/404"));
 const EditProfile = lazy(() => import("../pages/EditProfile"));
+const BusStations = lazy(() => import("../pages/BusStations"));
 
 /*
 //  * ⚠ These are internal routes!
@@ -84,15 +87,13 @@ const routes = [
     path: "/operator/coupons",
     component: Coupons,
   },
-  { path: "/operator/setting", 
-    component: EditProfile 
-  },
+  { path: "/operator/profile", component: EditProfile },
+  { path: "/operator/bus-stations", component: BusStations },
 
   {
     path: "/operator/edit-profile",
     component: EditProfile,
   },
-  
 ];
 
 export default routes;

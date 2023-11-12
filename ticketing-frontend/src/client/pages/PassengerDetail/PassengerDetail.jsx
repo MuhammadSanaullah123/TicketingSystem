@@ -51,9 +51,9 @@ const PassengerDetail = (props) => {
   const [tempDOB, setTempDOB] = useState();
   const [passengerDetail, setPassengerDetail] = useState({
     firstName: "",
-    lastName: "",
+    lastName: "", 
     middleName: "",
-    email: "",
+    email: receivedData ? receivedData?.email : "",
     cCode: 966,
     dateOfBirth: tempDOB,
     passportNumber: "",
@@ -186,7 +186,7 @@ const PassengerDetail = (props) => {
         passengerDetailForm = JSON.stringify(passengerDetailForm);
 
         const data = new FormData();
-
+        data.append("tripId", sessionStorage.getItem("tripId"));
         data.append("busId", receivedData.busId);
         data.append("phone", newNumber);
         data.append("noOfSeats", receivedData.noOfSeats);

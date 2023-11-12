@@ -70,7 +70,9 @@ exports.loginOperator = catchAsync(async (req, res, next) => {
   if (!user) {
     return next(new AppError("User Not Exists", 404));
   }
-  const passCompare = bcrypt.compare(password, user.password);
+  const passCompare = await bcrypt.compare(password, user.password);
+  console.log("PASSCOMPRe");
+  console.log(passCompare);
   if (!passCompare) {
     return next(new AppError("Try Logging In with Correct Credentials", 404));
   }
@@ -193,6 +195,50 @@ exports.getBookingDetails = catchAsync(async (req, res, next) => {
     booking = bookings;
   }
   res.json({ booking, length: booking.length });
+});
+
+exports.addBusStations = catchAsync(async (req, res, next) => {
+  const { images, locations } = req.body;
+  console.log(images);
+  console.log(locations);
+  const user = await User.findById(req.user.id);
+  const operator = await Operator.findOne({ userId: user.id });
+  console.log("OPERATOR");
+  console.log(operator);
+  operator.busStations.push({
+    images: images,
+    location: {
+      lat: locations.lat,
+      lng: locations.lng,
+    },
+  });
+  const updatedOperator = await operator.save();
+  console.log("updatedOperator");
+  console.log(updatedOperator);
+  res.json({
+    success: true,
+    message: "Bus Station Added Succesfully",
+    coupon: updatedOperator,
+  });
+});
+
+exports.removeBusStations = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user.id);
+  const operator = await Operator.findOne({ userId: user.id });
+  console.log("OPERATOR");
+  console.log(operator);
+  operator.busStations = operator.busStations.filter(
+    (station) => station._id.toString() !== req.params.id
+  );
+
+  const updatedOperator = await operator.save();
+  console.log("updatedOperator");
+  console.log(updatedOperator);
+  res.json({
+    success: true,
+    message: "Bus Station Removed Succesfully",
+    coupon: updatedOperator,
+  });
 });
 
 exports.addCoupon = catchAsync(async (req, res, next) => {

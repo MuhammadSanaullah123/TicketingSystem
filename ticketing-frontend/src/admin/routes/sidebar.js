@@ -7,17 +7,13 @@ import {
   FiGift,
   FiList,
   FiSettings,
+} from "react-icons/fi";
+import { BsBusFront, BsFillChatDotsFill } from "react-icons/bs";
 
-} from 'react-icons/fi';
-import {
-  BsBusFront,
-  BsFillChatDotsFill,
-} from 'react-icons/bs';
-
-import { BiTrip } from 'react-icons/bi'
-import { AiOutlineUser } from 'react-icons/ai'
-import { FaFileInvoice } from 'react-icons/fa'
-import { MdRequestPage } from 'react-icons/md'
+import { BiTrip } from "react-icons/bi";
+import { AiOutlineUser } from "react-icons/ai";
+import { FaFileInvoice } from "react-icons/fa";
+import { MdRequestPage } from "react-icons/md";
 /**
  * ⚠ These are used just to render the Sidebar!
  * You can include any link here, local or external.
@@ -27,29 +23,29 @@ import { MdRequestPage } from 'react-icons/md'
  */
 const sidebar = [
   {
-    path: '/admin/dashboard', // the url
+    path: "/admin/dashboard", // the url
     icon: FiGrid, // icon
-    name: 'Dashboard', // name that appear in Sidebar
+    name: "Dashboard", // name that appear in Sidebar
   },
   {
-    path: '/admin/buses',
+    path: "/admin/buses",
     icon: BsBusFront,
-    name: 'Buses',
+    name: "Buses",
   },
   {
-    path: '/admin/trips',
+    path: "/admin/trips",
     icon: BiTrip,
-    name: 'Trips',
+    name: "Trips",
   },
   {
-    path: '/admin/customers',
+    path: "/admin/customers",
     icon: AiOutlineUser,
-    name: 'Customers',
+    name: "Customers",
   },
   {
-    path: '/admin/admins',
+    path: "/admin/admins",
     icon: FiUsers,
-    name: 'Operators',
+    name: "Operators",
   },
   // {
   //   path: '/admin/AdminChat',
@@ -57,25 +53,25 @@ const sidebar = [
   //   name: 'Chat',
   // },
   {
-    path: '/admin/bookings',
+    path: "/admin/bookings",
     icon: FaFileInvoice,
-    name: 'Bookings',
+    name: "Bookings",
   },
   {
-    path: '/admin/coupons',
+    path: "/admin/coupons",
     icon: FiGift,
-    name: 'Coupons',
+    name: "Coupons",
   },
   {
-    path: '/admin/request',
+    path: "/admin/request",
     icon: MdRequestPage,
-    name: 'Requests',
+    name: "Requests",
   },
 
   {
-    path: '/admin/setting',
+    path: "/admin/profile",
     icon: FiSettings,
-    name: 'Setting',
+    name: "Edit Profile",
   },
 ];
 

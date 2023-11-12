@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ImWarning } from "react-icons/im";
+import Moment from "react-moment";
+
 // import Tooltip from "../tooltip/Tooltip";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import {
@@ -72,17 +74,7 @@ const ExclusiveTripsTable = ({
                   {item.busId.busNumber}
                 </span>
               </TableCell>
-              <TableCell>
-                <div className="flex items-center">
-                  <div>
-                    <h2 className="text-xs font-medium">
-                      <span className="text-xs font-medium">
-                        {item.routeFrom} To {item.routeTo}
-                      </span>
-                    </h2>
-                  </div>
-                </div>
-              </TableCell>
+
               <TableCell>
                 <span className="text-sm">{item.price}</span>
               </TableCell>
@@ -93,12 +85,16 @@ const ExclusiveTripsTable = ({
               </TableCell> */}
               <TableCell>
                 <span className="text-sm font-semibold">
-                  {item.departureTime}
+                  {item.routeFrom}-{" "}
+                  <Moment format="hh:mm A">{item.departureTime}</Moment>
                 </span>
               </TableCell>
 
               <TableCell>
-                <span className="text-sm">{item.arrivalTime}</span>
+                <span className="text-sm">
+                  {item.routeTo}-{" "}
+                  <Moment format="hh:mm A">{item.arrivalTime}</Moment>
+                </span>
               </TableCell>
               {/* <TableCell>
        

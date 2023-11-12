@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
+
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -16,15 +18,20 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 // React icons
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiLogIn, FiUser } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 // React Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dropdown from "react-bootstrap/Dropdown";
+import ForgotPassword from "./ForgotPassword";
+//cookies
+import Cookies from "universal-cookie";
+import { logout } from "../../../Redux/userReducer";
 
 const Header3 = () => {
-  const [status, setStatus] = useState("signup");
-
+  const [status, setStatus] = useState("login");
+  const cookies = new Cookies();
+  const dispatch = useDispatch();
   const searchedData = useSelector((state) => state?.userReducer?.searchDataH2);
   const priceData = useSelector((state) => state?.userReducer?.priceDataH2);
 
@@ -37,11 +44,40 @@ const Header3 = () => {
       setNavBarFixed(false);
     }
   };
-
+  const isLogin = cookies.get("auth");
   window.addEventListener("scroll", changeBackground);
 
   console.log("searchedDatahh", searchedData);
   console.log(status);
+
+  const handleDropdownToggle = (nextIsOpen, event, metadata) => {
+    if (!nextIsOpen) {
+      setStatus("login");
+    }
+  };
+  const handleLogout = () => {
+    // dispatch(resetState());
+
+    dispatch(logout());
+    Swal.fire({
+      icon: "warning",
+      title: "Oops...",
+      text: "You want to SignOut!",
+    }).then(() => {
+      // localStorage.clear();
+      // cookies.clear();
+      window.location.assign("/");
+      // navigate("/")
+      var allCookies = document.cookie.split(";");
+
+      // The "expire" attribute of every cookie is
+      // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
+      for (var i = 0; i < allCookies.length; i++)
+        document.cookie =
+          allCookies[i] + "=;expires=" + new Date(0).toUTCString();
+    });
+  };
+
   return (
     <>
       <div className="topWebH3">
@@ -57,9 +93,9 @@ const Header3 = () => {
           </div>
 
           <div className="right-header-part">
-            <Link to="/client/login" className="loginbtn">
+            {/*  <Link to="/client/login" className="loginbtn">
               Login
-            </Link>
+            </Link> */}
             <div className="language">
               <p>Choose your language:</p>
               <Dropdown>
@@ -79,33 +115,71 @@ const Header3 = () => {
               </span>
               <input type="text" placeholder="search..." />
             </div>
-            <div className="login-button">
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
-                  <button className="login-button-inner">
-                    <div className="btn-text">Login</div>
-                    <div className="btn-icon">
-                      <FiLogOut style={{ fontSize: "18px" }} />
-                    </div>
-                  </button>
-                </Dropdown.Toggle>
-                <Dropdown.Menu id="dropdown-menu">
-                  {status === "signup" ? (
-                    <Signup
-                      status={status}
-                      setStatusToSignin={() => setStatus("login")}
-                      setStatusToSignup={() => setStatus("signup")}
-                    />
-                  ) : (
-                    <Signin
-                      status={status}
-                      setStatusToSignin={() => setStatus("login")}
-                      setStatusToSignup={() => setStatus("signup")}
-                    />
-                  )}
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
+            {isLogin ? (
+              <>
+                {/*   <Link to="/client/edit-profile">
+                  <Grid item className="navLink">
+                    <p style={{ cursor: "pointer" }}>Edit Profile</p>
+                  </Grid>
+                </Link> */}
+                <Link
+                  to="/client/edit-profile"
+                  className="login-button-inner"
+                  style={{
+                    marginRight: "10px",
+                    textDecoration: "none",
+                  }}
+                >
+                  <div className="btn-text">Edit Profile</div>
+                  <div className="btn-icon">
+                    <FiUser style={{ fontSize: "18px" }} />
+                  </div>
+                </Link>
+                <button className="login-button-inner" onClick={handleLogout}>
+                  <div className="btn-text">Logout</div>
+                  <div className="btn-icon">
+                    <FiLogOut style={{ fontSize: "18px" }} />
+                  </div>
+                </button>
+              </>
+            ) : (
+              <div className="login-button">
+                <Dropdown onToggle={handleDropdownToggle}>
+                  <Dropdown.Toggle id="dropdown-basic">
+                    <button className="login-button-inner">
+                      <div className="btn-text">Login</div>
+                      <div className="btn-icon">
+                        <FiLogIn style={{ fontSize: "18px" }} />
+                      </div>
+                    </button>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu id="dropdown-menu">
+                    {status === "signup" ? (
+                      <Signup
+                        status={status}
+                        setStatusToSignin={() => setStatus("login")}
+                        setStatusToSignup={() => setStatus("signup")}
+                        setStatusToForgot={() => setStatus("forgot")}
+                      />
+                    ) : status === "login" ? (
+                      <Signin
+                        status={status}
+                        setStatusToSignin={() => setStatus("login")}
+                        setStatusToSignup={() => setStatus("signup")}
+                        setStatusToForgot={() => setStatus("forgot")}
+                      />
+                    ) : (
+                      <ForgotPassword
+                        status={status}
+                        setStatusToSignin={() => setStatus("login")}
+                        setStatusToSignup={() => setStatus("signup")}
+                        setStatusToForgot={() => setStatus("forgot")}
+                      />
+                    )}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            )}
           </div>
         </div>
       </div>

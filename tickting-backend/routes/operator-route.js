@@ -66,13 +66,28 @@ router
     operatorController.deleteCoupon
   );
 
+router.route("/:id").get(operatorController.getOperatorDetails);
+
 router
-  .route("/:id")
-  .get(operatorController.getOperatorDetails)
+  .route("/")
   .patch(
     checkAuth,
     restrictTo("operator", "admin"),
     adminController.updateOperator
+  );
+router
+  .route("/addBusStations")
+  .patch(
+    checkAuth,
+    restrictTo("operator", "admin"),
+    operatorController.addBusStations
+  );
+router
+  .route("/removeBusStations/:id")
+  .patch(
+    checkAuth,
+    restrictTo("operator", "admin"),
+    operatorController.removeBusStations 
   );
 
 module.exports = router;

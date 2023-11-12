@@ -1,0 +1,28 @@
+.plusIcon {
+  color: #22c55e;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.custom-modal {
+  width: 50%;
+}
+.custom-modal footer {
+  display: none;
+}
+.custom-modal p {
+  margin-top: 0 !important;
+}
+.css-2b097c-container {
+  width: 100%;
+  margin: 10px 0 15px 0;
+}
+.mapDiv {
+  display: flex;
+  align-items: center;
+}
+.checkIcon {
+  color: #22c55e;
+  font-size: 30px !important;
+  margin-left: 10px;
+}

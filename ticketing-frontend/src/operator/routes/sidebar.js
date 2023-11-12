@@ -7,17 +7,14 @@ import {
   FiGift,
   FiList,
   FiSettings,
+  FiBus,
+} from "react-icons/fi";
+import { BsBusFront, BsFillChatDotsFill, BsMap } from "react-icons/bs";
 
-} from 'react-icons/fi';
-import {
-  BsBusFront,
-  BsFillChatDotsFill,
-} from 'react-icons/bs';
-
-import { BiTrip } from 'react-icons/bi'
-import { AiOutlineUser } from 'react-icons/ai'
-import { FaFileInvoice } from 'react-icons/fa'
-import { MdRequestPage } from 'react-icons/md'
+import { BiTrip } from "react-icons/bi";
+import { AiOutlineUser } from "react-icons/ai";
+import { FaFileInvoice } from "react-icons/fa";
+import { MdRequestPage } from "react-icons/md";
 /**
  * ⚠ These are used just to render the Sidebar!
  * You can include any link here, local or external.
@@ -27,34 +24,39 @@ import { MdRequestPage } from 'react-icons/md'
  */
 const sidebar = [
   {
-    path: '/operator/dashboard', // the url
+    path: "/operator/dashboard", // the url
     icon: FiGrid, // icon
-    name: 'Dashboard', // name that appear in Sidebar
+    name: "Dashboard", // name that appear in Sidebar
   },
   {
-    path: '/operator/buses',
+    path: "/operator/buses",
     icon: BsBusFront,
-    name: 'Buses',
+    name: "Buses",
   },
   {
-    path: '/operator/trips',
+    path: "/operator/trips",
     icon: BiTrip,
-    name: 'Trips',
+    name: "Trips",
   },
   {
-    path: '/operator/bookings',
+    path: "/operator/bookings",
     icon: FaFileInvoice,
-    name: 'Bookings',
+    name: "Bookings",
   },
   {
-    path: '/operator/coupons',
+    path: "/operator/coupons",
     icon: FiGift,
-    name: 'Coupons',
+    name: "Coupons",
   },
   {
-    path: '/operator/setting',
+    path: "/operator/bus-stations",
+    icon: BsMap,
+    name: "Bus Stations",
+  },
+  {
+    path: "/operator/profile",
     icon: FiSettings,
-    name: 'Setting',
+    name: "Edit Profile",
   },
 ];
 

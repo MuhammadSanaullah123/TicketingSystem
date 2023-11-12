@@ -102,7 +102,7 @@ const Trips = () => {
                 <tr>
                   <TableCell>Trip ID</TableCell>
                   <TableCell>Bus Number Plate</TableCell>
-                  <TableCell>Route</TableCell>
+
                   <TableCell>Price</TableCell>
                   <TableCell>Departure</TableCell>
                   <TableCell>Arrival</TableCell>
@@ -129,7 +129,7 @@ const Trips = () => {
                 <tr>
                   <TableCell>Regular Trip ID</TableCell>
                   <TableCell>Bus Number Plate</TableCell>
-                  <TableCell>Route</TableCell>
+
                   <TableCell>Price</TableCell>
                   <TableCell>Departure</TableCell>
                   <TableCell>Arrival</TableCell>

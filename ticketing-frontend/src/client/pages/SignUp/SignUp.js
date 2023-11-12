@@ -12,7 +12,7 @@ import "./SignUp.scss";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+import AccountCircle from "@mui/icons-material/AccountCircle"; 
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";

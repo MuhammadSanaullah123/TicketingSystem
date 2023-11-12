@@ -107,8 +107,7 @@ const ProductDrawer = ({ id }) => {
     seats: singleBusData?.totalSeats,
   });
 
-
-console.log("busDatabusData",busData)
+  console.log("busDatabusData", busData);
 
   const handleSeatSelection = () => {
     setSelection(!seatSelection);
@@ -236,12 +235,12 @@ console.log("busDatabusData",busData)
 
     const response = dispatch(updateBus(data));
   };
-  useEffect(async() => {
-    const user={
-      busId:id
-    }
-    const singleBusResponse=await dispatch(busDetail(user));
-    console.log("singleBusResponse11",singleBusResponse)
+  useEffect(async () => {
+    const user = {
+      busId: id,
+    };
+    const singleBusResponse = await dispatch(busDetail(user));
+    console.log("singleBusResponse11", singleBusResponse);
   }, []);
   const [address, setAdress] = useState("");
   const { coordinates, setCoordinates } = useState({
@@ -258,8 +257,6 @@ console.log("busDatabusData",busData)
       <ComboboxOption key={place_id} value={description} />
     ));
 
-
- 
     return (
       <>
         {suggestions}

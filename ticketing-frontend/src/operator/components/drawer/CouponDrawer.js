@@ -7,6 +7,7 @@ import Cookies from "universal-cookie";
 import Error from "../form/Error";
 import LabelArea from "../form/LabelArea";
 import InputArea from "../form/InputArea";
+import SelectCity from "../../../admin/components/form/SelectCity";
 import InputValue from "../form/InputValue";
 import SelectOption from "../form/SelectOption";
 import SelectBusType from "../form/SelectBusType";
@@ -18,10 +19,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { addCouponAdmin } from "../../../Redux/userReducer";
 import { SidebarContext } from "../../context/SidebarContext";
 import { updateCouponAdmin } from "../../../Redux/userReducer";
+import { connect } from "react-redux";
 
 const cookies = new Cookies();
 
-const CouponDrawer = ({ id, currentCoupon }) => {
+const CouponDrawer = ({ id, currentCoupon, trips: { allTrips, trip } }) => {
   const dispatch = useDispatch();
   const userId = cookies.get("userID");
   /*   let currentCouponData = currentCoupon; */
@@ -33,13 +35,13 @@ const CouponDrawer = ({ id, currentCoupon }) => {
     (state) => state?.userReducer?.allCouponsAdmin
   );
   /*   const currentCoupon = coupanDataAdmin?.filter((coupon) => coupon._id === id); */
-
   const [coupon, setCoupon] = useState({
     name: currentCoupon ? currentCoupon.name : "",
     code: currentCoupon ? currentCoupon.code : "",
     validity: currentCoupon ? currentCoupon.validity : "",
     discount: currentCoupon ? currentCoupon.discount : "",
-    busType: currentCoupon ? currentCoupon.busType : "",
+    departureRoute: currentCoupon ? currentCoupon.routeFrom : "",
+    arrivalRoute: currentCoupon ? currentCoupon.routeTo : "",
   });
   useEffect(() => {
     if (id) {
@@ -48,7 +50,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
         code: currentCoupon?.code,
         validity: currentCoupon?.validity,
         discount: currentCoupon?.discount,
-        busType: currentCoupon?.busType,
+        departureRoute: currentCoupon?.routeFrom,
+        arrivalRoute: currentCoupon?.routeTo,
       });
       setImage(currentCoupon?.image);
     } else {
@@ -57,7 +60,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
         code: "",
         validity: "",
         discount: "",
-        busType: "",
+        departureRoute: "",
+        arrivalRoute: "",
       });
       setImage();
     }
@@ -92,7 +96,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
     data.append("code", coupon.code);
     data.append("validity", coupon.validity);
     data.append("discount", coupon.discount);
-    data.append("busType", coupon.busType);
+    data.append("routeFrom", coupon.departureRoute);
+    data.append("routeTo", coupon.arrivalRoute);
 
     dispatch(addCouponAdmin({ data, coupanDataAdmin }));
     setCoupon({
@@ -100,7 +105,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
       code: "",
       validity: "",
       discount: "",
-      busType: "",
+      departureRoute: "",
+      arrivalRoute: "",
     });
     setImage();
   };
@@ -125,7 +131,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
       validity: coupon.validity,
       discount: coupon.discount,
       code: coupon.code,
-      busType: coupon.busType,
+      departureRoute: coupon.departureRoute,
+      arrivalRoute: coupon.arrivalRoute,
     };
 
     dispatch(updateCouponAdmin({ data, coupanDataAdmin }));
@@ -232,16 +239,25 @@ const CouponDrawer = ({ id, currentCoupon }) => {
               </div>
 
               <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-                <LabelArea label="Bus Type" />
+                <LabelArea label="Departure City" />
                 <div className="col-span-8 sm:col-span-4">
-                  <SelectBusType
-                    register={register}
-                    label="Bus type"
-                    defaultValue={coupon.busType}
-                    onChange={handleCouponData}
-                    name="busType"
+                  <SelectCity
+                    label="Departure City"
+                    name="departureRoute"
+                    defaultValue={coupon.departureRoute}
+                    onChange={(e) => handleCouponData(e)}
                   />
-                  <Error errorName={errors.productType} />
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label="Arrival City" />
+                <div className="col-span-8 sm:col-span-4">
+                  <SelectCity
+                    label="Arrival City"
+                    name="arrivalRoute"
+                    defaultValue={coupon.arrivalRoute}
+                    onChange={(e) => handleCouponData(e)}
+                  />
                 </div>
               </div>
             </div>
@@ -347,17 +363,25 @@ const CouponDrawer = ({ id, currentCoupon }) => {
               </div>
 
               <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-                <LabelArea label="Bus Type" />
+                <LabelArea label="Departure City" />
                 <div className="col-span-8 sm:col-span-4">
-                  <SelectBusType
-                    register={register}
-                    label="Bus type"
-                    defaultValue={coupon.busType}
-                    onChange={handleCouponData}
-                    name="busType"
+                  <SelectCity
+                    label="Departure City"
+                    name="departureRoute"
+                    defaultValue={coupon.departureRoute}
+                    onChange={(e) => handleCouponData(e)}
                   />
-
-                  <Error errorName={errors.productType} />
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+                <LabelArea label="Arrival City" />
+                <div className="col-span-8 sm:col-span-4">
+                  <SelectCity
+                    label="Arrival City"
+                    name="arrivalRoute"
+                    defaultValue={coupon.arrivalRoute}
+                    onChange={(e) => handleCouponData(e)}
+                  />
                 </div>
               </div>
             </div>
@@ -394,4 +418,8 @@ const CouponDrawer = ({ id, currentCoupon }) => {
   );
 };
 
-export default CouponDrawer;
+const mapStateToProps = (state) => ({
+  trips: state.trips,
+});
+
+export default connect(mapStateToProps, null)(CouponDrawer);

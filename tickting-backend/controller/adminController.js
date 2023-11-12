@@ -18,6 +18,39 @@ exports.getAdminDetails = catchAsync(async (req, res, next) => {
   res.json({ success: true, admin });
 });
 
+exports.updateAdmin = catchAsync(async (req, res, next) => {
+  const { image, username, contactnumber, email, password } = req.body;
+  const data = {
+    image,
+    username,
+    phone: contactnumber,
+    email,
+    password,
+  };
+  console.log(data);
+  let user = await User.findById(req.user.id);
+  console.log("USER");
+  console.log(user);
+
+  const checkMail = await User.find({ email });
+  if (checkMail.length != 0) {
+    return next(new AppError("Email Already Exists", 400));
+  }
+  if (!(email && password)) {
+    return next(new AppError("Please Provide Email and Password"));
+  }
+  const salt = await bcrypt.genSalt();
+  const hashPass = await bcrypt.hash(password, salt);
+  user.email = email;
+  user.password = hashPass;
+  user.image = image;
+  user.username = username;
+  user.phone = contactnumber;
+  await user.save();
+
+  res.json({ success: true, user });
+});
+
 exports.setAdminDetails = catchAsync(async (req, res, next) => {
   const { username, phone, email, password, civilianId } = req.body;
   const checkMail = await User.find({ email });
@@ -138,7 +171,7 @@ exports.getBookings = catchAsync(async (req, res, next) => {
 });
 
 exports.addCoupon = catchAsync(async (req, res, next) => {
-  const { name, code, validity, discount, busType } = req.body;
+  const { name, code, validity, discount, routeFrom, routeTo } = req.body;
   if (!(name && code && discount)) {
     return next(new AppError("Provide the Necessary Fields", 400));
   }
@@ -148,7 +181,8 @@ exports.addCoupon = catchAsync(async (req, res, next) => {
     code,
     validity,
     discount,
-    busType,
+    routeFrom,
+    routeTo,
   });
   const savedCoupon = await newCoupon.save();
   res.json({
@@ -172,14 +206,16 @@ exports.deleteCoupon = catchAsync(async (req, res, next) => {
 });
 
 exports.updateCoupon = catchAsync(async (req, res, next) => {
-  const { name, code, validity, discount, busType, image } = req.body;
-  console.log(req.body);
+  const { name, code, validity, discount, image, routeFrom, routeTo } =
+    req.body;
+
   const updatedObject = {
     name,
     code,
     validity,
     discount,
-    busType,
+    routeFrom,
+    routeTo,
     image: image,
   };
   const updatedCoupon = await Coupon.findByIdAndUpdate(
@@ -251,23 +287,61 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 });
 
 exports.updateOperator = catchAsync(async (req, res, next) => {
-  const { operatorName, name, address, contact } = req.body;
+  const {
+    companyname,
+    username,
+    contactnumber,
+    email,
+    password,
+    image,
+    companyaddress,
+    companycontactnumber,
+    companylocation,
+  } = req.body;
   const data = {
-    operatorName,
-    name,
-    address,
-    contact,
+    companyname,
+    username,
+    contactnumber,
+    image,
+    companyaddress,
+    companycontactnumber,
+    companylocation,
   };
+  console.log(data);
   let user = await User.findById(req.user.id);
+  console.log("USER");
+  console.log(user);
   let operator = await Operator.findOne({ userId: req.user.id });
-  if (user.role !== "admin" && operator.id !== req.params.id) {
-    return next(new AppError("You are not Authorized", 403));
+  console.log("operator");
+  console.log(operator);
+
+  if (user.email !== email) {
+    const checkMail = await User.find({ email });
+    if (checkMail.length != 0) {
+      return next(new AppError("Email Already Exists", 400));
+    }
+    user.email = email;
   }
-  const updatedOperator = await Operator.findByIdAndUpdate(
-    req.params.id,
-    data,
-    { new: true }
-  );
+
+  const passCompare = await bcrypt.compare(password, user.password);
+
+  if (!passCompare) {
+    const salt = await bcrypt.genSalt();
+    const hashPass = await bcrypt.hash(password, salt);
+    user.password = hashPass;
+  }
+
+  if (!(email && password)) {
+    return next(new AppError("Please Provide Email and Password"));
+  }
+
+  await user.save();
+  /*  if (operator.id !== req.params.id) {
+    return next(new AppError("You are not Authorized", 403));
+  } */
+  const updatedOperator = await Operator.findByIdAndUpdate(operator._id, data, {
+    new: true,
+  });
   if (!updatedOperator)
     return res.json({ message: "Invalid Operator Id Provided" });
   res.json({ success: true, updatedOperator });

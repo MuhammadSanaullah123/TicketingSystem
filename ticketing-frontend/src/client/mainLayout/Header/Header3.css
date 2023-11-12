@@ -36,6 +36,7 @@
 }
 .search-bar {
   align-self: center;
+  display: flex;
 }
 
 .search-bar input {
@@ -60,6 +61,11 @@
   color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.login-button-inner:hover {
+  color: #fff;
 }
 /* .dropdown button {
     background-color: white !important;
@@ -263,7 +269,11 @@
   font-weight: 700;
   line-height: 18px; /* 120% */
 }
-
+.forgot-welcome {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 18px; /* 120% */
+}
 .signup-pre {
   margin-top: 2px;
   color: #7b7b7b;
@@ -293,6 +303,7 @@
   font-weight: 700;
   line-height: 18px; /* 180% */
   text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .button-signup {
@@ -303,6 +314,7 @@
   margin-top: 15px;
   background-color: #c39133;
   color: white;
+  cursor: pointer;
 }
 
 .or-text {
@@ -321,6 +333,7 @@
   padding: 5px 60px !important;
   margin-top: 10px;
   display: flex;
+  cursor: pointer;
 }
 
 .button-signup-facebook {
@@ -331,6 +344,7 @@
   color: white !important;
   padding: 5px 50px !important;
   margin-top: 10px;
+  cursor: pointer;
   display: flex;
 }
 
@@ -345,7 +359,21 @@
   line-height: 18px; /* 180% */
   margin-top: 18px;
 }
+.forgot-pre {
+  color: #7b7b7b;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px; /* 180% */
+  margin-top: 5px;
+}
 
+.forgot-pre span {
+  font-weight: 700;
+  font-size: 12px;
+
+  text-decoration: underline;
+  color: #000;
+}
 .signin-pre span {
   color: #c78d15;
   font-weight: 600;
@@ -380,4 +408,9 @@
   color: #fff;
   transform: scale(1.01);
   transition: all ease 0.3s;
+}
+.logoutBtn {
+  color: #fff;
+  background-color: #c39133;
+  border-radius: 6px;
 }

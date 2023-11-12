@@ -131,7 +131,7 @@ const AddTripByAdmin = ({
         <form className="block">
           <div className="px-6 pt-8 flex-grow w-full h-full max-h-full pb-40 md:pb-32 lg:pb-32 xl:pb-32">
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Bus Number Plate" /> 
+              <LabelArea label="Bus Number Plate" />
               <div className="col-span-8 sm:col-span-4">
                 <Select
                   className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"

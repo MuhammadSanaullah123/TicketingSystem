@@ -158,9 +158,12 @@ const EachBusData = ({ bus, trip, operator }) => {
             xs={1.71}
             className="result-each-data-extra"
             flexDirection="column"
-          >
+          > 
             <span className="result-each-data-extra-available">
-              <span className="bold">{bus[0].totalSeats}</span> Available
+              <span className="bold">
+                {bus[0].totalSeats - bus[0].occupiedSeats.length}
+              </span>{" "}
+              Available
             </span>
             {/*  <span className="result-each-data-extra-windows">
               <span className="bold">20</span> Windows
@@ -183,7 +186,7 @@ const EachBusData = ({ bus, trip, operator }) => {
           className="result-each-amenities"
           justifyContent="space-between"
           flexDirection="row"
-          style={{ width: "100%" }}
+          style={{ width: "100%" }} 
         >
           <Grid item display="flex" flexDirection="row" alignItems="self-end">
             {/* <Amenities data={busData?.bus_facilities} /> */}

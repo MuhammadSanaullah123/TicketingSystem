@@ -6,6 +6,9 @@ const bookingSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Trip",
     },
+    NoOfpassengers: {
+      type: String,
+    },
     bookingId: {
       type: String,
     },
@@ -43,6 +46,10 @@ const bookingSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
+        middleName: {
+          type: String,
+          required: true,
+        },
         lastName: {
           type: String,
         },
@@ -60,10 +67,7 @@ const bookingSchema = new mongoose.Schema(
         country: {
           type: String,
         },
-        mobile: {
-          type: String,
-        },
-        passport: {
+        image: {
           type: String,
         },
       },
@@ -82,6 +86,9 @@ const bookingSchema = new mongoose.Schema(
     date: {
       type: Date,
       default: Date.now,
+    },
+    bookedBy: {
+      type: String,
     },
   },
   {

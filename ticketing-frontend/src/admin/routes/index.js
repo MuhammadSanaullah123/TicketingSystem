@@ -17,7 +17,9 @@ const ProductDetails = lazy(() => import("../pages/BusDetails"));
 // const Category = lazy(() => import("../pages/Category"));
 const Request = lazy(() => import("../pages/Request"));
 const Customers = lazy(() => import("../pages/Customers"));
-const CustomersTravelHistory = lazy(() => import("../pages/CustomersTravelHistory"));
+const CustomersTravelHistory = lazy(() =>
+  import("../pages/CustomersTravelHistory")
+);
 
 const Admins = lazy(() => import("../pages/Admins"));
 const CustomerOrder = lazy(() => import("../pages/CustomerOrder"));
@@ -88,9 +90,7 @@ const routes = [
     path: "/admin/coupons",
     component: Coupons,
   },
-  { path: "/admin/setting", 
-    component: EditProfile 
-  },
+  { path: "/admin/profile", component: EditProfile },
 
   {
     path: "/admin/edit-profile",
@@ -104,7 +104,6 @@ const routes = [
     path: "/admin/adminChatBox",
     component: AdminChatBox,
   },
-  
 ];
 
 export default routes;

@@ -1,51 +1,54 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema(
+  {
     username: {
-        type: String,
+      type: String,
     },
     password: {
-        type: String
+      type: String,
     },
     customerId: {
-        type: String
+      type: String,
     },
     image: {
-        type: String
+      type: String,
     },
     walletId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Wallet'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Wallet",
     },
     email: {
-        type: String,
-        unique: true,
-        required: true
+      type: String,
+      unique: true,
+      required: true,
     },
     phone: {
-        type: String
+      type: String,
     },
     googleId: {
-        type: String
+      type: String,
     },
     address: {
-        type: String
+      type: String,
     },
     civilianId: {
-        type: String
+      type: String,
     },
     role: {
-        type: String,
-        enum: ['operator', 'customer', 'admin'],
-        default: 'customer'
+      type: String,
+      enum: ["operator", "customer", "admin"],
+      default: "customer",
     },
     resetToken: {
-        type: String,
-        default: ""
-    }
-}, {
-    timestamps: true
-})
+      type: String,
+      default: "",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const User = mongoose.model("User", UserSchema);
 

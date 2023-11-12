@@ -177,7 +177,7 @@ export default function Header() {
         >
           <Accordion>
             <Accordion.Item eventKey="0">
-              <Accordion.Header >Services</Accordion.Header>
+              <Accordion.Header>Services</Accordion.Header>
               <Accordion.Body>
                 <div>
                   <Link
@@ -234,7 +234,7 @@ export default function Header() {
         >
           My Bookings
         </Grid>
-   
+
         <Grid
           item
           xs={12}
@@ -284,37 +284,61 @@ export default function Header() {
                 >
                   <Link
                     to="/client/bus-service"
-                    style={{ color: "#c99a3c", textDecoration: "none",fontSize:"18px" }}
+                    style={{
+                      color: "#c99a3c",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>BUS</div>
                   </Link>
                   <Link
                     to="/client/visa-service"
-                    style={{ color: "#343434", textDecoration: "none",fontSize:"18px" }}
+                    style={{
+                      color: "#343434",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>VISA SERVICE</div>
                   </Link>
                   <Link
                     to="/client/cargo-service"
-                    style={{ color: "#343434", textDecoration: "none",fontSize:"18px" }}
+                    style={{
+                      color: "#343434",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>CARGO SERVICE</div>
                   </Link>
                   <Link
                     to="/client/hajj-service"
-                    style={{ color: "#343434", textDecoration: "none",fontSize:"18px" }}
+                    style={{
+                      color: "#343434",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>HAJJ</div>
                   </Link>
                   <Link
                     to="/client/umrah-service"
-                    style={{ color: "#343434", textDecoration: "none", fontSize:"18px" }}
+                    style={{
+                      color: "#343434",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>UMRAH</div>
                   </Link>
                   <Link
                     to="/client/tourism-service"
-                    style={{ color: "#343434", textDecoration: "none", fontSize:"18px" }}
+                    style={{
+                      color: "#343434",
+                      textDecoration: "none",
+                      fontSize: "18px",
+                    }}
                   >
                     <div>TOURISM</div>
                   </Link>
@@ -390,7 +414,7 @@ export default function Header() {
           {["left"].map((anchor) => (
             <React.Fragment key={anchor}>
               <Button onClick={toggleDrawer(anchor, true)}>
-                <MenuIcon style={{ color: "#c99a3c",fontSize:"40px" }} />
+                <MenuIcon style={{ color: "#c99a3c", fontSize: "40px" }} />
               </Button>
               <Drawer
                 anchor={anchor}

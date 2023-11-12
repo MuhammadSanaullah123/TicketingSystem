@@ -481,8 +481,9 @@ export const logout = createAsyncThunk("logout", async (user) => {
 });
 
 //get user
-export const getUser = createAsyncThunk("getUser", async (user) => {
-  const auth = cookies.get("auth");
+export const getUser = createAsyncThunk("getUser", async (/* user */) => {
+  const auth = sessionStorage.getItem("token");
+
   try {
     const data = await axios.get(
       `${SERVER_URL}/auth/getUser`,
@@ -493,8 +494,6 @@ export const getUser = createAsyncThunk("getUser", async (user) => {
         },
       }
     );
-
-    console.log("dataLogin", data.data);
 
     return data.data;
   } catch (err) {
@@ -622,21 +621,97 @@ export const updateBooking = createAsyncThunk("updateBooking", async (user) => {
 });
 
 // update operator
+export const updateAdmin = createAsyncThunk("updateAdmin", async (data) => {
+  const userId = cookies.get("userID");
+  const auth = sessionStorage.getItem("token");
+  console.log(data.image);
+
+  try {
+    const res = await axios.patch(
+      // api/operator
+      `${SERVER_URL}/admin/`,
+
+      data,
+      {
+        headers: {
+          // Authorization: `Basic ${auth}` ,
+          auth: `${auth}`,
+        },
+      }
+    );
+
+    console.log("DataRes", res);
+    return res;
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// add bus station to operator
+export const addBusStations = createAsyncThunk("addBus", async (data) => {
+  const userId = cookies.get("userID");
+  const auth = sessionStorage.getItem("token");
+
+  try {
+    const res = await axios.patch(
+      // api/operator
+      `${SERVER_URL}/operator/addBusStations`,
+
+      data,
+      {
+        headers: {
+          // Authorization: `Basic ${auth}` ,
+          auth: `${auth}`,
+        },
+      }
+    );
+   
+    console.log("DataRes", res);
+    return res;
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// remove bus station from operator
+export const removeBusStations = createAsyncThunk("addBus", async (id) => {
+  const userId = cookies.get("userID");
+  const auth = sessionStorage.getItem("token");
+
+  try {
+    const res = await axios.patch(
+      // api/operator
+      `${SERVER_URL}/operator/removeBusStations/${id}`,
+
+      {
+        headers: {
+          // Authorization: `Basic ${auth}` ,
+          auth: `${auth}`,
+        },
+      }
+    );
+  
+    console.log("DataRes", res);
+    return res;
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// update operator
 export const updateOperator = createAsyncThunk(
   "updateOperator",
-  async (user) => {
+  async (data) => {
     const userId = cookies.get("userID");
-    const auth = cookies.get("auth");
-    console.log("userIDRedux", userId);
-    console.log("tokenOper", auth);
-    console.log(`Bearer ${cookies.get("auth")}`);
+    const auth = sessionStorage.getItem("token");
+    console.log(data.image);
 
     try {
-      const data = await axios.patch(
+      const res = await axios.patch(
         // api/operator
-        `${SERVER_URL}/operator/${userId}`,
+        `${SERVER_URL}/operator/`,
 
-        user,
+        data,
         {
           headers: {
             // Authorization: `Basic ${auth}` ,
@@ -645,9 +720,11 @@ export const updateOperator = createAsyncThunk(
         }
       );
 
-      console.log("DataRes", data);
-      return data;
-    } catch (err) {}
+      console.log("DataRes", res);
+      return res;
+    } catch (err) {
+      console.error(err);
+    }
   }
 );
 
@@ -817,7 +894,8 @@ export const updateCouponAdmin = createAsyncThunk(
     formData.append("code", data.code);
     formData.append("validity", data.validity);
     formData.append("discount", data.discount);
-    formData.append("busType", data.busType);
+    formData.append("routeFrom", data.departureRoute);
+    formData.append("routeTo", data.arrivalRoute);
 
     try {
       const response = await axios.patch(
@@ -993,7 +1071,7 @@ export const deleteCouponAdmin = createAsyncThunk(
       //   text: err.response.message,
       // });
     }
-  } 
+  }
 );
 //Book Seats
 export const bookSeats = createAsyncThunk("bookSeats", async (data) => {

@@ -1,31 +1,37 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const CouponSchema = new mongoose.Schema({
+const CouponSchema = new mongoose.Schema(
+  {
     operatorId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Operator'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Operator",
     },
     image: {
-        type: String
+      type: String,
     },
     name: {
-        type: String
+      type: String,
     },
     code: {
-        type: String
+      type: String,
     },
     validity: {
-        type: String
+      type: String,
     },
     discount: {
-        type: String
+      type: String,
     },
-    busType: {
-        type: String
-    }
-}, {
-    timestamps: true
-})
+    routeFrom: {
+      type: String,
+    },
+    routeTo: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Coupon = mongoose.model("Coupon", CouponSchema)
-module.exports = Coupon
+const Coupon = mongoose.model("Coupon", CouponSchema);
+module.exports = Coupon;

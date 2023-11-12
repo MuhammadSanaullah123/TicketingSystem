@@ -96,13 +96,13 @@ const StaffTable = ({ handleGetAllRequests, requests: { allRequests } }) => {
             <TableCell>
               <button
                 className={`text-sm font-semibold ${
-                  request.status === true ? "approve" : "notapprove"
+                  request.status === true ? "notapprove" : "approve"
                 }`}
                 onClick={() => handleStatusChange(request._id)}
               >
                 {/* {staff.role} */}
                 {/*  <Status status={"Processing"} /> */}
-                {request.status ? "Approved" : "Not Approved"}
+                {request.status ? "Closed" : "Open"}
               </button>
             </TableCell>
             {/* <TableCell>

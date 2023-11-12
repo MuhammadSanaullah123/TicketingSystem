@@ -9,16 +9,56 @@ const operatorSchema = new mongoose.Schema(
     operatorId: {
       type: String,
     },
-    operatorName: {
+    image: {
       type: String,
     },
-    name: {
+    companyname: {
+      type: String,
+    },
+    username: {
       type: String,
       // required: true
     },
-    address: {
+    contactnumber: {
       type: String,
     },
+    /*   email: {
+      type: String,
+      unique: true,
+    },
+    password: {
+      type: String,
+    }, */
+    companyaddress: {
+      type: String,
+    },
+    companycontactnumber: {
+      type: String,
+    },
+    companylocation: {
+      lat: {
+        type: Number,
+      },
+      lng: {
+        type: Number,
+      },
+    },
+    busStations: [
+      {
+        images: {
+          type: String,
+        },
+
+        location: {
+          lat: {
+            type: Number,
+          },
+          lng: {
+            type: Number,
+          },
+        },
+      },
+    ],
     busId: {
       type: [mongoose.Schema.Types.ObjectId],
       ref: "Bus",

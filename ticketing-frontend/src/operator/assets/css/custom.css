@@ -13,7 +13,12 @@
   transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 }
 .drawer .drawer-mask {
-  background: rgba(rgb(32, 28, 28), rgb(28, 31, 28), rgb(37, 37, 39), .7) !important;
+  background: rgba(
+    rgb(32, 28, 28),
+    rgb(28, 31, 28),
+    rgb(37, 37, 39),
+    0.7
+  ) !important;
   opacity: 0;
   width: 100%;
   height: 0;
@@ -56,7 +61,7 @@
 }
 .drawer-handle-icon:before,
 .drawer-handle-icon:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   background: #333;
@@ -265,9 +270,9 @@
 }
 
 /* dropdown style */
-.dropdown {
+/* .dropdown {
   display: none !important;
-}
+} */
 
 /* notification box css */
 
@@ -287,17 +292,16 @@
 .notification-content p span {
   font-size: 11px;
 }
-.pageTitle{
+.pageTitle {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
 }
-.my-6{
+.my-6 {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-
 }
 
-.vehicleAdminMain{
+.vehicleAdminMain {
   /* height: 500px; */
   width: 100%;
   /* background-color: red; */
@@ -305,109 +309,94 @@
   margin-left: 1px;
 }
 
-.topSideVehicles{
+.topSideVehicles {
   display: flex;
   /* gap: 0px; */
 }
 
-.topTextsVehiclAdmin{
+.topTextsVehiclAdmin {
   display: flex;
   justify-content: center;
-  width:700px;
+  width: 700px;
   margin: auto;
   margin-top: 40px;
 
   gap: 100px;
 }
 
-.topTextEditAdmVehic{
+.topTextEditAdmVehic {
   /* font-size: 20px; */
-  color: #03BABC !important;
+  color: #03babc !important;
   text-align: center;
   font-size: 30px;
   letter-spacing: 1px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   line-height: 1.5;
-  font-family: 'Poppins', sans-serif;
-
-
+  font-family: "Poppins", sans-serif;
 }
 
-
-.btnAddVehicle{
-  background-color: #03BABC;
-  border-color: #03BABC;
-  color: #fff!important;
+.btnAddVehicle {
+  background-color: #03babc;
+  border-color: #03babc;
+  color: #fff !important;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-
-.inputSearchVehic{
+.inputSearchVehic {
   height: 45px;
   border-radius: 5px;
   width: 300px;
   border: none;
   padding-left: 10px;
-  border: 1px solid #F5D77F;
-  font-family: 'Poppins', sans-serif;
-
-
+  border: 1px solid #f5d77f;
+  font-family: "Poppins", sans-serif;
 }
 
-.btnSearchVehicle{
+.btnSearchVehicle {
   height: 45px;
   border-radius: 5px;
   width: 100px;
   border: none;
   padding-left: 10px;
   box-shadow: 0 3px 5px 0 rgb(47 85 212 / 30%);
-  color: #03BABC!important;
+  color: #03babc !important;
 
-  border: 1px solid #03BABC;
-  font-family: 'Poppins', sans-serif;
-
+  border: 1px solid #03babc;
+  font-family: "Poppins", sans-serif;
 }
 
-
-.topInputBtnSearch{
+.topInputBtnSearch {
   display: flex;
   gap: 10px;
 }
 
-
-.topTableAdminVehicles{
+.topTableAdminVehicles {
   max-width: 1200px;
   margin: auto;
   margin-top: 71px;
 
   overflow-y: scroll;
   height: 500px;
-
-
 }
 
-.topAddVehicleDrawer .navbar{
+.topAddVehicleDrawer .navbar {
   padding: 0px;
-
-
 }
-.topAddVehicleDrawer .navbar .container-fluid{
+.topAddVehicleDrawer .navbar .container-fluid {
   padding: 0px;
-
-
 }
-.deleteVehicleIcon{
+.deleteVehicleIcon {
   color: rgb(171, 77, 77);
   font-size: 20px;
   cursor: pointer;
 }
 
-.mainDeleteCardVehicle{
+.mainDeleteCardVehicle {
   width: auto;
   height: auto;
   padding: 20px;
@@ -421,38 +410,40 @@
   gap: 20px;
 
   left: 50%;
-  filter: drop-shadow(26.69px 26.69px 150px rgba(0,0,0,.15));
+  filter: drop-shadow(26.69px 26.69px 150px rgba(0, 0, 0, 0.15));
 
-  box-shadow: 0 0 0 1000px rgba(0,0,0,.3);
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
   /* for real browsers */
-  
-  box-shadow: 0 0 0 100vmax rgba(0,0,0,.3);
+
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   z-index: 99999;
-
-
 }
 
-.topConfirmBtnDeltVeh{
+.topConfirmBtnDeltVeh {
   display: flex;
   gap: 5px;
-
 }
 
-.noBtnAlertDltVeh{
+.noBtnAlertDltVeh {
   width: 100px;
-  background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F) !important;
+  background-image: linear-gradient(
+    to right,
+    #be892a,
+    #d3a74b,
+    #c69537,
+    #f5d77f
+  ) !important;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #fff;
   cursor: pointer;
-
 }
-.yesBtnAlertDltVeh{
+.yesBtnAlertDltVeh {
   width: 100px;
   background-color: rgb(214, 45, 45);
   height: 40px;
@@ -462,68 +453,48 @@
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
-.confirmTxtAlertVehDlt{
-  color:  #D3A74B;
+.confirmTxtAlertVehDlt {
+  color: #d3a74b;
   font-size: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
-
-
 }
 
-@media (max-width:991px) {
-
-  .mainDeleteCardVehicle{
-
-      left: 35%;
-
+@media (max-width: 991px) {
+  .mainDeleteCardVehicle {
+    left: 35%;
   }
-  
 }
-@media (max-width:700px) {
-
+@media (max-width: 700px) {
   .topTextsVehiclAdmin {
     width: unset;
-  margin: auto;
-  margin-top: 40px;
-  gap: 50px;
-  flex-direction: column;
-  align-items: center;
-
-
+    margin: auto;
+    margin-top: 40px;
+    gap: 50px;
+    flex-direction: column;
+    align-items: center;
   }
-  .topTextEditAdmVehic{
-
-      font-size: 25px;
-      padding: 0px 10px;
+  .topTextEditAdmVehic {
+    font-size: 25px;
+    padding: 0px 10px;
   }
 
   .btnSearchVehicle {
-      width: 75px;
+    width: 75px;
   }
-  .inputSearchVehic{
-      width: 275px;
+  .inputSearchVehic {
+    width: 275px;
   }
-  
 }
-@media (max-width:600px) {
-
-  .mainDeleteCardVehicle{
-
-      left: 25%;
-      
+@media (max-width: 600px) {
+  .mainDeleteCardVehicle {
+    left: 25%;
   }
-  
 }
-@media (max-width:430px) {
-
-  .mainDeleteCardVehicle{
-
-      left: 15%;
-      
+@media (max-width: 430px) {
+  .mainDeleteCardVehicle {
+    left: 15%;
   }
-  
 }

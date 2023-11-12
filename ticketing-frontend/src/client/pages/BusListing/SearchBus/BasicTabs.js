@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { bookSeats } from "../../../../Redux/userReducer";
+import { getUser } from "../../../../Redux/userReducer";
 //mui
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -56,9 +57,7 @@ function a11yProps(index) {
 const BasicTabs = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const userData = useSelector(
-    (state) => state?.userReducer?.userdataOperator?.user
-  );
+  const userData = useSelector((state) => state?.userReducer?.userData?.user);
   const busData = useSelector(
     (state) => state?.userReducer?.busData?.data?.bus
   );
@@ -225,6 +224,8 @@ const BasicTabs = (props) => {
     // e.preventDefault();
     // history.push("/client/passenger-detail");
     if (userData) {
+      console.log("witttthhhhhhh user data");
+
       const data = {
         busId: props.id,
         noOfSeats: selectedSeats.length,
@@ -233,6 +234,9 @@ const BasicTabs = (props) => {
         price: selectedSeats.length * props.busPrice,
         // passengerDetails: araydata,
       };
+      const tripId = props.trip._id;
+      sessionStorage.setItem("tripId", tripId);
+      console.log(data);
       const response = await dispatch(bookSeats(data));
       console.log("responseBook1", response?.payload?.data?.message);
       if (response?.payload?.data?.message) {
@@ -283,7 +287,19 @@ const BasicTabs = (props) => {
     //   return "busSteatBook";
     // }
   };
+  const handleUserData = async () => {
+    try {
+      const res = await dispatch(getUser());
+      console.log("USSSSSSSSSSSEEEEEEEEEEERRRRRRRRR");
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
+  useEffect(() => {
+    handleUserData();
+  }, []);
   return (
     <>
       <TabPanel value={value} index={0}>

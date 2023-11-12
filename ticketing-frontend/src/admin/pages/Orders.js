@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { CSVDownloader } from 'react-papaparse';
+import React, { useContext, useEffect } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { CSVDownloader } from "react-papaparse";
 import {
   Table,
   TableHeader,
@@ -13,37 +13,37 @@ import {
   Card,
   CardBody,
   Pagination,
-} from '@windmill/react-ui';
+} from "@windmill/react-ui";
 // CSS
-import 'react-tabs/style/react-tabs.css';
-import './trips.css'
+import "react-tabs/style/react-tabs.css";
+import "./trips.css";
 // React icons
-import { IoCloudDownloadOutline } from 'react-icons/io5';
-import {FiPlus} from "react-icons/fi"
+import { IoCloudDownloadOutline } from "react-icons/io5";
+import { FiPlus } from "react-icons/fi";
 
-import orderData from '../utils/orders';
-import useAsync from '../hooks/useAsync';
-import NotFound from '../components/table/NotFound';
-import Loading from '../components/preloader/Loading';
-import PastTables from '../../admin/components/order/PastTables';
-import UpcomingTables from '../../admin/components/order/UpcomingTables';
-import PageTitle from '../components/Typography/PageTitle';
-import MainDrawer from '../components/drawer/MainDrawer';
-import BookingDrawer from '../components/drawer/BookingDrawer';
-import { SidebarContext } from '../context/SidebarContext';
+import orderData from "../utils/orders";
+import useAsync from "../hooks/useAsync";
+import NotFound from "../components/table/NotFound";
+import Loading from "../components/preloader/Loading";
+import PastTables from "../../admin/components/order/PastTables";
+import UpcomingTables from "../../admin/components/order/UpcomingTables";
+import PageTitle from "../components/Typography/PageTitle";
+import MainDrawer from "../components/drawer/MainDrawer";
+import BookingDrawer from "../components/drawer/BookingDrawer";
+import { SidebarContext } from "../context/SidebarContext";
 // API
-import { getBookings } from "../../actions/bookings"
+import { getBookings } from "../../actions/bookings";
 // Redux
-import { connect } from 'react-redux'
-import propTypes from 'prop-types'
-import store from "../../store"
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import store from "../../store";
 
 const Orders = () => {
   const { toggleDrawer } = useContext(SidebarContext);
 
   useEffect(() => {
-    store.dispatch(getBookings())
-  }, [])
+    store.dispatch(getBookings());
+  }, []);
 
   return (
     <>
@@ -94,9 +94,11 @@ const Orders = () => {
               </Select> */}
             {/* </div> */}
             <div>
-             
               <div className="w-full md:w-56 lg:w-56 xl:w-56">
-                <Button onClick={toggleDrawer} className="w-full rounded-md h-12 addBusBtnHome">
+                <Button
+                  onClick={toggleDrawer}
+                  className="w-full rounded-md h-12 addBusBtnHome"
+                >
                   <span className="mr-3">
                     <FiPlus />
                   </span>
@@ -106,7 +108,7 @@ const Orders = () => {
             </div>
           </form>
         </CardBody>
-      </Card> 
+      </Card>
       {/* Tabs */}
       <Tabs>
         <TabList>
@@ -129,13 +131,13 @@ const Orders = () => {
                   <TableCell>Payment method</TableCell>
                   <TableCell>Booking amount</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell className="text-right">Is Payment Done?</TableCell>
+                  <TableCell>Is Payment Done?</TableCell>
+                  <TableCell className="text-right">Booked By</TableCell>
                 </tr>
               </TableHeader>
               <PastTables />
             </Table>
-            <TableFooter>
-            </TableFooter>
+            <TableFooter></TableFooter>
           </TableContainer>
         </TabPanel>
 
@@ -154,30 +156,32 @@ const Orders = () => {
                   <TableCell>Payment method</TableCell>
                   <TableCell>Booking amount</TableCell>
                   <TableCell>Status</TableCell>
-                  <TableCell className="text-right">Is Payment Done?</TableCell>
+                  <TableCell>Is Payment Done?</TableCell>
+                  <TableCell className="text-right">Booked By</TableCell>
                 </tr>
               </TableHeader>
               <UpcomingTables />
             </Table>
-            <TableFooter>
-            </TableFooter>
+            <TableFooter></TableFooter>
           </TableContainer>
         </TabPanel>
       </Tabs>
-      
-    
     </>
   );
 };
 
-export default Orders
+export default Orders;
 
-{/* <Pagination
+{
+  /* <Pagination
 totalResults={12}
 resultsPerPage={5}
 // onChange={handleChangePage}
   label="Table navigation"
-/> */}
-{/* ) : (
+/> */
+}
+{
+  /* ) : (
   <NotFound title="Order" />
-)} */}
+)} */
+}
