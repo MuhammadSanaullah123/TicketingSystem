@@ -71,7 +71,7 @@ const Booking = ({
     NoOfpassengers: "1",
     phone: "",
     email: "",
-    price: "",
+    price: trip?.price,
     seats: [],
     passengers: [
       {
@@ -245,6 +245,11 @@ const Booking = ({
     console.log(selectedOptions);
     setSeatSelected(selectedOptions.map((option) => option));
   };
+  useEffect(() => {
+    if (trip?.price) {
+      setBookingData({ ...bookingData, price: trip?.price });
+    }
+  }, [trip]);
 
   return (
     <>
@@ -352,6 +357,7 @@ const Booking = ({
               <LabelArea label="Price" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
+                  defaultValue={bookingData.price}
                   required="false"
                   label="Price"
                   name="price"

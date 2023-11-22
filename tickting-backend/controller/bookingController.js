@@ -139,13 +139,14 @@ exports.getSeats = catchAsync(async (req, res, next) => {
 exports.bookSeatsWithoutLogin = catchAsync(async (req, res, next) => {
   let {
     tripId,
+    NoOfpassengers,
     busId,
+    /*  seats, */
     phone,
     noOfSeats,
     email,
     price,
     passengerDetails,
-    additionalDetails,
   } = req.body;
   console.log(req.body, typeof req.body.seats);
   const busDetails = await Bus.findById(busId);
@@ -198,11 +199,12 @@ exports.bookSeatsWithoutLogin = catchAsync(async (req, res, next) => {
     passengerDetails = JSON.parse(passengerDetails);
   }
   var file = req.files;
-  console.log(file);
-  for (let i = 0; i < file.length; i++) {
+  console.log("USER");
+  console.log(req.user);
+  /* for (let i = 0; i < file.length; i++) {
     passengerDetails[i].passport = file[i].filename;
   }
-  console.log(passengerDetails);
+  console.log(passengerDetails); */
 
   if (!busId) {
     return next(new AppError("Please Provide The Bus Id."));
@@ -219,6 +221,7 @@ exports.bookSeatsWithoutLogin = catchAsync(async (req, res, next) => {
   const bookings = new Booking({
     trip: tripId,
     busId,
+    NoOfpassengers,
     seats,
     bookingId: generateUniqueId({
       length: 8,
@@ -230,7 +233,8 @@ exports.bookSeatsWithoutLogin = catchAsync(async (req, res, next) => {
     phone,
     email,
     passengerDetails,
-    additionalDetails,
+
+    bookedBy: req.user ? req.user.id.role : "customer",
   });
   busDetails.occupiedSeats = [...busDetails.occupiedSeats, ...seats];
   busDetails.availableSeats =

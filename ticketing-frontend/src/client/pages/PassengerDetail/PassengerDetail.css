@@ -11,7 +11,16 @@
 .dataePickerInputPasse > .rs-picker-toggle span {
   font-size: 18px !important;
 }
-
+.heading {
+  margin: 0 !important;
+}
+.accordian {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.accordian:before {
+  display: none !important;
+}
 .dataePickerInputPasse div {
   height: 57px !important;
   display: flex !important;

@@ -61,7 +61,7 @@ const Header3 = () => {
     dispatch(logout());
     Swal.fire({
       icon: "warning",
-      title: "Oops...",
+      title: "Logout",
       text: "You want to SignOut!",
     }).then(() => {
       // localStorage.clear();

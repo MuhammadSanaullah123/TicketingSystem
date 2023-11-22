@@ -372,7 +372,6 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
 
 exports.getOperators = catchAsync(async (req, res, next) => {
   const operators = await Operator.find();
-  console.log("OPERAATORES");
-  console.log(operators);
+
   res.json({ operators });
 });
