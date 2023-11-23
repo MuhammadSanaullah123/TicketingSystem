@@ -10,7 +10,7 @@ const mainLayout = (props) => {
 
   return (
     <>
-      {pathname === "/client/bus-listing2" ? <Header3 /> : <Header3 />}
+      {pathname === "/client/bus-listing2/home" ? <Header3 /> : <Header3 />}
       {props.children}
       <Footer />
     </>

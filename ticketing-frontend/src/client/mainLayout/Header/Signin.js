@@ -60,7 +60,7 @@ const Signin = ({
       }).then((data) => {
         if (data) {
           // history.push("/client/bus-service")
-          window.location.assign("/client/bus-listing2");
+          window.location.assign("/client/bus-listing2/home");
         }
       });
     }

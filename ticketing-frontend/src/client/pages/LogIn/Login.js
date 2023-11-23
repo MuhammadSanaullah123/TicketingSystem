@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import GoogleLogin from "react-google-login";
 import { userSocialLogin } from "../../../Redux/userReducer";
 // import FacebookLogin from "react-facebook-login";
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 //scss
 import { userSocialLoginRedirect } from "../../../Redux/userReducer";
 import "./Login.scss";
@@ -22,10 +22,10 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { RiFacebookCircleLine, RiGoogleFill } from "react-icons/ri";
 import EmailIcon from "@mui/icons-material/Email";
 //cookies
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-const isLogin=cookies.get("token");
+const isLogin = cookies.get("token");
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -117,83 +117,67 @@ const Login = () => {
     if (user.email && user.password && regexp.test(user.email)) {
       response = await dispatch(login(user));
       // console.log("responseLogin", response.payload.success);
-      console.log("responseLogin",response?.payload?.user?.role)
-
+      console.log("responseLogin", response?.payload?.user?.role);
     }
 
     // console.log("isLogin",isLogin?.payload?.user?.role)
 
-    if (response?.payload?.user?.role==="operator") {
+    if (response?.payload?.user?.role === "operator") {
       Swal.fire({
         icon: "correct",
         title: "Successfully Logged in",
         text: "",
-      }).then((data)=>{
-        if(data){
+      }).then((data) => {
+        if (data) {
           // history.push("/operator/dashboard")
           window.location.assign("/operator/dashboard");
         }
-
-      })
-
-      
+      });
     }
-    if (response?.payload?.user?.role==="customer") {
+    if (response?.payload?.user?.role === "customer") {
       Swal.fire({
         icon: "correct",
         title: "Successfully Logged in",
         text: "",
-      }).then((data)=>{
-        if(data){
+      }).then((data) => {
+        if (data) {
           // history.push("/client/bus-service")
-          window.location.assign("/client/bus-listing2");
+          window.location.assign("/client/bus-listing2/home");
         }
-
-      })
-
-      
+      });
     }
   };
 
-  console.log("store.userReducer.userdata",store.userReducer.userdata)
+  console.log("store.userReducer.userdata", store.userReducer.userdata);
   if (store.userReducer.userdata) {
     // history.push("/client/bus-service")
   }
   const responseGoogle = async (response) => {
-
-
-
     console.log("responseGoogle", response);
-    const obj={
 
-    }
     // if (response) {
 
-       const redirectResponse= await window.open(dispatch(userSocialLoginRedirect()));
-       console.log("redirectResponse",redirectResponse)
+    const redirectResponse = await window.open(
+      dispatch(userSocialLoginRedirect())
+    );
+    console.log("redirectResponse", redirectResponse);
 
-     
-      //   const data={
-      //     withCredentials:true
-      //   }
-      //   dispatch(userSocialLogin(data));
+    //   const data={
+    //     withCredentials:true
+    //   }
+    //   dispatch(userSocialLogin(data));
 
-       
-     
-      // navigate("/client/bus-service");
-      // history.push('/client/bus-listing2')
-      // dispatch(userSocialLogin(response.profileObj))
-      
+    // navigate("/client/bus-service");
+    // history.push('/client/bus-listing2')
+    // dispatch(userSocialLogin(response.profileObj))
+
     // }
   };
   const googleAuth = () => {
-		window.open(
-			`http://localhost:5000/api/auth/google/redirect`,
-			"_self"
-		);
+    window.open(`http://localhost:5000/api/auth/google/redirect`, "_self");
 
     // console.log("responseGoogleAuth",responseGoogleAuth)
-	};
+  };
   const responseFacebook = (response) => {
     console.log("FacebookResponse", response);
   };
@@ -268,7 +252,7 @@ const Login = () => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <EmailIcon style={{color:"black"}} />
+                          <EmailIcon style={{ color: "black" }} />
                         </InputAdornment>
                       ),
                     }}
@@ -292,7 +276,7 @@ const Login = () => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <AccountCircle style={{color:"black"}}/>
+                          <AccountCircle style={{ color: "black" }} />
                         </InputAdornment>
                       ),
                       endAdornment: (
@@ -304,9 +288,9 @@ const Login = () => {
                             edge="end"
                           >
                             {values.showPassword ? (
-                              <VisibilityOff style={{color:"black"}}/>
+                              <VisibilityOff style={{ color: "black" }} />
                             ) : (
-                              <Visibility style={{color:"black"}}/>
+                              <Visibility style={{ color: "black" }} />
                             )}
                           </IconButton>
                         </InputAdornment>
@@ -317,7 +301,13 @@ const Login = () => {
                 {error.password && <p className="validTxt">{error.password}</p>}
               </Grid>
               <Grid item xs={12} className="forgotContainer">
-                <p className="forgotPassword" style={{cursor:"pointer"}}>Forgot Password ?</p>
+                <Link
+                  className="forgotPassword"
+                  style={{ cursor: "pointer" }}
+                  to="/client/forgot-password"
+                >
+                  Forgot your password?
+                </Link>
               </Grid>
               {/* <Link to="/home"> */}
               <button className="loginBtn" onClick={loginClicked}>
@@ -331,22 +321,19 @@ const Login = () => {
                 className="socialIcons"
                 sx={{ margin: "20px 0" }}
               >
-                <FacebookLogin
+                {/*        <FacebookLogin
                   className="btnFacebook"
                   appId="1814236655588582"
                   autoLoad={true}
                   fields="name,email,picture"
-                  callback={responseFacebook}
-                  style={{background:"none",backgroundColor:"none"}}
-            
-                  render={renderProps => (
-                    <button onClick={renderProps.onClick}><RiFacebookCircleLine className="socialIcons"/></button>
+                   callback={responseFacebook} 
+                  style={{ background: "none", backgroundColor: "none" }}
+                  render={(renderProps) => (
+                    <button onClick={renderProps.onClick}>
+                      <RiFacebookCircleLine className="socialIcons" />
+                    </button>
                   )}
-             
-                >
-                
-                
-                </FacebookLogin>
+                ></FacebookLogin> */}
 
                 {/* <GoogleLogin
                  
@@ -358,12 +345,13 @@ const Login = () => {
                   cookiePolicy={"single_host_origin"}
                 >
                   <button> */}
+                <div onClick={responseFacebook} className="btnFacebook">
+                  <RiFacebookCircleLine className="socialIcons" />
+                </div>
                 <div onClick={googleAuth} className="topGoogleAuth">
-
-
-                    <RiGoogleFill className="socialIcons" />
-                    </div>
-                  {/* </button>
+                  <RiGoogleFill className="socialIcons" />
+                </div>
+                {/* </button>
                 </GoogleLogin> */}
               </Grid>
             </Grid>

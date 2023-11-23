@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import GoogleLogin from "react-google-login";
 // import FacebookLogin from "react-facebook-login";
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 //scss
 //mui components
 import Grid from "@mui/material/Grid";
@@ -19,19 +19,17 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { RiFacebookCircleLine, RiGoogleFill } from "react-icons/ri";
 import EmailIcon from "@mui/icons-material/Email";
 //cookies
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 // Redux
-import { connect } from 'react-redux'
-import propTypes from 'prop-types';
-import { adminLogin } from '../../../actions/auth'
-
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import { adminLogin } from "../../../actions/auth";
 
 const AdminLoginPage = ({ adminLogin }) => {
-  const history = useHistory(); 
+  const history = useHistory();
 
   const cookies = new Cookies();
 
-  
   const [values, setValues] = React.useState({
     amount: "",
     password: "",
@@ -120,12 +118,9 @@ const AdminLoginPage = ({ adminLogin }) => {
       adminLogin({
         email: user.email,
         password: user.password,
-        history
+        history,
       });
     }
-
-
-   
   };
 
   // console.log("store.userReducer.userdata",store.userReducer.userdata)
@@ -135,10 +130,8 @@ const AdminLoginPage = ({ adminLogin }) => {
   const responseGoogle = async (response) => {
     console.log("responseGoogle", response);
     if (response) {
-    
     }
   };
-
 
   return (
     <>
@@ -147,7 +140,16 @@ const AdminLoginPage = ({ adminLogin }) => {
           <div style={{ height: "0" }}>
             <div className="blueCircleLeft" />
           </div>
-          <Grid item xl={6} lg={6} md={6} sm={12} xs={12} className="semiCircle" alignSelf="center">
+          <Grid
+            item
+            xl={6}
+            lg={6}
+            md={6}
+            sm={12}
+            xs={12}
+            className="semiCircle"
+            alignSelf="center"
+          >
             <Grid item xs={8} className="semiContent">
               <h2 className="heading">Admin</h2>
               <p className="subLine">You can login here</p>
@@ -156,8 +158,25 @@ const AdminLoginPage = ({ adminLogin }) => {
               </Link>
             </Grid>
           </Grid>
-          <Grid item xl={6} lg={6} md={6} sm={12} xs={12} className="signInDetails" alignSelf="center">
-            <Grid item xl={6} lg={6} md={7} sm={9} xs={11} className="rightWrapper">
+          <Grid
+            item
+            xl={6}
+            lg={6}
+            md={6}
+            sm={12}
+            xs={12}
+            className="signInDetails"
+            alignSelf="center"
+          >
+            <Grid
+              item
+              xl={6}
+              lg={6}
+              md={7}
+              sm={9}
+              xs={11}
+              className="rightWrapper"
+            >
               <p className="heading">Sign in</p>
               {validClick && (
                 <p className="validTxt">Please Enter all Fields </p>
@@ -181,7 +200,7 @@ const AdminLoginPage = ({ adminLogin }) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <EmailIcon style={{color:"black"}} />
+                          <EmailIcon style={{ color: "black" }} />
                         </InputAdornment>
                       ),
                     }}
@@ -205,7 +224,7 @@ const AdminLoginPage = ({ adminLogin }) => {
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
-                          <AccountCircle style={{color:"black"}}/>
+                          <AccountCircle style={{ color: "black" }} />
                         </InputAdornment>
                       ),
                       endAdornment: (
@@ -217,9 +236,9 @@ const AdminLoginPage = ({ adminLogin }) => {
                             edge="end"
                           >
                             {values.showPassword ? (
-                              <VisibilityOff style={{color:"black"}}/>
+                              <VisibilityOff style={{ color: "black" }} />
                             ) : (
-                              <Visibility style={{color:"black"}}/>
+                              <Visibility style={{ color: "black" }} />
                             )}
                           </IconButton>
                         </InputAdornment>
@@ -230,7 +249,9 @@ const AdminLoginPage = ({ adminLogin }) => {
                 {error.password && <p className="validTxt">{error.password}</p>}
               </Grid>
               <Grid item xs={12} className="forgotContainer">
-                <p className="forgotPassword" style={{cursor:"pointer"}}>Forgot Password ?</p>
+                <p className="forgotPassword" style={{ cursor: "pointer" }}>
+                  Forgot Password ?
+                </p>
               </Grid>
               {/* <Link to="/home"> */}
               <button className="loginBtn" onClick={loginClicked}>
@@ -246,8 +267,7 @@ const AdminLoginPage = ({ adminLogin }) => {
 };
 
 AdminLoginPage.propTypes = {
-  adminLogin: propTypes.func.isRequired // react/no-typos
-}
+  adminLogin: propTypes.func.isRequired, // react/no-typos
+};
 
 export default connect(null, { adminLogin })(AdminLoginPage);
-

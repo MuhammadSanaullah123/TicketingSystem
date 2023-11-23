@@ -1,8 +1,8 @@
-import Cookies from 'js-cookie';
-import { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
-import { notifyError, notifySuccess } from '../utils/toast';
+import Cookies from "js-cookie";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import { notifyError, notifySuccess } from "../utils/toast";
 
 const useLoginSubmit = () => {
   const [loading, setLoading] = useState(false);
@@ -16,9 +16,8 @@ const useLoginSubmit = () => {
   const onSubmit = ({ name, email, verifyEmail, password, role }) => {
     setLoading(true);
     setLoading(false);
-    Cookies.set('adminInfo', JSON.stringify(''));
-    history.replace('/operator/dashboard');
-    
+    Cookies.set("adminInfo", JSON.stringify(""));
+    history.replace("/operator/dashboard");
   };
   return {
     onSubmit,

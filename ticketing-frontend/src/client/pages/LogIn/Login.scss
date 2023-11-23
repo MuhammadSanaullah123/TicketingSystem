@@ -1,182 +1,170 @@
 .loginContainer {
+  height: 100vh;
+  //not working
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow-y: hidden !important;
+  .loginWrapper {
+    display: flex;
     height: 100vh;
-    //not working
+    //notworking
     max-height: 100vh;
     min-height: 100vh;
-    overflow-y: hidden !important;
-    .loginWrapper {
+    overflow-y: hidden;
+    .blueCircleLeft {
+      content: "";
+      position: absolute;
+      height: 1500px;
+      width: 1500px;
+      top: 20%;
+      right: 48%;
+      transform: translateY(-60%) translateX(5%);
+      background-image: linear-gradient(-45deg, #c99a3c 0%, #2d4047 100%);
+      background-image: linear-gradient(
+        to right,
+        #be892a,
+        #d3a74b,
+        #c69537,
+        #f5d77f
+      );
+      transition: 1.8s ease-in-out;
+      border-radius: 50%;
+      z-index: -1;
+      overflow: hidden !important;
+    }
+    .semiContent {
+      align-self: center;
+      .heading {
+        color: white;
+        font-weight: 600;
+        line-height: 1;
+        font-size: 1.5rem;
+      }
+      .subLine {
+        color: white;
+        font-size: 0.95rem;
+        padding: 0.7rem 0;
+      }
+      .signUpButton {
+        font-size: 0.8rem;
+        border-radius: 25px;
+        border: 2px solid #fff;
+        padding: 10px 35px;
+        background: none;
+        color: white;
+      }
+    }
+  }
+  .signInDetails {
+    .rightWrapper {
+      .heading {
+        font-size: 2.2rem;
+        color: #c99a3c;
+        margin-bottom: 10px;
+      }
+      .inputWrapper {
+        display: block;
+      }
+      .forgotContainer {
+        text-align: end;
+        .forgotPassword {
+          color: #c99a3c;
+          text-align: right;
+          font-weight: 500;
+        }
+      }
+      .loginBtn {
+        background: #c99a3c;
+        color: white;
+        font-size: 18px;
+        border-radius: 25px;
+        margin: 30px 0;
+        padding: 10px 53px;
+        border: 1px solid #c99a3c;
+      }
+      .socialLogin {
+        font-size: 20px;
+        color: #c99a3c;
+        margin-top: 30px;
+      }
+      .socialIcons {
+        font-size: 50px;
+        color: #c99a3c;
         display: flex;
-        height: 100vh;
-        //notworking
-        max-height: 100vh;
-        min-height: 100vh;
-        overflow-y: hidden;
-        .blueCircleLeft {
-            content: "";
-            position: absolute;
-            height: 1500px;
-            width: 1500px;
-            top: 20%;
-            right: 48%;
-            transform: translateY(-60%) translateX(5%);
-            background-image: linear-gradient(-45deg, #c99a3c 0%, #2d4047
-            100%);
-            background-image: linear-gradient(to right,#BE892A, #D3A74B,#C69537,#F5D77F);
-            transition: 1.8s ease-in-out;
-            border-radius: 50%;
-            z-index: -1;
-            overflow: hidden !important;
-        }
-        .semiContent {
-            align-self: center;
-            .heading {
-                color: white;
-                font-weight: 600;
-                line-height: 1;
-                font-size: 1.5rem;
-            }
-            .subLine {
-                color: white;
-                font-size: 0.95rem;
-                padding: 0.7rem 0;
-            }
-            .signUpButton {
-                font-size: 0.8rem;
-                border-radius: 25px;
-                border: 2px solid #fff;
-                padding: 10px 35px;
-                background: none;
-                color: white;
-
-            }
-        }
+        justify-content: space-evenly;
+      }
     }
-    .signInDetails {
-        .rightWrapper {
-            .heading {
-                font-size: 2.2rem;
-                color: #c99a3c;
-                margin-bottom: 10px;
-            }
-            .inputWrapper {
-                display: block;
-            }
-            .forgotContainer {
-                .forgotPassword {
-                    color: #c99a3c;
-                    text-align: right;
-                    font-weight: 500;
-                }
-            }
-            .loginBtn {
-                background: #c99a3c;
-                color: white;
-                font-size: 18px;
-                border-radius: 25px;
-                margin: 30px 0;
-                padding: 10px 53px;
-                border: 1px solid #c99a3c;
-            }
-            .socialLogin {        
-                font-size: 20px;
-                color: #c99a3c;
-                margin-top: 30px;
-            }
-            .socialIcons {
-                font-size: 50px;
-                color: #c99a3c;
-                display: flex;
-                justify-content: space-evenly;
-            }
-        }
-    
-    }
+  }
 }
 
 @media screen and (max-width: 900px) {
-    .loginContainer {
-       
-        .loginWrapper {
-            
-            .blueCircleLeft {
-                position: relative;
-                height: 850px !important;
-                width: 850px !important;
-                top: -700px !important;
-                right: 20% !important;
-                transform: translateY(10%) translateX(0%);
-                overflow: hidden !important;
-            }
-            .semiContent {
-                
-                .heading {
-                   
-                }
-                .subLine {
-                    
-                }
-                .signUpButton {
-                    
-    
-                }
-            }
+  .loginContainer {
+    .loginWrapper {
+      .blueCircleLeft {
+        position: relative;
+        height: 850px !important;
+        width: 850px !important;
+        top: -700px !important;
+        right: 20% !important;
+        transform: translateY(10%) translateX(0%);
+        overflow: hidden !important;
+      }
+      .semiContent {
+        .heading {
         }
-        .signInDetails {
-            .rightWrapper {
-                .heading {
-                    
-                }
-                .inputWrapper {
-                    
-                }
-                .forgotContainer {
-                    .forgotPassword {
-                        
-                    }
-                }
-                .loginBtn {
-                    
-                }
-                .socialLogin {        
-                    
-                }
-                .socialIcons {
-                    
-                }
-            }
-        
+        .subLine {
         }
+        .signUpButton {
+        }
+      }
     }
+    .signInDetails {
+      .rightWrapper {
+        .heading {
+        }
+        .inputWrapper {
+        }
+        .forgotContainer {
+          .forgotPassword {
+          }
+        }
+        .loginBtn {
+        }
+        .socialLogin {
+        }
+        .socialIcons {
+        }
+      }
+    }
+  }
 }
 
-#root{
-    overflow:  hidden !important;
+#root {
+  overflow: hidden !important;
 }
 
-.btnGoogle div{
-    display: none;
-
+.btnGoogle div {
+  display: none;
 }
-.btnGoogle span{
-    padding: 0px !important;
-
+.btnGoogle span {
+  padding: 0px !important;
 }
-.btnGoogle{
-    box-shadow: none !important;
+.btnGoogle {
+  box-shadow: none !important;
 }
 
-.topInputEmailField{
-    height: 120px;
+.topInputEmailField {
+  height: 120px;
 }
 
-.validTxt{
-    padding-bottom: 20px;
-    // margin-top: -30px;
+.validTxt {
+  padding-bottom: 20px;
+  // margin-top: -30px;
 }
 
-.rounded-full{
-    display: none !important;
+.rounded-full {
+  display: none !important;
 }
-.topGoogleAuth{
-    cursor: pointer;
+.topGoogleAuth {
+  cursor: pointer;
 }

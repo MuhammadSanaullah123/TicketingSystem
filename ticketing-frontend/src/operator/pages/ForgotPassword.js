@@ -1,17 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@windmill/react-ui';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@windmill/react-ui";
+import { forgotPassword } from "../../Redux/userReducer";
+import { useSelector, useDispatch } from "react-redux";
 
-import Error from '../components/form/Error';
-import useLoginSubmit from '../hooks/useLoginSubmit';
-import LabelArea from '../components/form/LabelArea';
-import InputArea from '../components/form/InputArea';
-import ImageLight from '../assets/img/forgot-password-office.jpeg';
-import ImageDark from '../assets/img/forgot-password-office-dark.jpeg';
+import Error from "../components/form/Error";
+import useLoginSubmit from "../hooks/useLoginSubmit";
+import LabelArea from "../components/form/LabelArea";
+import InputArea from "../components/form/InputArea";
+import ImageLight from "../assets/img/forgot-password-office.jpeg";
+import ImageDark from "../assets/img/forgot-password-office-dark.jpeg";
 
 const ForgotPassword = () => {
-  const { onSubmit, register, handleSubmit, errors, loading } =
-    useLoginSubmit();
+  const { onSubmit, register, errors, loading } = useLoginSubmit();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await dispatch(forgotPassword({ email }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50">
@@ -31,7 +42,7 @@ const ForgotPassword = () => {
                 Forgot password
               </h1>
 
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit}>
                 <LabelArea label="Email" />
                 <InputArea
                   register={register}
@@ -39,6 +50,8 @@ const ForgotPassword = () => {
                   name="verifyEmail"
                   type="email"
                   placeholder="john@doe.com"
+                  defaultValue={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <Error errorName={errors.verifyEmail} />
 

@@ -67,7 +67,8 @@ WebFont.load({
 const App = () => {
   const history = useHistory();
 
-  if (window.location.pathname == "/") history.push("/client/bus-listing2");
+  if (window.location.pathname == "/")
+    history.push("/client/bus-listing2/home");
 
   return (
     <>
@@ -84,7 +85,10 @@ const App = () => {
           <Route path="/operator/" component={Layout} />
           <Route path="/operator/edit-profile" component={EditProfile} />
 
-          <Route path="/client/resetPassword" component={ResetPassword} />
+          <Route
+            path="/client/resetPassword/:token"
+            component={ResetPassword}
+          />
           <Route
             path="/client/forgot-password"
             exact
@@ -103,7 +107,7 @@ const App = () => {
             <Route path="/client/home" component={Dashboard} />
             <Route path="/client/bus-service" component={BusService} />
             <Route path="/client/bus-listing" component={BusListing} />
-            <Route path="/client/bus-listing2" component={BusListing2} />
+            <Route path="/client/bus-listing2/:token" component={BusListing2} />
             <Route
               path="/client/passenger-detail"
               component={PassengerDetail}

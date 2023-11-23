@@ -665,7 +665,7 @@ export const addBusStations = createAsyncThunk("addBus", async (data) => {
         },
       }
     );
-   
+
     console.log("DataRes", res);
     return res;
   } catch (err) {
@@ -690,7 +690,7 @@ export const removeBusStations = createAsyncThunk("addBus", async (id) => {
         },
       }
     );
-  
+
     console.log("DataRes", res);
     return res;
   } catch (err) {
@@ -731,10 +731,10 @@ export const updateOperator = createAsyncThunk(
 /// Forgot Password
 export const forgotPassword = createAsyncThunk(
   "forgotPassword",
-  async (user) => {
+  async (email) => {
     console.log("check", user);
     try {
-      const data = await axios.post(`${SERVER_URL}/auth/forgotPassword`, user);
+      const data = await axios.post(`${SERVER_URL}/auth/forgotPassword`, email);
 
       console.log("DataRes", data.data);
       return data.data;
@@ -744,14 +744,16 @@ export const forgotPassword = createAsyncThunk(
 /// Reset Password
 // For Reset Password  (/api/auth/resetPassword) POST {resetToken, newPass}
 
-export const resetPassword = createAsyncThunk("resetPassword", async (user) => {
+export const resetPassword = createAsyncThunk("resetPassword", async (data) => {
   console.log("check", user);
   try {
-    const data = await axios.post(`${SERVER_URL}/auth/resetPassword`, user);
+    const res = await axios.post(`${SERVER_URL}/auth/resetPassword`, data);
 
-    console.log("DataRes", data.data);
-    return data.data;
-  } catch (err) {}
+    console.log("DataRes", res.data);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 //add coupon

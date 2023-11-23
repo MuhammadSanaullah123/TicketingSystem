@@ -54,7 +54,7 @@ const Header2 = () => {
       // localStorage.clear();
       // cookies.clear();
       if (data) {
-        window.location.assign("/client/bus-listing2");
+        window.location.assign("/client/bus-listing2/home");
         // navigate("/")
         var allCookies = document.cookie.split(";");
         for (var i = 0; i < allCookies.length; i++)
@@ -151,7 +151,7 @@ const Header2 = () => {
               }
             >
               {/* <img className={navBarFixed==true?"imgHeaderLogo":""} src={logo}/> */}
-              <Link to="/client/bus-listing2">
+              <Link to="/client/bus-listing2/home">
                 <img
                   className={
                     navBarFixed == true
@@ -178,7 +178,7 @@ const Header2 = () => {
                   content={
                     <div className="mainContainerContentTippy">
                       <Link
-                        to="/client/bus-listing2"
+                        to="/client/bus-listing2/home"
                         style={{ color: "#FFF", textDecoration: "none" }}
                       >
                         <div>BUS</div>

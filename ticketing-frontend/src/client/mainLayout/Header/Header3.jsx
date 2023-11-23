@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Header3.css";
+import { useParams } from "react-router";
+
 import logo from "./../../../assets/logoMain.png";
 // import { useSelector } from 'react-redux/es/exports';
 import { useSelector, useDispatch } from "react-redux";
@@ -32,9 +34,11 @@ const Header3 = () => {
   const [status, setStatus] = useState("login");
   const cookies = new Cookies();
   const dispatch = useDispatch();
+  const { token } = useParams();
+  const tok = useParams();
   const searchedData = useSelector((state) => state?.userReducer?.searchDataH2);
   const priceData = useSelector((state) => state?.userReducer?.priceDataH2);
-
+  const dropdownToggleRef = useRef(null);
   const [navBarFixed, setNavBarFixed] = useState(false);
 
   const changeBackground = () => {
@@ -51,8 +55,10 @@ const Header3 = () => {
   console.log(status);
 
   const handleDropdownToggle = (nextIsOpen, event, metadata) => {
+    console.log("INSIDE handleDropdownToggle");
     if (!nextIsOpen) {
       setStatus("login");
+      console.log("INSIDE nextIsOpen");
     }
   };
   const handleLogout = () => {
@@ -77,13 +83,23 @@ const Header3 = () => {
           allCookies[i] + "=;expires=" + new Date(0).toUTCString();
     });
   };
+  useEffect(() => {
+    console.log("INSIDE useffect");
+
+    if (window.location.pathname.split("/")[3] !== "home") {
+      if (dropdownToggleRef.current) {
+        dropdownToggleRef.current.click();
+      }
+      setStatus("forgot");
+    }
+  }, []);
 
   return (
     <>
       <div className="topWebH3">
         <div className={navBarFixed ? "mainHeader3OnScoll" : "mainHeader3"}>
           <div className="topLogoHeader3">
-            <Link to="/client/bus-listing2">
+            <Link to="/client/bus-listing2/home">
               <img
                 src={logo}
                 style={{ cursor: "pointer" }}
@@ -145,7 +161,7 @@ const Header3 = () => {
             ) : (
               <div className="login-button">
                 <Dropdown onToggle={handleDropdownToggle}>
-                  <Dropdown.Toggle id="dropdown-basic">
+                  <Dropdown.Toggle id="dropdown-basic" ref={dropdownToggleRef}>
                     <button className="login-button-inner">
                       <div className="btn-text">Login</div>
                       <div className="btn-icon">
@@ -195,7 +211,7 @@ const Header3 = () => {
           >
             <Container fluid>
               <Navbar.Brand href="#">
-                <Link to="/client/bus-listing2">
+                <Link to="/client/bus-listing2/home">
                   <img
                     src={logo}
                     style={{ cursor: "pointer" }}
